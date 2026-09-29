@@ -2180,6 +2180,134 @@ button,a,.nav-hamburger,.urgency-btn{touch-action:manipulation;}
 }
 </style>
 
+
+<style id="toute-solution-mobile-final">
+/* =========================================================
+   MOBILE FINAL — version téléphone
+   Objectif : vrai site mobile, aéré, lisible, sans champs étroits.
+   ========================================================= */
+@media (max-width: 768px){
+  html,body{width:100%;min-width:0;overflow-x:hidden;}
+  body{font-size:15px;}
+
+  /* Header mobile */
+  nav{height:60px!important;padding:0 16px!important;position:sticky;top:0;z-index:1000;}
+  .nav-logo{font-size:1rem!important;letter-spacing:-.4px!important;}
+  .nav-cta{padding:9px 12px!important;font-size:.58rem!important;white-space:nowrap;}
+  .nav-hamburger{width:38px!important;height:38px!important;}
+
+  /* Accueil : respiration et hiérarchie */
+  .hero{padding:38px 16px 30px!important;}
+  .hero-eyebrow{margin-bottom:16px!important;}
+  .hero-eyebrow-txt{font-size:.56rem!important;letter-spacing:1.5px!important;line-height:1.5!important;}
+  .hero h1{font-size:clamp(2.15rem,10.8vw,3rem)!important;line-height:1.02!important;letter-spacing:-1.7px!important;}
+  .hero-caption{font-size:.82rem!important;line-height:1.6!important;margin-top:16px!important;}
+  .hero-actions{display:flex!important;flex-direction:column!important;gap:8px!important;margin-top:20px!important;}
+  .hero-actions .btn-primary,.hero-actions .btn-secondary{width:100%!important;min-height:44px!important;padding:12px 14px!important;font-size:.65rem!important;}
+  .hero-stats{display:grid!important;grid-template-columns:1fr 1fr!important;gap:18px 12px!important;margin-top:25px!important;padding-top:18px!important;}
+  .stat-box{min-width:0!important;}
+  .stat-value{font-size:1.55rem!important;}
+  .stat-label{font-size:.5rem!important;letter-spacing:1.3px!important;}
+
+  /* Sections */
+  .section-header{padding:32px 16px 20px!important;}
+  .section-title{font-size:1.55rem!important;line-height:1.1!important;}
+  .section-desc{font-size:.78rem!important;line-height:1.55!important;}
+  .section-wrapper{padding-left:0!important;padding-right:0!important;}
+
+  /* Services / véhicules */
+  .services-row,.fleet-grid{grid-template-columns:1fr!important;}
+  .service-meta{padding:16px!important;}
+  .service-content{padding:4px 16px 18px!important;}
+  .service-name{font-size:.95rem!important;}
+  .service-desc{font-size:.76rem!important;line-height:1.55!important;}
+  .fleet-card{padding:16px!important;}
+
+  /* Simulateur : pleine largeur, pas de petits champs centrés */
+  .estimator-section{
+    display:block!important;
+    padding:30px 16px!important;
+  }
+  .estimator-section > *{width:100%!important;max-width:none!important;}
+  .estimator-row{display:grid!important;grid-template-columns:1fr!important;gap:0!important;}
+  .estimator-label{font-size:.57rem!important;letter-spacing:1.8px!important;margin-top:15px!important;margin-bottom:7px!important;}
+  .estimator-select,.estimator-input{
+    width:100%!important;max-width:none!important;min-height:46px!important;height:46px!important;
+    font-size:14px!important;padding:10px 12px!important;border-radius:8px!important;
+  }
+  .select-options-hint{font-size:.58rem!important;line-height:1.4!important;margin-top:6px!important;}
+  .urgency-toggle-row{width:100%!important;display:grid!important;grid-template-columns:repeat(3,1fr)!important;}
+  .urgency-btn{width:100%!important;min-height:43px!important;font-size:.55rem!important;padding:0 4px!important;}
+  .estimator-button{width:100%!important;min-height:46px!important;margin-top:16px!important;border-radius:8px!important;}
+  .estimator-result{width:100%!important;}
+
+  /* Devis : une seule colonne, champs pleine largeur */
+  .quote-layout{display:block!important;width:100%!important;}
+  .quote-sidebar{padding:28px 16px!important;border-right:0!important;border-bottom:1px solid #25313A!important;}
+  .quote-sidebar h3{font-size:1.5rem!important;}
+  .quote-content{padding:18px 16px 30px!important;width:100%!important;}
+  .form-wrapper{width:100%!important;max-width:none!important;}
+  .form-header{padding:14px 15px!important;}
+  .form-header-title{font-size:.78rem!important;}
+  .form-header-sub{font-size:.58rem!important;}
+  .form-body{
+    display:block!important;
+    width:100%!important;
+    max-width:none!important;
+    padding:16px!important;
+  }
+  .form-grid{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:0!important;
+    width:100%!important;
+    max-width:none!important;
+  }
+  .form-group,
+  .form-group:last-child,
+  .form-grid .form-group:last-child{
+    display:flex!important;
+    width:100%!important;
+    max-width:none!important;
+    margin:0 0 15px 0!important;
+    gap:5px!important;
+  }
+  .form-label{font-size:.55rem!important;letter-spacing:1.6px!important;}
+  .input-field,.select-field,.textarea-field{
+    display:block!important;
+    width:100%!important;
+    max-width:none!important;
+    min-width:0!important;
+    min-height:46px!important;
+    height:46px!important;
+    font-size:14px!important;
+    padding:10px 12px!important;
+    border-radius:8px!important;
+  }
+  .textarea-field{height:auto!important;min-height:105px!important;line-height:1.45!important;}
+  .select-options-hint{font-size:.57rem!important;}
+  .form-submit-btn{width:100%!important;min-height:46px!important;margin-top:2px!important;}
+  .form-footnote{font-size:.57rem!important;text-align:center!important;line-height:1.45!important;}
+
+  /* Contact */
+  .contact-row-grid{grid-template-columns:1fr!important;gap:8px!important;}
+  .contact-info-card{padding:15px!important;}
+
+  /* Footer */
+  .footer-top-layout{grid-template-columns:1fr!important;gap:24px!important;}
+  footer{padding-left:16px!important;padding-right:16px!important;}
+}
+
+@media (max-width:380px){
+  nav{padding:0 13px!important;}
+  .nav-cta{font-size:.54rem!important;padding:8px 10px!important;}
+  .hero{padding-left:14px!important;padding-right:14px!important;}
+  .estimator-section,.quote-sidebar,.quote-content{padding-left:14px!important;padding-right:14px!important;}
+  .form-body{padding:13px!important;}
+  .urgency-btn{font-size:.51rem!important;}
+}
+</style>
+
 </head>
 <body>
 
