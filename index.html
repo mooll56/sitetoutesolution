@@ -9,18 +9,18 @@
   <meta name="format-detection" content="telephone=yes">
 
   <title>TouteSolution — Transport & Coursier Paris 24h/24</title>
-  <meta name="description" content="Coursier express et transporteur professionnel à Paris et en Île-de-France. Prise en charge en 15-20 min. Devis immédiat, 24h/24 et 7j/7.">
+  <meta name="description" content="Coursier express et transporteur pro en Île-de-France. Prise en charge en 15-20 min. Devis instantané et appel direct 24h/24.">
   <meta property="og:title" content="TouteSolution — Coursier Express Paris 24h/24">
   <meta property="og:description" content="Transport, livraison express et fret volumineux à Paris et IDF. 24h/24 et 7j/7.">
 
-  <!-- Polices Google Fonts : Fraunces (titres élégants) et DM Sans (lecture fluide) -->
+  <!-- Polices Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&display=swap" rel="stylesheet">
 
   <style>
     /* =========================================================
-       1. VARIABLES ET THÈME SOMBRE HAUTE DÉFINITION (OLED)
+       1. VARIABLES ET THÈME SOMBRE HAUTE DÉFINITION
        ========================================================= */
     *, *::before, *::after {
       margin: 0;
@@ -43,7 +43,15 @@
       --success: #3fb950;
     }
 
-    html, body {
+    html {
+      scroll-padding-top: 80px;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
+    }
+
+    body {
       background: var(--bg-dark);
       color: var(--text-cream);
       font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -70,7 +78,7 @@
 
     .container {
       width: 100%;
-      max-width: 1140px;
+      max-width: 1160px;
       margin: 0 auto;
       padding: 0 16px;
     }
@@ -110,14 +118,14 @@
     }
 
     /* =========================================================
-       3. HEADER & MENU NAVIGATION
+       3. HEADER & MENU NAVIGATION FIXE EN HAUT
        ========================================================= */
     header {
       position: sticky;
       top: 0;
-      z-index: 50;
-      background: rgba(13, 17, 23, 0.95);
-      backdrop-filter: blur(10px);
+      z-index: 1000;
+      background: rgba(13, 17, 23, 0.98);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-subtle);
       height: 64px;
     }
@@ -130,10 +138,11 @@
     }
 
     .brand-logo {
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       font-weight: 700;
       color: var(--text-cream);
       letter-spacing: -0.5px;
+      white-space: nowrap;
     }
 
     .brand-logo span {
@@ -142,33 +151,46 @@
 
     .nav-links {
       display: none;
-      gap: 20px;
+      align-items: center;
+      gap: 4px;
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: 992px) {
       .nav-links {
         display: flex;
       }
     }
 
     .nav-links a {
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       font-weight: 500;
-      color: var(--text-muted);
-      padding: 6px 0;
-      border-bottom: 2px solid transparent;
-      transition: all 0.2s;
+      color: #8B949E;
+      padding: 7px 12px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      transition: all 0.15s ease-in-out;
+      white-space: nowrap;
+      cursor: pointer;
     }
 
-    .nav-links a:hover, .nav-links a.active {
-      color: var(--text-cream);
-      border-bottom-color: var(--brand-gold);
+    .nav-links a:hover {
+      color: #F0F6FC;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    /* ÉTAT ACTIF EN ORANGE LORSQU'ON APPUIE OU DÉFILE */
+    .nav-links a.active {
+      color: #D4A843 !important;
+      font-weight: 700 !important;
+      background: rgba(212, 168, 67, 0.14) !important;
+      border: 1px solid rgba(212, 168, 67, 0.4) !important;
+      box-shadow: 0 0 10px rgba(212, 168, 67, 0.15);
     }
 
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
 
     .btn-call-direct {
@@ -176,11 +198,12 @@
       color: #0D1117;
       font-weight: 700;
       font-size: 0.82rem;
-      padding: 10px 16px;
+      padding: 9px 15px;
       border-radius: 10px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
+      white-space: nowrap;
       transition: background 0.2s, transform 0.1s;
     }
 
@@ -197,8 +220,8 @@
       flex-direction: column;
       justify-content: center;
       gap: 5px;
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
       border-radius: 8px;
@@ -206,7 +229,7 @@
       cursor: pointer;
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: 992px) {
       .burger-btn {
         display: none;
       }
@@ -227,10 +250,11 @@
       right: 0;
       background: #161B22;
       border-bottom: 1px solid var(--border-subtle);
-      padding: 16px;
+      padding: 14px;
       flex-direction: column;
-      gap: 8px;
-      z-index: 49;
+      gap: 6px;
+      z-index: 999;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
     }
 
     .mobile-menu-drawer.open {
@@ -241,12 +265,23 @@
       padding: 10px 14px;
       border-radius: 8px;
       color: var(--text-light);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
+      border: 1px solid transparent;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .mobile-menu-drawer a:hover {
       background: var(--bg-surface);
       color: var(--brand-gold);
+    }
+
+    .mobile-menu-drawer a.active {
+      background: rgba(212, 168, 67, 0.15);
+      border-color: rgba(212, 168, 67, 0.4);
+      color: var(--brand-gold);
+      font-weight: 700;
     }
 
     /* =========================================================
@@ -895,7 +930,7 @@
     }
 
     /* =========================================================
-       8. SECTION SERVICES
+       8. SECTION SERVICES (AVEC SELECTION INTERACTIVE)
        ========================================================= */
     .services-grid {
       display: grid;
@@ -917,6 +952,13 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .service-card:hover, .service-card.active-service {
+      border-color: var(--brand-gold);
+      box-shadow: 0 0 16px rgba(212, 168, 67, 0.18);
     }
 
     .service-head {
@@ -1193,7 +1235,7 @@
       border-radius: 12px;
       padding: 12px 14px;
       color: var(--text-cream);
-      font-size: 16px; /* 16px empêche le zoom involontaire sur iOS */
+      font-size: 16px;
       outline: none;
       transition: border-color 0.2s;
     }
@@ -1265,7 +1307,7 @@
       font-size: 0.8rem;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 900px) {
       footer {
         padding-bottom: 40px;
       }
@@ -1290,7 +1332,7 @@
       padding-bottom: env(safe-area-inset-bottom, 0px);
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: 992px) {
       .mobile-bottom-nav {
         display: none;
       }
@@ -1313,7 +1355,8 @@
     }
 
     .mob-nav-btn.active {
-      color: var(--brand-gold);
+      color: var(--brand-gold) !important;
+      font-weight: 700;
     }
 
     .mob-center-call {
@@ -1344,18 +1387,20 @@
     </div>
   </div>
 
-  <!-- Header & Navigation -->
+  <!-- Header & Navigation FIXE EN HAUT -->
   <header>
     <div class="container header-content">
       <a href="#" class="brand-logo font-display">Toute<span>Solution</span></a>
-      <nav class="nav-links">
-        <a href="#estimateur" id="nav-link-estimateur">Calculateur Prix</a>
-        <a href="#flotte" id="nav-link-flotte">Véhicules</a>
-        <a href="#services" id="nav-link-services">Services</a>
-        <a href="#zones" id="nav-link-zones">Départements IDF</a>
-        <a href="#avis" id="nav-link-avis">Avis Clients</a>
-        <a href="#faq" id="nav-link-faq">FAQ</a>
-        <a href="#contact" id="nav-link-contact">Contact</a>
+      
+      <!-- MENU PRINCIPAL DESKTOP (Reste toujours en haut, actif en orange) -->
+      <nav class="nav-links" id="main-nav-links">
+        <a href="#estimateur" id="nav-estimateur" onclick="handleNavClick('estimateur')">Calculateur Prix</a>
+        <a href="#flotte" id="nav-flotte" onclick="handleNavClick('flotte')">Véhicules</a>
+        <a href="#services" id="nav-services" onclick="handleNavClick('services')">Services</a>
+        <a href="#zones" id="nav-zones" onclick="handleNavClick('zones')">Départements IDF</a>
+        <a href="#avis" id="nav-avis" onclick="handleNavClick('avis')">Avis Clients</a>
+        <a href="#faq" id="nav-faq" onclick="handleNavClick('faq')">FAQ</a>
+        <a href="#contact" id="nav-contact" onclick="handleNavClick('contact')">Contact</a>
       </nav>
 
       <div class="header-actions">
@@ -1373,13 +1418,13 @@
 
     <!-- Tiroir du menu mobile déroulant -->
     <div class="mobile-menu-drawer" id="mobile-menu-drawer">
-      <a href="#estimateur" onclick="toggleMobileMenu()">Calculateur de tarif en direct</a>
-      <a href="#flotte" onclick="toggleMobileMenu()">Flotte de véhicules</a>
-      <a href="#services" onclick="toggleMobileMenu()">Nos Prestations</a>
-      <a href="#zones" onclick="toggleMobileMenu()">Départements Île-de-France</a>
-      <a href="#avis" onclick="toggleMobileMenu()">Avis clients (4.9/5)</a>
-      <a href="#faq" onclick="toggleMobileMenu()">Questions fréquentes</a>
-      <a href="#contact" onclick="toggleMobileMenu()">Demander un devis</a>
+      <a href="#estimateur" id="mob-drawer-estimateur" onclick="handleNavClick('estimateur')">Calculateur Prix <span>→</span></a>
+      <a href="#flotte" id="mob-drawer-flotte" onclick="handleNavClick('flotte')">Véhicules & Flotte <span>→</span></a>
+      <a href="#services" id="mob-drawer-services" onclick="handleNavClick('services')">Services Pro <span>→</span></a>
+      <a href="#zones" id="mob-drawer-zones" onclick="handleNavClick('zones')">Départements IDF <span>→</span></a>
+      <a href="#avis" id="mob-drawer-avis" onclick="handleNavClick('avis')">Avis Clients (4.9/5) <span>→</span></a>
+      <a href="#faq" id="mob-drawer-faq" onclick="handleNavClick('faq')">Questions Fréquentes <span>→</span></a>
+      <a href="#contact" id="mob-drawer-contact" onclick="handleNavClick('contact')">Contact & Devis <span>→</span></a>
     </div>
   </header>
 
@@ -1398,7 +1443,7 @@
         Flotte du 2-roues au camion avec hayon. Opérationnel <strong>24h/24 et 7j/7</strong> sans interruption.
       </p>
       <div class="hero-actions">
-        <a href="#estimateur" class="btn-primary">
+        <a href="#estimateur" class="btn-primary" onclick="handleNavClick('estimateur')">
           <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg>
           <span>Calculer mon tarif instantané</span>
         </a>
@@ -1576,7 +1621,7 @@
               <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg>
               <span>07 74 80 09 64</span>
             </a>
-            <a href="#contact" class="btn-action-quote">
+            <a href="#contact" class="btn-action-quote" onclick="handleNavClick('contact')">
               <span>Devis écrit &rarr;</span>
             </a>
           </div>
@@ -1706,17 +1751,18 @@
     </div>
   </section>
 
-  <!-- Section 3 : Prestations & Services -->
+  <!-- Section 3 : Prestations & Services (SÉLECTIONNABLES ET INTERACTIFS) -->
   <section class="section-wrap" id="services">
     <div class="container">
       <div class="section-header">
         <div class="section-kicker">Prestations Professionnelles</div>
         <h2 class="section-title font-display">Des solutions sur-mesure à Paris</h2>
-        <p class="section-desc">Chaque mission fait l'objet d'un suivi individualisé en temps réel avec confirmation de livraison.</p>
+        <p class="section-desc">Cliquez sur un service pour l'activer et estimer son coût immédiat :</p>
       </div>
 
       <div class="services-grid">
-        <div class="service-card">
+        <!-- Service 1 -->
+        <div class="service-card" id="service-card-1" onclick="selectServiceCard(1, 'moto2')">
           <div>
             <div class="service-head">
               <span class="service-num">SERVICE 01</span>
@@ -1726,11 +1772,12 @@
             <p class="service-desc">Remise en main propre contre signature immédiate de contrats, dossiers juridiques ou clés sous scellé. Acheminement direct sans détour.</p>
           </div>
           <div class="service-foot">
-            <a href="#estimateur">Estimer ce service &rarr;</a>
+            <a href="#estimateur" onclick="selectVehicleAndScroll('moto2')">Estimer ce service &rarr;</a>
           </div>
         </div>
 
-        <div class="service-card">
+        <!-- Service 2 -->
+        <div class="service-card" id="service-card-2" onclick="selectServiceCard(2, 'voiture')">
           <div>
             <div class="service-head">
               <span class="service-num">SERVICE 02</span>
@@ -1740,11 +1787,12 @@
             <p class="service-desc">Acheminement sécurisé d’écrans, serveurs, pièces mécaniques, mobilier de designer ou échantillons de mode avec arrimage soigné.</p>
           </div>
           <div class="service-foot">
-            <a href="#estimateur">Estimer ce service &rarr;</a>
+            <a href="#estimateur" onclick="selectVehicleAndScroll('voiture')">Estimer ce service &rarr;</a>
           </div>
         </div>
 
-        <div class="service-card">
+        <!-- Service 3 -->
+        <div class="service-card" id="service-card-3" onclick="selectServiceCard(3, 'camion12')">
           <div>
             <div class="service-head">
               <span class="service-num">SERVICE 03</span>
@@ -1754,11 +1802,12 @@
             <p class="service-desc">Formule clé en main pour déménagement de studio, 2 pièces ou transfert d’équipements avec matériel de protection.</p>
           </div>
           <div class="service-foot">
-            <a href="#estimateur">Estimer ce service &rarr;</a>
+            <a href="#estimateur" onclick="selectVehicleAndScroll('camion12')">Estimer ce service &rarr;</a>
           </div>
         </div>
 
-        <div class="service-card">
+        <!-- Service 4 -->
+        <div class="service-card" id="service-card-4" onclick="selectServiceCard(4, 'moto2')">
           <div>
             <div class="service-head">
               <span class="service-num">SERVICE 04</span>
@@ -1768,7 +1817,7 @@
             <p class="service-desc">Disponibilité absolue 365 jours par an. Un régulateur dédié prend votre appel de nuit pour les urgences médicales ou dépannages d'astreinte.</p>
           </div>
           <div class="service-foot">
-            <a href="#estimateur">Estimer ce service &rarr;</a>
+            <a href="#estimateur" onclick="selectVehicleAndScroll('moto2')">Estimer ce service &rarr;</a>
           </div>
         </div>
       </div>
@@ -2032,22 +2081,22 @@
 
   <!-- Barre de Navigation au Pouce (Smartphones Uniquement) -->
   <nav class="mobile-bottom-nav">
-    <a href="#" class="mob-nav-btn active">
+    <a href="#" class="mob-nav-btn active" id="mob-nav-home" onclick="handleNavClick('home')">
       <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
       <span>Accueil</span>
     </a>
-    <a href="#estimateur" class="mob-nav-btn">
+    <a href="#estimateur" class="mob-nav-btn" id="mob-nav-estimateur" onclick="handleNavClick('estimateur')">
       <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg>
       <span>Tarif</span>
     </a>
     <a href="tel:0774800964" class="mob-center-call" aria-label="Appeler">
       <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg>
     </a>
-    <a href="#zones" class="mob-nav-btn">
-      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      <span>Zones</span>
+    <a href="#services" class="mob-nav-btn" id="mob-nav-services" onclick="handleNavClick('services')">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      <span>Services</span>
     </a>
-    <a href="#contact" class="mob-nav-btn">
+    <a href="#contact" class="mob-nav-btn" id="mob-nav-contact" onclick="handleNavClick('contact')">
       <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
       <span>Devis</span>
     </a>
@@ -2074,6 +2123,50 @@
 
     let currentVehicle = 'moto2';
     let currentUrgency = 'normal';
+    let isManualClick = false;
+
+    // GESTION DU CLIC SUR LA NAVIGATION : MISE EN ORANGE IMMÉDIATE
+    function handleNavClick(sectionId) {
+      isManualClick = true;
+
+      // Retirer la classe active de tous les liens
+      document.querySelectorAll('#main-nav-links a').forEach(a => a.classList.remove('active'));
+      document.querySelectorAll('#mobile-menu-drawer a').forEach(a => a.classList.remove('active'));
+      document.querySelectorAll('.mob-nav-btn').forEach(b => b.classList.remove('active'));
+
+      // Activer en orange le lien cliqué
+      const targetNav = document.getElementById('nav-' + sectionId);
+      if (targetNav) targetNav.classList.add('active');
+
+      const targetDrawer = document.getElementById('mob-drawer-' + sectionId);
+      if (targetDrawer) targetDrawer.classList.add('active');
+
+      const targetMob = document.getElementById('mob-nav-' + sectionId);
+      if (targetMob) targetMob.classList.add('active');
+
+      // Fermer le tiroir mobile si ouvert
+      const drawer = document.getElementById('mobile-menu-drawer');
+      if (drawer) drawer.classList.remove('open');
+
+      // Réactiver la détection de défilement après la transition
+      setTimeout(() => {
+        isManualClick = false;
+      }, 800);
+    }
+
+    // INTERACTION AVEC LES CARTES DE SERVICES
+    function selectServiceCard(cardId, vehId) {
+      document.querySelectorAll('.service-card').forEach(c => c.classList.remove('active-service'));
+      const activeCard = document.getElementById('service-card-' + cardId);
+      if (activeCard) activeCard.classList.add('active-service');
+      
+      // Mettre en orange le lien "Services" en haut
+      handleNavClick('services');
+
+      if (vehId) {
+        selectVehicle(vehId);
+      }
+    }
 
     function selectVehicle(vehId) {
       currentVehicle = vehId;
@@ -2085,6 +2178,7 @@
 
     function selectVehicleAndScroll(vehId) {
       selectVehicle(vehId);
+      handleNavClick('estimateur');
       const estSection = document.getElementById('estimateur');
       if (estSection) {
         estSection.scrollIntoView({ behavior: 'smooth' });
@@ -2153,21 +2247,40 @@
       drawer.classList.toggle('open');
     }
 
+    // SCROLLSPY DYNAMIQUE : MAINTIENT LE MENU ACTIF EN ORANGE LORS DU DÉFILEMENT
     window.addEventListener('scroll', () => {
-      const sections = ['estimateur', 'flotte', 'services', 'zones', 'avis', 'faq', 'contact'];
-      const scrollPos = window.scrollY + 120;
+      if (isManualClick) return;
 
-      sections.forEach(id => {
+      const sections = ['estimateur', 'flotte', 'services', 'zones', 'avis', 'faq', 'contact'];
+      const scrollPos = window.scrollY + 100;
+
+      let currentSec = null;
+      for (const id of sections) {
         const el = document.getElementById(id);
-        const link = document.getElementById('nav-link-' + id);
-        if (el && link) {
-          if (scrollPos >= el.offsetTop && scrollPos < el.offsetTop + el.offsetHeight) {
-            link.classList.add('active');
-          } else {
-            link.classList.remove('active');
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            currentSec = id;
+            break;
           }
         }
-      });
+      }
+
+      if (currentSec) {
+        document.querySelectorAll('#main-nav-links a').forEach(a => a.classList.remove('active'));
+        document.querySelectorAll('#mobile-menu-drawer a').forEach(a => a.classList.remove('active'));
+        document.querySelectorAll('.mob-nav-btn').forEach(b => b.classList.remove('active'));
+
+        const targetNav = document.getElementById('nav-' + currentSec);
+        if (targetNav) targetNav.classList.add('active');
+
+        const targetDrawer = document.getElementById('mob-drawer-' + currentSec);
+        if (targetDrawer) targetDrawer.classList.add('active');
+
+        const targetMob = document.getElementById('mob-nav-' + currentSec);
+        if (targetMob) targetMob.classList.add('active');
+      }
     });
 
     calculateFare();
