@@ -9,7 +9,7 @@
   <meta name="format-detection" content="telephone=yes">
 
   <title>TouteSolution — Transport & Coursier Paris 24h/24</title>
-  <meta name="description" content="Coursier express et transporteur pro en Île-de-France. Prise en charge en 15-20 min. Devis instantané et appel direct 24h/24.">
+  <meta name="description" content="Coursier express et transporteur pro en Île-de-France. Prise en charge en 15-20 min. Devis instantané 24h/24.">
   <meta property="og:title" content="TouteSolution — Coursier Express Paris 24h/24">
   <meta property="og:description" content="Transport, livraison express et fret volumineux à Paris et IDF. 24h/24 et 7j/7.">
 
@@ -44,7 +44,7 @@
     }
 
     html {
-      scroll-padding-top: 105px; /* Décalage précis sous la barre fixe */
+      scroll-padding-top: 105px;
       scroll-behavior: smooth;
     }
 
@@ -55,7 +55,7 @@
       font-size: 16px;
       -webkit-font-smoothing: antialiased;
       -webkit-tap-highlight-color: transparent;
-      padding-top: 100px; /* Compense la barre fixe au sommet */
+      padding-top: 100px;
     }
 
     a {
@@ -158,7 +158,6 @@
       }
     }
 
-    /* Onglets de navigation : inactifs vs actifs */
     .nav-links a {
       font-size: 0.82rem;
       color: var(--text-muted);
@@ -175,7 +174,6 @@
       background: rgba(33, 38, 45, 0.6);
     }
 
-    /* Style actif : Orange vif bien visible */
     .nav-links a.active {
       color: var(--brand-gold) !important;
       font-weight: 700 !important;
@@ -191,50 +189,25 @@
     }
 
     .btn-devis-nav {
-      display: none;
-      background: rgba(212, 168, 67, 0.12);
-      border: 1px solid rgba(212, 168, 67, 0.4);
-      color: var(--brand-gold);
-      font-weight: 600;
-      font-size: 0.82rem;
-      padding: 9px 14px;
-      border-radius: 10px;
-      white-space: nowrap;
-      transition: all 0.2s;
-      cursor: pointer;
-    }
-
-    @media (min-width: 640px) {
-      .btn-devis-nav {
-        display: inline-flex;
-        align-items: center;
-      }
-    }
-
-    .btn-devis-nav:hover {
-      background: var(--brand-gold);
-      color: #0D1117;
-    }
-
-    .btn-call-direct {
       background: var(--brand-gold);
       color: #0D1117;
       font-weight: 700;
       font-size: 0.82rem;
       padding: 9px 15px;
       border-radius: 10px;
-      display: flex;
-      align-items: center;
-      gap: 7px;
       white-space: nowrap;
       transition: background 0.2s, transform 0.1s;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(212, 168, 67, 0.2);
     }
 
-    .btn-call-direct:hover {
+    .btn-devis-nav:hover {
       background: var(--brand-gold-light);
     }
 
-    .btn-call-direct:active {
+    .btn-devis-nav:active {
       transform: scale(0.97);
     }
 
@@ -351,7 +324,7 @@
       line-height: 1.6;
     }
 
-    .hero-cta-group {
+    .hero-actions {
       display: flex;
       flex-direction: column;
       gap: 12px;
@@ -359,7 +332,7 @@
     }
 
     @media (min-width: 640px) {
-      .hero-cta-group {
+      .hero-actions {
         flex-direction: row;
         align-items: center;
       }
@@ -514,68 +487,225 @@
       transform: translateY(-2px);
     }
 
-    /* État sélectionné en orange vif */
     .service-card.active-service {
       border: 2px solid var(--brand-gold) !important;
       background: rgba(212, 168, 67, 0.08) !important;
       box-shadow: 0 4px 20px rgba(212, 168, 67, 0.2) !important;
     }
 
-    .srv-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
+    .service-head {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      color: var(--brand-gold);
-      margin-bottom: 16px;
-      font-size: 1.25rem;
+      margin-bottom: 12px;
     }
 
-    .srv-title {
-      font-size: 1.05rem;
+    .service-num {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--brand-gold);
+      letter-spacing: 1px;
+    }
+
+    .service-delay {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      background: var(--bg-surface);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+
+    .service-title {
+      font-size: 1.15rem;
       font-weight: 600;
       color: var(--text-cream);
       margin-bottom: 8px;
     }
 
-    .srv-desc {
+    .service-desc {
       font-size: 0.82rem;
       color: var(--text-muted);
       line-height: 1.5;
-      margin-bottom: 14px;
-      flex-grow: 1;
+      margin-bottom: 16px;
     }
 
-    .srv-btn-select {
-      background: transparent;
-      border: 1px solid var(--border-subtle);
-      color: var(--text-light);
-      padding: 7px 12px;
-      border-radius: 8px;
-      font-size: 0.78rem;
+    .service-foot a {
+      font-size: 0.8rem;
+      color: var(--brand-gold);
       font-weight: 600;
+    }
+
+    /* =========================================================
+       6. FLOTTE DE VÉHICULES
+       ========================================================= */
+    .fleet-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 640px) {
+      .fleet-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .fleet-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .fleet-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 22px;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: space-between;
+    }
+
+    .fleet-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .fleet-icon-box {
+      color: var(--brand-gold);
+    }
+
+    .fleet-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-cream);
+      margin-bottom: 12px;
+    }
+
+    .fleet-specs {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 12px;
+      margin-bottom: 14px;
+    }
+
+    .fleet-spec-row {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .fleet-ideal-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--brand-gold);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .fleet-ideal-list {
+      list-style: none;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 18px;
+    }
+
+    .fleet-ideal-list li::before {
+      content: "• ";
+      color: var(--brand-gold);
+    }
+
+    .fleet-cta-btn {
+      width: 100%;
+      height: 42px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-cream);
+      border-radius: 10px;
+      font-size: 0.8rem;
+      font-weight: 600;
       cursor: pointer;
       transition: all 0.2s;
     }
 
-    .service-card:hover .srv-btn-select,
-    .service-card.active-service .srv-btn-select {
-      background: var(--brand-gold);
-      color: #0D1117;
+    .fleet-cta-btn:hover {
       border-color: var(--brand-gold);
+      color: var(--brand-gold);
     }
 
     /* =========================================================
-       6. SIMULATEUR / CALCULATEUR DE TARIF EN DIRECT
+       7. DÉPARTEMENTS D'ÎLE-DE-FRANCE
        ========================================================= */
-    .estimator-box {
+    .dept-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    @media (min-width: 640px) {
+      .dept-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .dept-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .dept-card:hover, .dept-card.active {
+      border-color: var(--brand-gold);
+      background: var(--bg-surface);
+    }
+
+    .dept-code {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--brand-gold);
+    }
+
+    .dept-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-cream);
+      margin-top: 2px;
+    }
+
+    .dept-focus-box {
+      background: #12161D;
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 20px;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    @media (min-width: 768px) {
+      .dept-focus-box {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    /* =========================================================
+       8. CALCULATEUR / ESTIMATEUR EN DIRECT
+       ========================================================= */
+    .calc-card {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: 20px;
@@ -584,7 +714,7 @@
     }
 
     @media (min-width: 768px) {
-      .estimator-box {
+      .calc-card {
         padding: 36px;
       }
     }
@@ -699,12 +829,12 @@
       font-size: 0.76rem;
     }
 
-    .veh-price-hint {
+    .veh-price {
       color: var(--brand-gold);
       font-weight: 700;
     }
 
-    .form-grid-2 {
+    .route-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 16px;
@@ -712,20 +842,20 @@
     }
 
     @media (min-width: 640px) {
-      .form-grid-2 {
+      .route-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    .select-wrap label {
-      font-size: 0.74rem;
+    .field-lbl {
+      font-size: 0.76rem;
       color: var(--text-muted);
       font-weight: 600;
       margin-bottom: 6px;
       display: block;
     }
 
-    .custom-select {
+    .select-input {
       width: 100%;
       height: 48px;
       background: #12161D;
@@ -738,7 +868,7 @@
       cursor: pointer;
     }
 
-    .custom-select:focus {
+    .select-input:focus {
       border-color: var(--brand-gold);
     }
 
@@ -770,20 +900,7 @@
       border-color: var(--brand-gold);
     }
 
-    .urg-title {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-cream);
-    }
-
-    .urg-sub {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-
-    /* Panneau de résultat du simulateur */
-    .result-panel {
+    .result-box {
       background: #12161D;
       border: 1px solid var(--border-subtle);
       border-radius: 16px;
@@ -795,7 +912,7 @@
     }
 
     @media (min-width: 900px) {
-      .result-panel {
+      .result-box {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
@@ -810,26 +927,32 @@
       font-weight: 700;
     }
 
-    .res-price-row {
+    .res-price-wrap {
       display: flex;
       align-items: baseline;
-      gap: 10px;
+      gap: 8px;
       margin-top: 4px;
     }
 
-    .res-price-num {
+    .res-price {
       font-size: 2.2rem;
       font-weight: 700;
       color: var(--brand-gold);
       line-height: 1;
     }
 
-    .res-price-vat {
+    .res-ht {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--brand-gold);
+    }
+
+    .res-ttc {
       font-size: 0.82rem;
       color: var(--text-muted);
     }
 
-    .res-summary-sub {
+    .res-veh-info {
       font-size: 0.78rem;
       color: var(--text-light);
       margin-top: 6px;
@@ -865,10 +988,6 @@
       white-space: nowrap;
     }
 
-    .btn-action-sms:hover {
-      background: #2D333B;
-    }
-
     .btn-action-call {
       background: var(--brand-gold);
       color: #0D1117;
@@ -883,10 +1002,6 @@
       gap: 8px;
       white-space: nowrap;
       box-shadow: 0 4px 12px rgba(212, 168, 67, 0.2);
-    }
-
-    .btn-action-call:hover {
-      background: var(--brand-gold-light);
     }
 
     .btn-action-quote {
@@ -904,162 +1019,6 @@
       gap: 6px;
       white-space: nowrap;
       cursor: pointer;
-    }
-
-    .btn-action-quote:hover {
-      border-color: var(--brand-gold);
-      color: var(--brand-gold);
-    }
-
-    /* =========================================================
-       7. SECTION FLOTTE DÉTAILLÉE
-       ========================================================= */
-    .fleet-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
-
-    @media (min-width: 640px) {
-      .fleet-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .fleet-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .fleet-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .fleet-title {
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--text-cream);
-      margin-bottom: 6px;
-    }
-
-    .fleet-badge-top {
-      display: inline-block;
-      font-size: 0.65rem;
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 6px;
-      margin-bottom: 12px;
-    }
-
-    .fleet-specs {
-      list-style: none;
-      font-size: 0.8rem;
-      color: var(--text-light);
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin: 16px 0;
-      border-top: 1px solid var(--border-subtle);
-      padding-top: 14px;
-    }
-
-    .fleet-specs li {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .fleet-specs li span.bullet {
-      color: var(--brand-gold);
-    }
-
-    .fleet-price-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid var(--border-subtle);
-      padding-top: 16px;
-      margin-top: 10px;
-    }
-
-    .fleet-price-tag {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--brand-gold);
-    }
-
-    /* =========================================================
-       8. SECTION DÉPARTEMENTS D'ÎLE-DE-FRANCE
-       ========================================================= */
-    .zones-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-
-    @media (min-width: 640px) {
-      .zones-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .dept-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      padding: 16px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .dept-card:hover, .dept-card.active {
-      border-color: var(--brand-gold);
-      background: var(--bg-surface);
-    }
-
-    .dept-code {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: var(--brand-gold);
-    }
-
-    .dept-name {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-cream);
-      margin-top: 2px;
-    }
-
-    .dept-eta {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      margin-top: 6px;
-    }
-
-    .zone-info-banner {
-      background: #12161D;
-      border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 20px;
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    @media (min-width: 768px) {
-      .zone-info-banner {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-      }
     }
 
     /* =========================================================
@@ -1205,14 +1164,6 @@
       .form-row {
         grid-template-columns: repeat(2, 1fr);
       }
-    }
-
-    .field-lbl {
-      font-size: 0.76rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-      display: block;
     }
 
     .input-field, .textarea-field {
@@ -1382,12 +1333,12 @@
       <div class="container header-content">
         <a href="#" class="brand-logo font-display">Toute<span>Solution</span></a>
         
-        <!-- Navigation Desktop : Avec DEVIS et CONTACT bien distincts -->
+        <!-- Navigation Desktop : Services, Véhicules, Départements IDF, Calculateur, etc. -->
         <nav class="nav-links" id="main-nav-links">
-          <a href="#estimateur" id="nav-estimateur" class="active" onclick="handleNavClick('estimateur')">Calculateur Prix</a>
+          <a href="#services" id="nav-services" class="active" onclick="handleNavClick('services')">Services</a>
           <a href="#flotte" id="nav-flotte" onclick="handleNavClick('flotte')">Véhicules</a>
-          <a href="#services" id="nav-services" onclick="handleNavClick('services')">Services</a>
           <a href="#zones" id="nav-zones" onclick="handleNavClick('zones')">Départements IDF</a>
+          <a href="#estimateur" id="nav-estimateur" onclick="handleNavClick('estimateur')">Calculateur Prix</a>
           <a href="#avis" id="nav-avis" onclick="handleNavClick('avis')">Avis Clients</a>
           <a href="#faq" id="nav-faq" onclick="handleNavClick('faq')">FAQ</a>
           <a href="#devis-section" id="nav-devis-section" onclick="handleNavClick('devis-section')">Devis</a>
@@ -1397,10 +1348,6 @@
         <div class="header-actions">
           <a href="#devis-section" class="btn-devis-nav" onclick="handleNavClick('devis-section')">
             <span>Devis en ligne</span>
-          </a>
-          <a href="tel:0774800964" class="btn-call-direct">
-            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg>
-            <span>07 74 80 09 64</span>
           </a>
           <button class="burger-btn" onclick="toggleMobileMenu()" aria-label="Menu">
             <div class="burger-line"></div>
@@ -1412,10 +1359,10 @@
 
       <!-- Menu déroulant pour smartphone -->
       <div class="mobile-menu-drawer" id="mobile-menu-drawer">
-        <a href="#estimateur" id="mob-drawer-estimateur" class="active" onclick="handleNavClick('estimateur')">Calculateur Prix <span>→</span></a>
+        <a href="#services" id="mob-drawer-services" class="active" onclick="handleNavClick('services')">Services Pro <span>→</span></a>
         <a href="#flotte" id="mob-drawer-flotte" onclick="handleNavClick('flotte')">Véhicules & Flotte <span>→</span></a>
-        <a href="#services" id="mob-drawer-services" onclick="handleNavClick('services')">Services Pro <span>→</span></a>
         <a href="#zones" id="mob-drawer-zones" onclick="handleNavClick('zones')">Départements IDF <span>→</span></a>
+        <a href="#estimateur" id="mob-drawer-estimateur" onclick="handleNavClick('estimateur')">Calculateur Prix <span>→</span></a>
         <a href="#avis" id="mob-drawer-avis" onclick="handleNavClick('avis')">Avis Clients (4.9/5) <span>→</span></a>
         <a href="#faq" id="mob-drawer-faq" onclick="handleNavClick('faq')">Questions Fréquentes <span>→</span></a>
         <a href="#devis-section" id="mob-drawer-devis-section" onclick="handleNavClick('devis-section')">Demander un Devis <span>→</span></a>
@@ -1432,112 +1379,376 @@
         <span>Départ immédiat — Paris & tous départements IDF</span>
       </div>
       <h1 class="hero-title font-display">
-        Transport express & coursiers sur-mesure, <em>en direct 24h/24</em>
+        Votre coursier express et transporteur pro, <em>à votre porte en 15 minutes.</em>
       </h1>
       <p class="hero-desc">
-        Du pli urgent en deux-roues au transport volumineux en utilitaire de 20 m³. Disponibilité continue à Paris et partout en Île-de-France.
+        Livraison urgente de plis confidentiels, colis fragiles et fret volumineux. 
+        Flotte du 2-roues au camion avec hayon. Opérationnel <strong>24h/24 et 7j/7</strong> sans interruption.
       </p>
-
-      <div class="hero-cta-group">
-        <a href="#estimateur" class="btn-primary" onclick="handleNavClick('estimateur')">
-          <span>Calculer mon tarif en direct</span>
-          <span>→</span>
+      <div class="hero-actions">
+        <a href="#services" class="btn-primary" onclick="handleNavClick('services')">
+          <span>Découvrir nos prestations &rarr;</span>
         </a>
-        <a href="#devis-section" class="btn-secondary" onclick="handleNavClick('devis-section')">
-          <span>Demander un devis gratuit</span>
+        <a href="#estimateur" class="btn-secondary" onclick="handleNavClick('estimateur')">
+          <span>Estimer un tarif</span>
         </a>
       </div>
 
       <div class="hero-stats-row">
         <div class="stat-item">
-          <div class="stat-val font-display">&lt; 20 min</div>
-          <div class="stat-lbl">Prise en charge moyenne</div>
+          <div class="stat-val">&lt; 20 min</div>
+          <div class="stat-lbl">Prise en charge Paris</div>
         </div>
         <div class="stat-item">
-          <div class="stat-val font-display">24h/24</div>
-          <div class="stat-lbl">Permanence 7j/7 sans coupure</div>
+          <div class="stat-val">24h/24 — 7j/7</div>
+          <div class="stat-lbl">Nuit & jours fériés</div>
         </div>
         <div class="stat-item">
-          <div class="stat-val font-display">8 Départements</div>
-          <div class="stat-lbl">Paris & Toute l'Île-de-France</div>
+          <div class="stat-val">Marchandises assurées</div>
+          <div class="stat-lbl">Tous risques professionnels</div>
         </div>
         <div class="stat-item">
-          <div class="stat-val font-display">100 % Assuré</div>
-          <div class="stat-lbl">Assurance fret professionnelle</div>
+          <div class="stat-val">75 / 92 / 93 / 94</div>
+          <div class="stat-lbl">Toute l’Île-de-France</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Section 1 : Simulateur / Estimateur de Tarif en direct -->
-  <section class="section-wrap" id="estimateur">
+  <!-- Section 1 : Prestations & Services (SÉLECTIONNABLES ET INTERACTIFS) -->
+  <section class="section-wrap" id="services">
     <div class="container">
       <div class="section-header">
-        <div class="section-kicker">Simulateur en Temps Réel</div>
-        <h2 class="section-title font-display">Estimez le tarif de votre course</h2>
-        <p class="section-desc">Transparence totale : sélectionnez votre véhicule et vos communes pour obtenir une estimation immédiate.</p>
+        <div class="section-kicker">Prestations Professionnelles</div>
+        <h2 class="section-title font-display">Des solutions sur-mesure à Paris</h2>
+        <p class="section-desc">Cliquez sur un service pour l'activer et estimer son coût immédiat :</p>
       </div>
 
-      <div class="estimator-box">
-        <!-- Étape 1 : Véhicule -->
-        <span class="step-label">1. Choisissez votre véhicule de transport</span>
-        <div class="vehicle-grid">
-          <button class="veh-btn active" data-veh="moto2" onclick="selectVehicle('moto2')">
-            <div class="veh-top-row">
-              <span class="veh-name">2 Roues / Moto</span>
-              <span class="veh-badge available">Disponible 24/7</span>
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card" id="service-card-1" onclick="selectServiceCard(1, 'moto2')">
+          <div>
+            <div class="service-head">
+              <span class="service-num">SERVICE 01</span>
+              <span class="service-delay">15 à 30 min chrono</span>
             </div>
-            <div class="veh-capacity">Plis urgents, pochettes, petits colis jusqu'à 5 kg</div>
-            <div class="veh-bottom-row">
-              <span>Dès 15 min</span>
-              <span class="veh-price-hint">dès 35 € HT</span>
-            </div>
-          </button>
+            <h3 class="service-title font-display">Course Express & Plis Urgents</h3>
+            <p class="service-desc">Remise en main propre contre signature immédiate de contrats, dossiers juridiques ou clés sous scellé. Acheminement direct sans détour.</p>
+          </div>
+          <div class="service-foot">
+            <a href="#estimateur" onclick="selectVehicleAndScroll('moto2')">Estimer ce service &rarr;</a>
+          </div>
+        </div>
 
-          <button class="veh-btn" data-veh="voiture" onclick="selectVehicle('voiture')">
-            <div class="veh-top-row">
-              <span class="veh-name">Voiture / Break</span>
-              <span class="veh-badge available">Disponible 24/7</span>
+        <!-- Service 2 -->
+        <div class="service-card" id="service-card-2" onclick="selectServiceCard(2, 'voiture')">
+          <div>
+            <div class="service-head">
+              <span class="service-num">SERVICE 02</span>
+              <span class="service-delay">Sur créneau fixe ou immédiat</span>
             </div>
-            <div class="veh-capacity">Cartons volumineux, matériel fragile, caisses jusqu'à 200 kg</div>
-            <div class="veh-bottom-row">
-              <span>Dès 25 min</span>
-              <span class="veh-price-hint">dès 55 € HT</span>
-            </div>
-          </button>
+            <h3 class="service-title font-display">Transport Fret & Matériel Fragile</h3>
+            <p class="service-desc">Acheminement sécurisé d’écrans, serveurs, pièces mécaniques, mobilier de designer ou échantillons de mode avec arrimage soigné.</p>
+          </div>
+          <div class="service-foot">
+            <a href="#estimateur" onclick="selectVehicleAndScroll('voiture')">Estimer ce service &rarr;</a>
+          </div>
+        </div>
 
-          <button class="veh-btn" data-veh="camion12" onclick="selectVehicle('camion12')">
-            <div class="veh-top-row">
-              <span class="veh-name">Fourgon 12 m³</span>
-              <span class="veh-badge on-demand">Sur demande</span>
+        <!-- Service 3 -->
+        <div class="service-card" id="service-card-3" onclick="selectServiceCard(3, 'camion12')">
+          <div>
+            <div class="service-head">
+              <span class="service-num">SERVICE 03</span>
+              <span class="service-delay">7j/7 sur réservation</span>
             </div>
-            <div class="veh-capacity">Palettes, salons événementiels, déménagement partiel (1,2 T)</div>
-            <div class="veh-bottom-row">
-              <span>Dès 35 min</span>
-              <span class="veh-price-hint">dès 95 € HT</span>
-            </div>
-          </button>
+            <h3 class="service-title font-display">Petit Déménagement & Bureaux</h3>
+            <p class="service-desc">Formule clé en main pour déménagement de studio, 2 pièces ou transfert d’équipements avec matériel de protection.</p>
+          </div>
+          <div class="service-foot">
+            <a href="#estimateur" onclick="selectVehicleAndScroll('camion12')">Estimer ce service &rarr;</a>
+          </div>
+        </div>
 
-          <button class="veh-btn" data-veh="camion20" onclick="selectVehicle('camion20')">
-            <div class="veh-top-row">
-              <span class="veh-name">Grand Volume 20 m³</span>
-              <span class="veh-badge soon">Bientôt</span>
+        <!-- Service 4 -->
+        <div class="service-card" id="service-card-4" onclick="selectServiceCard(4, 'moto2')">
+          <div>
+            <div class="service-head">
+              <span class="service-num">SERVICE 04</span>
+              <span class="service-delay">Intervention nocturne immédiate</span>
             </div>
-            <div class="veh-capacity">Avec hayon élévateur pour fret lourd et gros mobilier</div>
-            <div class="veh-bottom-row">
-              <span>Réservation</span>
-              <span class="veh-price-hint">sur devis</span>
+            <h3 class="service-title font-display">Permanence Nuit & Urgence 24h/24</h3>
+            <p class="service-desc">Disponibilité absolue 365 jours par an. Un régulateur dédié prend votre appel de nuit pour les urgences médicales ou dépannages d'astreinte.</p>
+          </div>
+          <div class="service-foot">
+            <a href="#estimateur" onclick="selectVehicleAndScroll('moto2')">Estimer ce service &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2 : Flotte & Véhicules Détaillée -->
+  <section class="section-wrap" id="flotte">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Capacités & Flotte</div>
+        <h2 class="section-title font-display">Un véhicule adapté à chaque volume</h2>
+        <p class="section-desc">Des deux-roues ultra-agiles pour fendre la circulation parisienne aux grands camions 20m³ capitonnés.</p>
+      </div>
+
+      <div class="fleet-grid">
+        <!-- Carte Flotte 1 : Moto -->
+        <div class="fleet-card">
+          <div>
+            <div class="fleet-head">
+              <div class="fleet-icon-box">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/></svg>
+              </div>
+              <span class="veh-badge on-demand">Disponible sur demande</span>
             </div>
+            <h3 class="fleet-title">2 Roues / Moto Express</h3>
+            <div class="fleet-specs">
+              <div class="fleet-spec-row"><span>Charge utile :</span> <strong>Jusqu'à 8 kg</strong></div>
+              <div class="fleet-spec-row"><span>Volume :</span> <strong>Top-case 50L</strong></div>
+              <div class="fleet-spec-row"><span>Délai Paris :</span> <strong style="color: var(--success);">15 à 25 min</strong></div>
+            </div>
+            <div class="fleet-ideal-title">Idéal pour :</div>
+            <ul class="fleet-ideal-list">
+              <li>Plis confidentiels & contrats</li>
+              <li>Clés et badges d'accès urgents</li>
+              <li>Prélèvements et petits échantillons</li>
+            </ul>
+          </div>
+          <button class="fleet-cta-btn" onclick="selectVehicleAndScroll('moto2')">
+            <span>Estimer ce véhicule &rarr;</span>
           </button>
         </div>
 
-        <!-- Étape 2 : Trajet -->
-        <span class="step-label">2. Zones de départ et de destination</span>
-        <div class="form-grid-2">
-          <div class="select-wrap">
-            <label for="pickup-select">Département d'enlèvement (Départ)</label>
-            <select id="pickup-select" class="custom-select" onchange="calculateFare()">
-              <option value="75" selected>75 — Paris Intra-muros</option>
+        <!-- Carte Flotte 2 : Voiture Break -->
+        <div class="fleet-card">
+          <div>
+            <div class="fleet-head">
+              <div class="fleet-icon-box">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+              </div>
+              <span class="veh-badge available">Disponible 24/7</span>
+            </div>
+            <h3 class="fleet-title">Voiture / Break</h3>
+            <div class="fleet-specs">
+              <div class="fleet-spec-row"><span>Charge utile :</span> <strong>Jusqu'à 150 kg</strong></div>
+              <div class="fleet-spec-row"><span>Volume :</span> <strong>Coffre break 1,2 m³</strong></div>
+              <div class="fleet-spec-row"><span>Délai Paris :</span> <strong style="color: var(--success);">25 à 40 min</strong></div>
+            </div>
+            <div class="fleet-ideal-title">Idéal pour :</div>
+            <ul class="fleet-ideal-list">
+              <li>Cartons d'archives & dossiers</li>
+              <li>Matériel informatique fragile</li>
+              <li>Bagages et valises volumineuses</li>
+            </ul>
+          </div>
+          <button class="fleet-cta-btn" onclick="selectVehicleAndScroll('voiture')">
+            <span>Estimer ce véhicule &rarr;</span>
+          </button>
+        </div>
+
+        <!-- Carte Flotte 3 : Utilitaire 12m3 -->
+        <div class="fleet-card">
+          <div>
+            <div class="fleet-head">
+              <div class="fleet-icon-box">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              </div>
+              <span class="veh-badge available">Disponible 24/7</span>
+            </div>
+            <h3 class="fleet-title">Utilitaire 12 m³</h3>
+            <div class="fleet-specs">
+              <div class="fleet-spec-row"><span>Charge utile :</span> <strong>Jusqu'à 850 kg</strong></div>
+              <div class="fleet-spec-row"><span>Volume :</span> <strong>2 Palettes Europe</strong></div>
+              <div class="fleet-spec-row"><span>Délai Paris :</span> <strong style="color: var(--success);">30 à 50 min</strong></div>
+            </div>
+            <div class="fleet-ideal-title">Idéal pour :</div>
+            <ul class="fleet-ideal-list">
+              <li>Transport de palettes standard</li>
+              <li>Salons d'exposition & stands</li>
+              <li>Électroménager et meubles lourds</li>
+            </ul>
+          </div>
+          <button class="fleet-cta-btn" onclick="selectVehicleAndScroll('camion12')">
+            <span>Estimer ce véhicule &rarr;</span>
+          </button>
+        </div>
+
+        <!-- Carte Flotte 4 : Camion 20m3 Hayon -->
+        <div class="fleet-card">
+          <div>
+            <div class="fleet-head">
+              <div class="fleet-icon-box">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/><line x1="1" y1="16" x2="23" y2="16"/></svg>
+              </div>
+              <span class="veh-badge soon">Bientôt disponible</span>
+            </div>
+            <h3 class="fleet-title">Grand Volume 20 m³</h3>
+            <div class="fleet-specs">
+              <div class="fleet-spec-row"><span>Charge utile :</span> <strong>Jusqu'à 1 200 kg</strong></div>
+              <div class="fleet-spec-row"><span>Volume :</span> <strong>20 m³ avec Hayon</strong></div>
+              <div class="fleet-spec-row"><span>Statut :</span> <strong style="color: var(--text-muted);">Bientôt disponible</strong></div>
+            </div>
+            <div class="fleet-ideal-title">Idéal pour :</div>
+            <ul class="fleet-ideal-list">
+              <li>Déménagement complet d'appartement</li>
+              <li>Transfert de bureaux d'entreprise</li>
+              <li>Charges lourdes sur palettes</li>
+            </ul>
+          </div>
+          <button class="fleet-cta-btn" onclick="selectVehicleAndScroll('camion20')">
+            <span>Bientôt disponible</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3 : Rayonnement Île-de-France -->
+  <section class="section-wrap" id="zones">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Rayonnement Géographique</div>
+        <h2 class="section-title font-display">Paris et les 8 départements franciliens</h2>
+        <p class="section-desc">Cliquez sur un département pour afficher les délais d'arrivée et spécificités :</p>
+      </div>
+
+      <div class="dept-grid">
+        <div class="dept-card active" onclick="selectDept('75', 'Paris Intra-Muros', '15 - 30 min', 'Zone 1 (Paris)', 0, this)">
+          <div class="dept-code">75</div>
+          <div class="dept-name">Paris</div>
+        </div>
+        <div class="dept-card" onclick="selectDept('92', 'Hauts-de-Seine', '25 - 40 min', 'Zone 2 (Petite Couronne)', 20, this)">
+          <div class="dept-code">92</div>
+          <div class="dept-name">Hauts-de-Seine</div>
+        </div>
+        <div class="dept-card" onclick="selectDept('93', 'Seine-Saint-Denis', '25 - 45 min', 'Zone 2 (Petite Couronne)', 20, this)">
+          <div class="dept-code">93</div>
+          <div class="dept-name">Seine-Saint-Denis</div>
+        </div>
+        <div class="dept-card" onclick="selectDept('94', 'Val-de-Marne', '25 - 45 min', 'Zone 2 (Petite Couronne)', 20, this)">
+          <div class="dept-code">94</div>
+          <div class="dept-name">Val-de-Marne</div>
+        </div>
+        <div class="dept-card" onclick="selectDept('77', 'Seine-et-Marne', '45 - 75 min', 'Zone 3 (Grande Couronne)', 45, this)">
+          <div class="dept-code">77</div>
+          <div class="dept-name">Seine-et-Marne</div>
+        </div>
+        <div class="dept-card" onclick="selectDept('78', 'Yvelines', '40 - 70 min', 'Zone 3 (Grande Couronne)', 45, this)">
+          <div class="dept-code">78</div>
+          <div class="dept-name">Yvelines</div>
+        </div>
+        <div class="dept-card" onclick="selectDept('91', 'Essonne', '40 - 70 min', 'Zone 3 (Grande Couronne)', 45, this)">
+          <div class="dept-code">91</div>
+          <div class="dept-name">Essonne</div>
+        </div>
+        <div class="dept-card" onclick="selectDept('95', 'Val-d\'Oise', '40 - 70 min', 'Zone 3 (Grande Couronne)', 45, this)">
+          <div class="dept-code">95</div>
+          <div class="dept-name">Val-d'Oise</div>
+        </div>
+      </div>
+
+      <div class="dept-focus-box" id="dept-focus">
+        <div>
+          <span style="font-size: 0.75rem; color: var(--brand-gold); font-weight: 700;" id="dept-zone-badge">Zone 1 (Paris)</span>
+          <div style="font-size: 1rem; font-weight: 600; color: var(--text-cream); margin-top: 2px;" id="dept-full-name">75 — Paris Intra-Muros</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">
+            Délai d’arrivée moyen sur place : <strong style="color: var(--text-cream);" id="dept-delay">15 - 30 min</strong>
+          </div>
+        </div>
+        <div style="font-size: 0.85rem; color: var(--text-muted);">
+          Majoration transit : <strong style="color: var(--text-cream);" id="dept-surcharge">Inclus (0 €)</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4 : Simulateur de Tarif en Direct -->
+  <section class="section-wrap" id="estimateur">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Simulateur Instantané</div>
+        <h2 class="section-title font-display">Estimez le tarif de votre course en 3 clics</h2>
+        <p class="section-desc">Calcul en temps réel selon le véhicule sélectionné, le trajet et l'urgence.</p>
+      </div>
+
+      <div class="calc-card">
+        <!-- Étape 1 : Choix du véhicule -->
+        <span class="step-label">1. Choisissez votre véhicule</span>
+        <div class="vehicle-grid">
+          <!-- 1 : Moto -->
+          <div class="veh-btn active" data-veh="moto2" onclick="selectVehicle('moto2')">
+            <div>
+              <div class="veh-top-row">
+                <div class="veh-name">2 Roues / Moto</div>
+                <span class="veh-badge on-demand">Disponible sur demande</span>
+              </div>
+              <div class="veh-capacity">Jusqu'à 8 kg · Plis & contrats</div>
+            </div>
+            <div class="veh-bottom-row">
+              <span style="color: var(--text-muted);">Tarif de base :</span>
+              <span class="veh-price">Dès 35 € HT</span>
+            </div>
+          </div>
+
+          <!-- 2 : Voiture Break -->
+          <div class="veh-btn" data-veh="voiture" onclick="selectVehicle('voiture')">
+            <div>
+              <div class="veh-top-row">
+                <div class="veh-name">Voiture / Break</div>
+                <span class="veh-badge available">Disponible 24/7</span>
+              </div>
+              <div class="veh-capacity">Jusqu'à 150 kg · Colis fragiles</div>
+            </div>
+            <div class="veh-bottom-row">
+              <span style="color: var(--text-muted);">Tarif de base :</span>
+              <span class="veh-price">Dès 55 € HT</span>
+            </div>
+          </div>
+
+          <!-- 3 : Utilitaire 12m3 -->
+          <div class="veh-btn" data-veh="camion12" onclick="selectVehicle('camion12')">
+            <div>
+              <div class="veh-top-row">
+                <div class="veh-name">Utilitaire 12 m³</div>
+                <span class="veh-badge available">Disponible 24/7</span>
+              </div>
+              <div class="veh-capacity">Jusqu'à 850 kg · 2 palettes</div>
+            </div>
+            <div class="veh-bottom-row">
+              <span style="color: var(--text-muted);">Tarif de base :</span>
+              <span class="veh-price">Dès 95 € HT</span>
+            </div>
+          </div>
+
+          <!-- 4 : Camion 20m3 -->
+          <div class="veh-btn" data-veh="camion20" onclick="selectVehicle('camion20')">
+            <div>
+              <div class="veh-top-row">
+                <div class="veh-name">Grand Volume 20 m³</div>
+                <span class="veh-badge soon">Bientôt disponible</span>
+              </div>
+              <div class="veh-capacity">Jusqu'à 1 200 kg avec Hayon</div>
+            </div>
+            <div class="veh-bottom-row">
+              <span style="color: var(--text-muted);">Statut :</span>
+              <span style="color: var(--text-muted);">Bientôt disponible</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Étape 2 : Trajet et Départements -->
+        <span class="step-label">2. Trajet & Départements</span>
+        <div class="route-grid">
+          <div>
+            <label class="field-lbl">Prise en charge (Enlèvement)</label>
+            <select class="select-input" id="pickup-select" onchange="calculateFare()">
+              <option value="75">75 — Paris Intra-Muros</option>
               <option value="92">92 — Hauts-de-Seine</option>
               <option value="93">93 — Seine-Saint-Denis</option>
               <option value="94">94 — Val-de-Marne</option>
@@ -1545,294 +1756,86 @@
               <option value="78">78 — Yvelines</option>
               <option value="91">91 — Essonne</option>
               <option value="95">95 — Val-d'Oise</option>
-              <option value="other">Autre région / Hors IDF</option>
+              <option value="other">Autre région / National</option>
             </select>
           </div>
-
-          <div class="select-wrap">
-            <label for="delivery-select">Département de livraison (Arrivée)</label>
-            <select id="delivery-select" class="custom-select" onchange="calculateFare()">
-              <option value="75">75 — Paris Intra-muros</option>
-              <option value="92" selected>92 — Hauts-de-Seine</option>
+          <div>
+            <label class="field-lbl">Livraison (Destination)</label>
+            <select class="select-input" id="delivery-select" onchange="calculateFare()">
+              <option value="75">75 — Paris Intra-Muros</option>
+              <option value="92">92 — Hauts-de-Seine</option>
               <option value="93">93 — Seine-Saint-Denis</option>
               <option value="94">94 — Val-de-Marne</option>
               <option value="77">77 — Seine-et-Marne</option>
               <option value="78">78 — Yvelines</option>
               <option value="91">91 — Essonne</option>
               <option value="95">95 — Val-d'Oise</option>
-              <option value="other">Autre région / Hors IDF</option>
+              <option value="other">Autre région / National</option>
             </select>
           </div>
         </div>
 
-        <!-- Étape 3 : Urgence -->
-        <span class="step-label">3. Niveau d'urgence requis</span>
+        <!-- Étape 3 : Niveau d'urgence -->
+        <span class="step-label">3. Niveau d'urgence</span>
         <div class="urgency-grid">
-          <button class="urgency-btn active" data-urgency="normal" onclick="selectUrgency('normal')">
-            <div class="urg-title">Standard (Dans la journée)</div>
-            <div class="urg-sub">Enlèvement sous 2h à 3h</div>
-          </button>
-          <button class="urgency-btn" data-urgency="urgent" onclick="selectUrgency('urgent')">
-            <div class="urg-title">Urgent (&lt; 2h)</div>
-            <div class="urg-sub">Enlèvement sous 45 min</div>
-          </button>
-          <button class="urgency-btn" data-urgency="super" onclick="selectUrgency('super')">
-            <div class="urg-title">Immédiat / Flash</div>
-            <div class="urg-sub">Mise à disposition instantanée</div>
-          </button>
+          <div class="urgency-btn active" data-urgency="normal" onclick="selectUrgency('normal')">
+            <strong>Normal</strong>
+            <span>Dans la journée</span>
+          </div>
+          <div class="urgency-btn" data-urgency="urgent" onclick="selectUrgency('urgent')">
+            <strong>Urgent</strong>
+            <span>&lt; 2h (+30%)</span>
+          </div>
+          <div class="urgency-btn" data-urgency="super" onclick="selectUrgency('super')">
+            <strong style="color: var(--brand-gold);">Immédiat</strong>
+            <span>Flash (+60%)</span>
+          </div>
         </div>
 
-        <!-- Résultat & Actions -->
-        <div class="result-panel">
+        <!-- Boîte de Résultat avec Actions fluides -->
+        <div class="result-box">
           <div>
-            <div class="res-label">Tarif estimé de votre mission</div>
-            <div class="res-price-row">
-              <span class="res-price-num font-display" id="calc-price-ht">55 €</span>
-              <span class="res-price-vat" id="calc-price-ttc">(soit 66 € TTC)</span>
+            <div class="res-label">Estimation indicative</div>
+            <div class="res-price-wrap">
+              <span class="res-price" id="calc-price-ht">35 €</span>
+              <span class="res-ht">HT</span>
+              <span class="res-ttc" id="calc-price-ttc">(soit 42 € TTC)</span>
             </div>
-            <div class="res-summary-sub" id="calc-summary-text">
-              Véhicule : <strong>Voiture / Break</strong> · Prise en charge estimée : <strong>25 à 40 min</strong>
+            <div class="res-veh-info" id="calc-summary-text">
+              Véhicule : <strong>2 Roues / Moto</strong> · Prise en charge estimée : <strong>15 à 25 min</strong>
             </div>
           </div>
 
           <div class="res-actions">
-            <a href="sms:0774800964" id="sms-btn" class="btn-action-sms">
-              <span>💬 SMS direct</span>
+            <a href="#" id="sms-btn" class="btn-action-sms">
+              <svg width="16" height="16" fill="var(--brand-gold)" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 11H7V9h2v2zm4 0h-2V9h2v2zm4 0h-2V9h2v2z"/></svg>
+              <span>Commander par SMS</span>
             </a>
             <a href="tel:0774800964" class="btn-action-call">
-              <span>📞 Confirmer par appel</span>
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg>
+              <span>07 74 80 09 64</span>
             </a>
-            <button onclick="handleNavClick('devis-section')" class="btn-action-quote">
-              <span>📝 Devis écrit</span>
-            </button>
+            <a href="#devis-section" class="btn-action-quote" onclick="handleNavClick('devis-section')">
+              <span>Demander un devis &rarr;</span>
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Section 2 : Flotte de Véhicules -->
-  <section class="section-wrap" id="flotte">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-kicker">Notre Parc Roulant</div>
-        <h2 class="section-title font-display">Des véhicules adaptés à chaque besoin</h2>
-        <p class="section-desc">Flotte entretenue, géolocalisée et prête à intervenir 24h/24 sur tout le bassin francilien.</p>
-      </div>
-
-      <div class="fleet-grid">
-        <div class="fleet-card">
-          <div>
-            <span class="fleet-badge-top" style="background: rgba(63, 185, 80, 0.15); color: #3fb950; border: 1px solid rgba(63,185,80,0.3);">Disponible 24/7</span>
-            <h3 class="fleet-title">Moto & Scooter</h3>
-            <p style="font-size: 0.8rem; color: var(--text-muted);">Le choix idéal pour déjouer les embouteillages de Paris intra-muros.</p>
-            <ul class="fleet-specs">
-              <li><span class="bullet">✓</span> Charge utile : jusqu'à 8 kg</li>
-              <li><span class="bullet">✓</span> Dimensions : pochette A3, petit paquet</li>
-              <li><span class="bullet">✓</span> Arrivée sur site : 15 à 20 min</li>
-            </ul>
-          </div>
-          <div class="fleet-price-row">
-            <span class="fleet-price-tag font-display">dès 35 € HT</span>
-            <button class="btn-action-quote" onclick="selectVehicleAndScroll('moto2')">Réserver</button>
-          </div>
-        </div>
-
-        <div class="fleet-card">
-          <div>
-            <span class="fleet-badge-top" style="background: rgba(63, 185, 80, 0.15); color: #3fb950; border: 1px solid rgba(63,185,80,0.3);">Disponible 24/7</span>
-            <h3 class="fleet-title">Voiture & Break</h3>
-            <p style="font-size: 0.8rem; color: var(--text-muted);">Volume modulable et protection thermique des marchandises fragiles.</p>
-            <ul class="fleet-specs">
-              <li><span class="bullet">✓</span> Charge utile : jusqu'à 350 kg</li>
-              <li><span class="bullet">✓</span> Volume : jusqu'à 1,8 m³</li>
-              <li><span class="bullet">✓</span> Arrivée sur site : 25 à 35 min</li>
-            </ul>
-          </div>
-          <div class="fleet-price-row">
-            <span class="fleet-price-tag font-display">dès 55 € HT</span>
-            <button class="btn-action-quote" onclick="selectVehicleAndScroll('voiture')">Réserver</button>
-          </div>
-        </div>
-
-        <div class="fleet-card">
-          <div>
-            <span class="fleet-badge-top" style="background: rgba(212, 168, 67, 0.15); color: var(--brand-gold); border: 1px solid rgba(212,168,67,0.3);">Sur Demande</span>
-            <h3 class="fleet-title">Utilitaire 12 m³</h3>
-            <p style="font-size: 0.8rem; color: var(--text-muted);">Parfait pour les transferts d'ateliers, salons et gros volumes.</p>
-            <ul class="fleet-specs">
-              <li><span class="bullet">✓</span> Charge utile : jusqu'à 1 200 kg</li>
-              <li><span class="bullet">✓</span> Capacité : 3 à 4 palettes Europe</li>
-              <li><span class="bullet">✓</span> Sangles d'arrimage et diable fournis</li>
-            </ul>
-          </div>
-          <div class="fleet-price-row">
-            <span class="fleet-price-tag font-display">dès 95 € HT</span>
-            <button class="btn-action-quote" onclick="selectVehicleAndScroll('camion12')">Réserver</button>
-          </div>
-        </div>
-
-        <div class="fleet-card">
-          <div>
-            <span class="fleet-badge-top" style="background: #30363D; color: var(--text-muted); border: 1px solid #484F58;">Bientôt disponible</span>
-            <h3 class="fleet-title">Camion 20 m³ Hayon</h3>
-            <p style="font-size: 0.8rem; color: var(--text-muted);">Grand volume avec assistance au déchargement lourd.</p>
-            <ul class="fleet-specs">
-              <li><span class="bullet">✓</span> Charge utile : 800 à 1 000 kg</li>
-              <li><span class="bullet">✓</span> Hayon élévateur jusqu'à 750 kg</li>
-              <li><span class="bullet">✓</span> Idéal événementiel & mobilier pro</li>
-            </ul>
-          </div>
-          <div class="fleet-price-row">
-            <span class="fleet-price-tag font-display">Sur devis</span>
-            <button class="btn-action-quote" onclick="handleNavClick('devis-section')">Devis</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 3 : Services Pro (CLIC ORANGE + FIXÉ EN HAUT) -->
-  <section class="section-wrap" id="services">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-kicker">Prestations sur-mesure</div>
-        <h2 class="section-title font-display">Services de transport adaptés à votre rythme</h2>
-        <p class="section-desc">Cliquez sur un service pour l'activer en orange et ajuster automatiquement votre estimation.</p>
-      </div>
-
-      <div class="services-grid">
-        <div class="service-card" id="service-card-pli" onclick="selectServiceCard('pli', 'moto2')">
-          <div class="srv-icon">✉️</div>
-          <h3 class="srv-title">Plis & Colis Urgents</h3>
-          <p class="srv-desc">Contrats d'affaires, dossiers juridiques, appels d'offres ou pièces détachées remis en main propre avec accusé de réception.</p>
-          <div class="srv-btn-select">
-            <span>Sélectionner ce service</span>
-            <span>→</span>
-          </div>
-        </div>
-
-        <div class="service-card" id="service-card-navette" onclick="selectServiceCard('navette', 'voiture')">
-          <div class="srv-icon">🔄</div>
-          <h3 class="srv-title">Navettes Régulières Pro</h3>
-          <p class="srv-desc">Liaisons inter-sites quotidiennes ou hebdomadaires pour sièges sociaux, cabinets d'avocats, agences et laboratoires.</p>
-          <div class="srv-btn-select">
-            <span>Sélectionner ce service</span>
-            <span>→</span>
-          </div>
-        </div>
-
-        <div class="service-card" id="service-card-nuit" onclick="selectServiceCard('nuit', 'moto2')">
-          <div class="srv-icon">🌙</div>
-          <h3 class="srv-title">Astreinte Nuit & Dimanche</h3>
-          <p class="srv-desc">Régulation active 24h/24 pour vos urgences nocturnes et de week-end avec confirmation téléphonique immédiate.</p>
-          <div class="srv-btn-select">
-            <span>Sélectionner ce service</span>
-            <span>→</span>
-          </div>
-        </div>
-
-        <div class="service-card" id="service-card-fret" onclick="selectServiceCard('fret', 'camion12')">
-          <div class="srv-icon">📦</div>
-          <h3 class="srv-title">Fret Lourd & Événementiel</h3>
-          <p class="srv-desc">Acheminement de stands d'exposition, matériel scénique, décors et transferts de bureaux complets en Île-de-France.</p>
-          <div class="srv-btn-select">
-            <span>Sélectionner ce service</span>
-            <span>→</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 4 : Départements IDF et Zones Couvertes -->
-  <section class="section-wrap" id="zones">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-kicker">Rayonnement Territorial</div>
-        <h2 class="section-title font-display">Couverture complète de l'Île-de-France</h2>
-        <p class="section-desc">Cliquez sur un département pour consulter les délais moyens d'intervention de nos coursiers.</p>
-      </div>
-
-      <div class="zones-grid">
-        <div class="dept-card active" onclick="selectDept('75', 'Paris Intra-muros', '15 à 25 min', 'Zone 1 - Cœur de Paris', 0, this)">
-          <div class="dept-code">75</div>
-          <div class="dept-name">Paris</div>
-          <div class="dept-eta">Enlèvement sous 15-25 min</div>
-        </div>
-
-        <div class="dept-card" onclick="selectDept('92', 'Hauts-de-Seine', '20 à 35 min', 'Zone 2 - Petite Couronne Ouest', 0, this)">
-          <div class="dept-code">92</div>
-          <div class="dept-name">Hauts-de-Seine</div>
-          <div class="dept-eta">Nanterre, Boulogne, La Défense</div>
-        </div>
-
-        <div class="dept-card" onclick="selectDept('93', 'Seine-Saint-Denis', '20 à 35 min', 'Zone 2 - Petite Couronne Nord', 0, this)">
-          <div class="dept-code">93</div>
-          <div class="dept-name">Seine-Saint-Denis</div>
-          <div class="dept-eta">Saint-Denis, Roissy CDG, Bobigny</div>
-        </div>
-
-        <div class="dept-card" onclick="selectDept('94', 'Val-de-Marne', '20 à 35 min', 'Zone 2 - Petite Couronne Sud', 0, this)">
-          <div class="dept-code">94</div>
-          <div class="dept-name">Val-de-Marne</div>
-          <div class="dept-eta">Créteil, Orly, Rungis, Vincennes</div>
-        </div>
-
-        <div class="dept-card" onclick="selectDept('77', 'Seine-et-Marne', '35 à 50 min', 'Zone 3 - Grande Couronne Est', 25, this)">
-          <div class="dept-code">77</div>
-          <div class="dept-name">Seine-et-Marne</div>
-          <div class="dept-eta">Meaux, Chessy, Melun, Torcy</div>
-        </div>
-
-        <div class="dept-card" onclick="selectDept('78', 'Yvelines', '30 à 45 min', 'Zone 3 - Grande Couronne Ouest', 25, this)">
-          <div class="dept-code">78</div>
-          <div class="dept-name">Yvelines</div>
-          <div class="dept-eta">Versailles, Saint-Germain, Trappes</div>
-        </div>
-
-        <div class="dept-card" onclick="selectDept('91', 'Essonne', '35 à 50 min', 'Zone 3 - Grande Couronne Sud', 25, this)">
-          <div class="dept-code">91</div>
-          <div class="dept-name">Essonne</div>
-          <div class="dept-eta">Évry, Massy-Palaiseau, Corbeil</div>
-        </div>
-
-        <div class="dept-card" onclick="selectDept('95', 'Val-d\'Oise', '30 à 45 min', 'Zone 3 - Grande Couronne Nord', 25, this)">
-          <div class="dept-code">95</div>
-          <div class="dept-name">Val-d'Oise</div>
-          <div class="dept-eta">Cergy, Roissy, Argenteuil, Pontoise</div>
-        </div>
-      </div>
-
-      <div class="zone-info-banner">
-        <div>
-          <span style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--brand-gold); font-weight: 700;" id="dept-zone-badge">Zone 1 - Cœur de Paris</span>
-          <h4 style="font-size: 1.15rem; color: var(--text-cream); margin-top: 2px;" id="dept-full-name">75 — Paris Intra-muros</h4>
-          <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">Desserte intégrale de tous les arrondissements parisiens 24h/24.</p>
-        </div>
-        <div style="display: flex; gap: 16px; align-items: center;">
-          <div style="text-align: right;">
-            <div style="font-size: 0.72rem; color: var(--text-muted);">Délai moyen d'arrivée</div>
-            <div style="font-size: 1.1rem; font-weight: 700; color: var(--text-cream);" id="dept-delay">15 à 25 min</div>
-          </div>
-          <a href="tel:0774800964" class="btn-primary" style="height: 44px; padding: 0 16px; font-size: 0.82rem;">
-            <span>Commander sur ce secteur</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 5 : Avis Clients Vérifiés -->
+  <!-- Section 5 : Avis Clients (4.9 / 5) -->
   <section class="section-wrap" id="avis">
     <div class="container">
-      <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 12px;">
-        <div>
-          <div class="section-kicker">Retours d'Expérience</div>
-          <h2 class="section-title font-display">La confiance de nos clients pros</h2>
-        </div>
-        <div style="font-size: 0.88rem; color: var(--text-light); background: var(--bg-surface); padding: 8px 14px; border-radius: 10px; border: 1px solid var(--border-subtle);">
-          Note moyenne : <strong style="color: var(--brand-gold);">4.9 / 5</strong> (180+ courses vérifiées)
+      <div class="section-header" style="display: flex; flex-direction: column; gap: 8px;">
+        <div class="section-kicker">Retours d'Expérience</div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px;">
+          <h2 class="section-title font-display">La confiance de nos clients parisiens</h2>
+          <div style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--brand-gold);">
+            <span>★★★★★</span>
+            <strong style="color: var(--text-cream);">4.9 / 5</strong>
+            <span style="color: var(--text-muted); font-size: 0.75rem;">(Plus de 350 courses / mois)</span>
+          </div>
         </div>
       </div>
 
@@ -1840,33 +1843,33 @@
         <div class="review-card">
           <div>
             <div class="review-stars">★★★★★</div>
-            <p class="review-text">« Nous faisons appel à TouteSolution pour le dépôt de conclusions d'urgence au tribunal. Ponctualité exemplaire, coursier courtois et accusé de réception immédiat. »</p>
+            <p class="review-text">« Réactivité chirurgicale pour un dépôt de dossier d'appel d'offres à 18h un vendredi. Coursier professionnel et confirmation par SMS dès la remise. »</p>
           </div>
           <div class="review-author">
-            <div class="review-name">Cabinet Juridique V. & Associés</div>
-            <div class="review-role">Avocat au Barreau de Paris (75008)</div>
+            <div class="review-name">Cabinet Meunier & Associés</div>
+            <div class="review-role">Paris 8e (Courcelles) · Client régulier</div>
           </div>
         </div>
 
         <div class="review-card">
           <div>
             <div class="review-stars">★★★★★</div>
-            <p class="review-text">« Livraison de maquettes et échantillons fragiles à Versailles en break. Tout est arrivé intact, suivi téléphonique très rassurant avec le répartiteur. »</p>
+            <p class="review-text">« Transport en break d’un prototype en verre pour un salon à la Porte de Versailles. Tout est arrivé intact, sanglé avec minutie. De vrais pros. »</p>
           </div>
           <div class="review-author">
-            <div class="review-name">Studio Design & Architecture</div>
-            <div class="review-role">Chef de projet événementiel (75003)</div>
+            <div class="review-name">Studio ArchiDesign</div>
+            <div class="review-role">Paris 11e (Bastille) · Événementiel</div>
           </div>
         </div>
 
         <div class="review-card">
           <div>
             <div class="review-stars">★★★★★</div>
-            <p class="review-text">« Camion impeccable avec chauffeur très aidant pour le transport de meubles. Tarif transparent sans mauvaise surprise de dernière minute. Je recommande vivement ! »</p>
+            <p class="review-text">« Livraison de 3 palettes de cartons d'archives un dimanche matin. Camion propre, chauffeur ponctuel et facture reçue dans l'heure avec TVA déductible. »</p>
           </div>
           <div class="review-author">
-            <div class="review-name">Marc D.</div>
-            <div class="review-role">Transport volumineux (92 vers 75)</div>
+            <div class="review-name">TechLog SAS</div>
+            <div class="review-role">Boulogne-Billancourt (92) · PME</div>
           </div>
         </div>
       </div>
@@ -1878,48 +1881,48 @@
     <div class="container">
       <div class="section-header" style="text-align: center;">
         <div class="section-kicker">Questions Fréquentes</div>
-        <h2 class="section-title font-display">Tout savoir avant de commander</h2>
-        <p class="section-desc" style="margin: 6px auto;">Les réponses à vos interrogations les plus courantes sur nos transports.</p>
+        <h2 class="section-title font-display">Tout ce qu'il faut savoir</h2>
+        <p class="section-desc" style="margin: 6px auto;">Vos questions récurrentes sur nos délais, assurances et modes d'intervention.</p>
       </div>
 
       <div class="faq-list">
         <div class="faq-item open">
           <button class="faq-question" onclick="toggleFaq(this)">
-            <span>En combien de temps un coursier peut-il arriver à Paris ?</span>
+            <span>En combien de temps un coursier peut-il arriver sur place ?</span>
             <span class="faq-chevron">⌄</span>
           </button>
           <div class="faq-answer">
-            En moyenne sous 15 à 25 minutes dans Paris intra-muros pour les courses express. Pour les départs en banlieue ou les gros volumes utilitaires, comptez 30 à 45 minutes selon l'état du trafic.
+            Pour un coursier 2 roues dans Paris intra-muros, l’enlèvement moyen s’effectue en <strong>15 à 25 minutes</strong>. Pour les véhicules de type break ou utilitaire en région parisienne, comptez en moyenne 25 à 45 minutes selon les axes routiers et la météo.
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
-            <span>Êtes-vous disponibles la nuit et le dimanche ?</span>
+            <span>Comment suis-je prévenu une fois la livraison effectuée ?</span>
             <span class="faq-chevron">⌄</span>
           </button>
           <div class="faq-answer">
-            Oui, notre centrale de régulation est opérationnelle 24h/24 et 7j/7 sans interruption. Une majoration horaire s'applique entre 22h et 06h ainsi que les dimanches et jours fériés.
+            Dès que le destinataire signe le bon d’émargement, notre coursier valide la course sur son terminal. Vous recevez un <strong>SMS de confirmation instantané</strong> mentionnant l'heure exacte et le nom du signataire.
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
-            <span>Délivrez-vous une facture avec TVA déductible ?</span>
+            <span>Délivrez-vous une facture avec TVA déductible pour les entreprises ?</span>
             <span class="faq-chevron">⌄</span>
           </button>
           <div class="faq-answer">
-            Absolument. Dès la livraison effectuée, nous vous transmettons une facture détaillée mentionnant le taux de TVA en vigueur pour votre comptabilité d'entreprise.
+            Absolument. Nous sommes une société de transport officielle titulaire d'une licence de transport intérieur. Une facture conforme avec TVA déductible à 20% vous est systématiquement transmise par e-mail dès la fin de mission.
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
-            <span>Mes marchandises sont-elles assurées ?</span>
+            <span>Vos prestations sont-elles assurées ?</span>
             <span class="faq-chevron">⌄</span>
           </button>
           <div class="faq-answer">
-            Toutes nos courses et missions de transport bénéficient d'une assurance professionnelle tous risques couvrant la valeur intégrale de vos marchandises et biens confiés.
+            Oui, toutes nos courses sont couvertes par notre <strong>assurance professionnelle marchandises transportées (RC Fret)</strong> tous risques.
           </div>
         </div>
       </div>
@@ -2072,12 +2075,10 @@
     function handleNavClick(sectionId) {
       isManualClick = true;
 
-      // Retirer la surbrillance active de tous les liens
       document.querySelectorAll('#main-nav-links a').forEach(a => a.classList.remove('active'));
       document.querySelectorAll('#mobile-menu-drawer a').forEach(a => a.classList.remove('active'));
       document.querySelectorAll('.mob-nav-btn').forEach(b => b.classList.remove('active'));
 
-      // Activer en orange vif le lien choisi
       const targetNav = document.getElementById('nav-' + sectionId);
       if (targetNav) targetNav.classList.add('active');
 
@@ -2087,17 +2088,14 @@
       const targetMob = document.getElementById('mob-nav-' + sectionId);
       if (targetMob) targetMob.classList.add('active');
 
-      // Fermer le tiroir mobile si ouvert
       const drawer = document.getElementById('mobile-menu-drawer');
       if (drawer) drawer.classList.remove('open');
 
-      // Défilement automatique fluide vers la section
       const targetSection = document.getElementById(sectionId);
       if (targetSection) {
         targetSection.scrollIntoView({ behavior: 'smooth' });
       }
 
-      // Maintenir la couleur sélectionnée sans conflit avec le défilement
       setTimeout(() => {
         isManualClick = false;
       }, 1000);
@@ -2191,11 +2189,10 @@
       drawer.classList.toggle('open');
     }
 
-    // DÉTECTION DU DÉFILEMENT : MET À JOUR LE BOUTON ORANGE ACTIF SANS JAMAIS CACHER LA BARRE
+    // DÉTECTION DU DÉFILEMENT SELON LE NOUVEL ORDRE
     window.addEventListener('scroll', () => {
       if (isManualClick) return;
 
-      // Détection automatique du bas de page (Contact)
       if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 70) {
         document.querySelectorAll('#main-nav-links a').forEach(a => a.classList.remove('active'));
         document.querySelectorAll('#mobile-menu-drawer a').forEach(a => a.classList.remove('active'));
@@ -2212,7 +2209,7 @@
         return;
       }
 
-      const sections = ['estimateur', 'flotte', 'services', 'zones', 'avis', 'faq', 'devis-section', 'contact'];
+      const sections = ['services', 'flotte', 'zones', 'estimateur', 'avis', 'faq', 'devis-section', 'contact'];
       const scrollPos = window.scrollY + 140;
 
       let currentSec = null;
