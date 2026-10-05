@@ -1166,14 +1166,6 @@
       }
     }
 
-    .field-lbl {
-      font-size: 0.76rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-      display: block;
-    }
-
     .input-field, .textarea-field {
       width: 100%;
       background: #12161D;
@@ -1341,15 +1333,15 @@
       <div class="container header-content">
         <a href="#" class="brand-logo font-display">Toute<span>Solution</span></a>
         
-        <!-- Navigation Desktop : Services, Véhicules, Départements IDF, Calculateur, Devis, FAQ, etc. -->
+        <!-- Navigation Desktop : Services, Véhicules, Départements IDF, Calculateur, etc. -->
         <nav class="nav-links" id="main-nav-links">
           <a href="#services" id="nav-services" class="active" onclick="handleNavClick('services')">Services</a>
           <a href="#flotte" id="nav-flotte" onclick="handleNavClick('flotte')">Véhicules</a>
           <a href="#zones" id="nav-zones" onclick="handleNavClick('zones')">Départements IDF</a>
           <a href="#estimateur" id="nav-estimateur" onclick="handleNavClick('estimateur')">Calculateur Prix</a>
-          <a href="#devis-section" id="nav-devis-section" onclick="handleNavClick('devis-section')">Devis</a>
-          <a href="#faq" id="nav-faq" onclick="handleNavClick('faq')">FAQ</a>
           <a href="#avis" id="nav-avis" onclick="handleNavClick('avis')">Avis Clients</a>
+          <a href="#faq" id="nav-faq" onclick="handleNavClick('faq')">FAQ</a>
+          <a href="#devis-section" id="nav-devis-section" onclick="handleNavClick('devis-section')">Devis</a>
           <a href="#contact" id="nav-contact" onclick="handleNavClick('contact')">Contact</a>
         </nav>
 
@@ -1371,9 +1363,9 @@
         <a href="#flotte" id="mob-drawer-flotte" onclick="handleNavClick('flotte')">Véhicules & Flotte <span>→</span></a>
         <a href="#zones" id="mob-drawer-zones" onclick="handleNavClick('zones')">Départements IDF <span>→</span></a>
         <a href="#estimateur" id="mob-drawer-estimateur" onclick="handleNavClick('estimateur')">Calculateur Prix <span>→</span></a>
-        <a href="#devis-section" id="mob-drawer-devis-section" onclick="handleNavClick('devis-section')">Demander un Devis <span>→</span></a>
-        <a href="#faq" id="mob-drawer-faq" onclick="handleNavClick('faq')">Questions Fréquentes <span>→</span></a>
         <a href="#avis" id="mob-drawer-avis" onclick="handleNavClick('avis')">Avis Clients (4.9/5) <span>→</span></a>
+        <a href="#faq" id="mob-drawer-faq" onclick="handleNavClick('faq')">Questions Fréquentes <span>→</span></a>
+        <a href="#devis-section" id="mob-drawer-devis-section" onclick="handleNavClick('devis-section')">Demander un Devis <span>→</span></a>
         <a href="#contact" id="mob-drawer-contact" onclick="handleNavClick('contact')">Contact & Permanence <span>→</span></a>
       </div>
     </header>
@@ -1832,51 +1824,54 @@
     </div>
   </section>
 
-  <!-- Section 5 : Devis et Prise de Commande (DIRECTEMENT APRÈS LE CALCULATEUR) -->
-  <section class="section-wrap" id="devis-section">
+  <!-- Section 5 : Avis Clients (4.9 / 5) -->
+  <section class="section-wrap" id="avis">
     <div class="container">
-      <div class="section-header" style="text-align: center;">
-        <div class="section-kicker">Formulaire Rapide</div>
-        <h2 class="section-title font-display">Demandez un devis ou commandez</h2>
-        <p class="section-desc" style="margin: 6px auto;">Réponse et confirmation sous 15 minutes par notre répartiteur.</p>
+      <div class="section-header" style="display: flex; flex-direction: column; gap: 8px;">
+        <div class="section-kicker">Retours d'Expérience</div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px;">
+          <h2 class="section-title font-display">La confiance de nos clients parisiens</h2>
+          <div style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--brand-gold);">
+            <span>★★★★★</span>
+            <strong style="color: var(--text-cream);">4.9 / 5</strong>
+            <span style="color: var(--text-muted); font-size: 0.75rem;">(Plus de 350 courses / mois)</span>
+          </div>
+        </div>
       </div>
 
-      <div class="form-box">
-        <form action="https://formsubmit.co/Toutesolution.75@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="Nouvelle demande de course TouteSolution">
-          <input type="hidden" name="_captcha" value="false">
-
-          <div class="form-row">
-            <div>
-              <label class="field-lbl">Nom & Prénom *</label>
-              <input type="text" name="Nom" required class="input-field" placeholder="ex. Alexandre Mercier">
-            </div>
-            <div>
-              <label class="field-lbl">Numéro de Téléphone *</label>
-              <input type="tel" name="Telephone" required inputmode="tel" class="input-field" placeholder="06 .. .. .. ..">
-            </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">« Réactivité chirurgicale pour un dépôt de dossier d'appel d'offres à 18h un vendredi. Coursier professionnel et confirmation par SMS dès la remise. »</p>
           </div>
-
-          <div class="form-row">
-            <div>
-              <label class="field-lbl">Adresse d'enlèvement (Départ) *</label>
-              <input type="text" name="Depart" required class="input-field" placeholder="Adresse, code postal, ville">
-            </div>
-            <div>
-              <label class="field-lbl">Adresse de livraison (Arrivée) *</label>
-              <input type="text" name="Arrivee" required class="input-field" placeholder="Adresse, code postal, ville">
-            </div>
+          <div class="review-author">
+            <div class="review-name">Cabinet Meunier & Associés</div>
+            <div class="review-role">Paris 8e (Courcelles) · Client régulier</div>
           </div>
+        </div>
 
-          <div style="margin-bottom: 16px;">
-            <label class="field-lbl">Précisions (étage, volume, créneau...)</label>
-            <textarea name="Details" class="textarea-field" placeholder="Ex : 2ème étage sans ascenseur, carton de 15 kg..."></textarea>
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">« Transport en break d’un prototype en verre pour un salon à la Porte de Versailles. Tout est arrivé intact, sanglé avec minutie. De vrais pros. »</p>
           </div>
+          <div class="review-author">
+            <div class="review-name">Studio ArchiDesign</div>
+            <div class="review-role">Paris 11e (Bastille) · Événementiel</div>
+          </div>
+        </div>
 
-          <button type="submit" class="btn-primary" style="width: 100%; height: 52px;">
-            <span>Envoyer ma demande de devis</span>
-          </button>
-        </form>
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">« Livraison de 3 palettes de cartons d'archives un dimanche matin. Camion propre, chauffeur ponctuel et facture reçue dans l'heure avec TVA déductible. »</p>
+          </div>
+          <div class="review-author">
+            <div class="review-name">TechLog SAS</div>
+            <div class="review-role">Boulogne-Billancourt (92) · PME</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1934,54 +1929,51 @@
     </div>
   </section>
 
-  <!-- Section 7 : Avis Clients (4.9 / 5) -->
-  <section class="section-wrap" id="avis">
+  <!-- Section 7 : Devis et Prise de Commande (BOUTON & ANCRE DÉDIÉE : #devis-section) -->
+  <section class="section-wrap" id="devis-section">
     <div class="container">
-      <div class="section-header" style="display: flex; flex-direction: column; gap: 8px;">
-        <div class="section-kicker">Retours d'Expérience</div>
-        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px;">
-          <h2 class="section-title font-display">La confiance de nos clients parisiens</h2>
-          <div style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--brand-gold);">
-            <span>★★★★★</span>
-            <strong style="color: var(--text-cream);">4.9 / 5</strong>
-            <span style="color: var(--text-muted); font-size: 0.75rem;">(Plus de 350 courses / mois)</span>
-          </div>
-        </div>
+      <div class="section-header" style="text-align: center;">
+        <div class="section-kicker">Formulaire Rapide</div>
+        <h2 class="section-title font-display">Demandez un devis ou commandez</h2>
+        <p class="section-desc" style="margin: 6px auto;">Réponse et confirmation sous 15 minutes par notre répartiteur.</p>
       </div>
 
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div>
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">« Réactivité chirurgicale pour un dépôt de dossier d'appel d'offres à 18h un vendredi. Coursier professionnel et confirmation par SMS dès la remise. »</p>
-          </div>
-          <div class="review-author">
-            <div class="review-name">Cabinet Meunier & Associés</div>
-            <div class="review-role">Paris 8e (Courcelles) · Client régulier</div>
-          </div>
-        </div>
+      <div class="form-box">
+        <form action="https://formsubmit.co/Toutesolution.75@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Nouvelle demande de course TouteSolution">
+          <input type="hidden" name="_captcha" value="false">
 
-        <div class="review-card">
-          <div>
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">« Transport en break d’un prototype en verre pour un salon à la Porte de Versailles. Tout est arrivé intact, sanglé avec minutie. De vrais pros. »</p>
+          <div class="form-row">
+            <div>
+              <label class="field-lbl">Nom & Prénom *</label>
+              <input type="text" name="Nom" required class="input-field" placeholder="ex. Alexandre Mercier">
+            </div>
+            <div>
+              <label class="field-lbl">Numéro de Téléphone *</label>
+              <input type="tel" name="Telephone" required inputmode="tel" class="input-field" placeholder="06 .. .. .. ..">
+            </div>
           </div>
-          <div class="review-author">
-            <div class="review-name">Studio ArchiDesign</div>
-            <div class="review-role">Paris 11e (Bastille) · Événementiel</div>
-          </div>
-        </div>
 
-        <div class="review-card">
-          <div>
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">« Livraison de 3 palettes de cartons d'archives un dimanche matin. Camion propre, chauffeur ponctuel et facture reçue dans l'heure avec TVA déductible. »</p>
+          <div class="form-row">
+            <div>
+              <label class="field-lbl">Adresse d'enlèvement (Départ) *</label>
+              <input type="text" name="Depart" required class="input-field" placeholder="Adresse, code postal, ville">
+            </div>
+            <div>
+              <label class="field-lbl">Adresse de livraison (Arrivée) *</label>
+              <input type="text" name="Arrivee" required class="input-field" placeholder="Adresse, code postal, ville">
+            </div>
           </div>
-          <div class="review-author">
-            <div class="review-name">TechLog SAS</div>
-            <div class="review-role">Boulogne-Billancourt (92) · PME</div>
+
+          <div style="margin-bottom: 16px;">
+            <label class="field-lbl">Précisions (étage, volume, créneau...)</label>
+            <textarea name="Details" class="textarea-field" placeholder="Ex : 2ème étage sans ascenseur, carton de 15 kg..."></textarea>
           </div>
-        </div>
+
+          <button type="submit" class="btn-primary" style="width: 100%; height: 52px;">
+            <span>Envoyer ma demande de devis</span>
+          </button>
+        </form>
       </div>
     </div>
   </section>
@@ -2197,7 +2189,7 @@
       drawer.classList.toggle('open');
     }
 
-    // DÉTECTION DU DÉFILEMENT SELON LE NOUVEL ORDRE EXACT
+    // DÉTECTION DU DÉFILEMENT SELON LE NOUVEL ORDRE
     window.addEventListener('scroll', () => {
       if (isManualClick) return;
 
@@ -2217,7 +2209,7 @@
         return;
       }
 
-      const sections = ['services', 'flotte', 'zones', 'estimateur', 'devis-section', 'faq', 'avis', 'contact'];
+      const sections = ['services', 'flotte', 'zones', 'estimateur', 'avis', 'faq', 'devis-section', 'contact'];
       const scrollPos = window.scrollY + 140;
 
       let currentSec = null;
