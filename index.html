@@ -1,2402 +1,402 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-  <meta name="theme-color" content="#0D1117">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="format-detection" content="telephone=yes">
-
-  <title>TouteSolution — Transport & Coursier Paris 24h/24</title>
-  <meta name="description" content="Coursier express et transporteur pro en Île-de-France. Prise en charge en 15-20 min. Devis instantané et appel direct 24h/24.">
-  <meta property="og:title" content="TouteSolution — Coursier Express Paris 24h/24">
-  <meta property="og:description" content="Transport, livraison express et fret volumineux à Paris et IDF. 24h/24 et 7j/7.">
-
-  <!-- Polices Google Fonts -->
+  <title>TouteSolution — Prestations logistiques & assistance aux professionnels</title>
+  <meta name="description" content="TouteSolution : Courses et achats pour entreprises, assistance logistique, aide aux hôtels et événements, montage/démontage, manutention, installation et rangement. Paris & IDF 24/7.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&display=swap" rel="stylesheet">
 
   <style>
-    /* =========================================================
-       1. VARIABLES ET THÈME SOMBRE HAUTE DÉFINITION
-       ========================================================= */
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     :root {
-      --brand-gold: #D4A843;
-      --brand-gold-light: #F0C96A;
-      --brand-gold-dark: #96721C;
-      --bg-dark: #0D1117;
-      --bg-card: #161B22;
-      --bg-surface: #21262D;
-      --border-subtle: #30363D;
-      --border-light: #484F58;
-      --text-cream: #F0F6FC;
-      --text-muted: #8B949E;
-      --text-light: #C9D1D9;
-      --success: #3fb950;
+      --bg-base: #FAF8F5;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #F0EAE1;
+      --border-subtle: #DFD7CA;
+      --border-strong: #C8BEB0;
+      --text-main: #181B1F;
+      --text-body: #4A525D;
+      --text-muted: #737D8C;
+      --brand-gold: #B38A38;
+      --brand-gold-hover: #8C6506;
+      --brand-gold-subtle: rgba(179, 138, 56, 0.12);
+      --font-display: 'Fraunces', serif;
+      --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    html {
-      scroll-padding-top: 105px; /* Décalage précis sous la barre fixe */
-      scroll-behavior: smooth;
-      overflow-x: hidden;
-      width: 100%;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      background: var(--bg-dark);
-      color: var(--text-cream);
-      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      font-size: 16px;
-      -webkit-font-smoothing: antialiased;
-      -webkit-tap-highlight-color: transparent;
-      padding-top: 100px; /* Compense la barre fixe au sommet */
-      overflow-x: hidden;
-      width: 100%;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font-family: inherit;
-    }
-
-    .font-display {
-      font-family: 'Fraunces', Georgia, serif;
+      font-family: var(--font-sans);
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.5;
+      padding-bottom: 70px;
     }
 
     .container {
       width: 100%;
-      max-width: 1180px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 16px;
     }
 
-    /* =========================================================
-       2. CONTENEUR FIXE AU SOMMET (NE DISPARAÎT JAMAIS)
-       ========================================================= */
+    /* En-tête */
     .fixed-header-wrapper {
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
-      width: 100%;
-      z-index: 9999;
-      background: rgba(13, 17, 23, 0.98);
-      backdrop-filter: blur(14px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+      z-index: 1000;
+      background: rgba(250, 248, 245, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-subtle);
     }
-
     .top-announcement {
-      background: #12161D;
+      background: var(--bg-subtle);
       border-bottom: 1px solid var(--border-subtle);
-      padding: 6px 16px;
-      font-size: 0.75rem;
-      color: var(--text-muted);
+      font-size: 0.72rem;
+      padding: 4px 16px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      color: var(--text-body);
     }
-
-    .live-indicator {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .live-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--success);
-      box-shadow: 0 0 8px rgba(63, 185, 80, 0.6);
-      animation: pulse 2s infinite ease-in-out;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.85); }
-    }
-
-    header {
-      border-bottom: 1px solid var(--border-subtle);
-      height: 64px;
-    }
-
     .header-content {
-      height: 100%;
+      height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
     }
+    .brand-logo { text-decoration: none; display: flex; flex-direction: column; }
+    .brand-name { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; color: var(--text-main); }
+    .brand-name span { color: var(--brand-gold); }
+    .brand-sub { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
 
-    .brand-logo {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--text-cream);
-      letter-spacing: -0.5px;
-      white-space: nowrap;
-    }
+    .nav-links { display: none; gap: 20px; }
+    @media (min-width: 900px) { .nav-links { display: flex; } }
+    .nav-link { text-decoration: none; color: var(--text-body); font-size: 0.85rem; font-weight: 500; }
+    .nav-link:hover { color: var(--brand-gold); }
 
-    .brand-logo span {
-      color: var(--brand-gold);
-    }
-
-    /* Onglets de navigation Desktop */
-    .nav-links {
-      display: none;
-      align-items: center;
-      gap: 3px;
-    }
-
-    @media (min-width: 992px) {
-      .nav-links {
-        display: flex;
-      }
-    }
-
-    .nav-links a {
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: #8B949E;
-      padding: 7px 11px;
-      border-radius: 8px;
-      border: 1px solid transparent;
-      transition: all 0.15s ease-in-out;
-      white-space: nowrap;
-      cursor: pointer;
-    }
-
-    .nav-links a:hover {
-      color: #F0F6FC;
-      background: rgba(255, 255, 255, 0.04);
-    }
-
-    /* ÉTAT ACTIF : BOUTON SURLIGNÉ EN ORANGE / DORÉ */
-    .nav-links a.active {
-      color: #D4A843 !important;
-      font-weight: 700 !important;
-      background: rgba(212, 168, 67, 0.14) !important;
-      border: 1px solid rgba(212, 168, 67, 0.45) !important;
-      box-shadow: 0 0 12px rgba(212, 168, 67, 0.2);
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .btn-phone-header {
-      background: var(--brand-gold);
-      color: #0D1117;
-      font-weight: 700;
-      font-size: 0.84rem;
-      padding: 8px 14px;
-      border-radius: 9999px;
-      white-space: nowrap;
-      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
-      cursor: pointer;
+    /* BOUTONS IDENTIQUES DEVIS & CONTACT */
+    .btn-devis, .btn-contact, .hero-btn-primary, .btn-action-gold {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      box-shadow: 0 2px 10px rgba(212, 168, 67, 0.25);
-      text-decoration: none;
-    }
-
-    .btn-phone-header:hover {
-      background: var(--brand-gold-light);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 14px rgba(212, 168, 67, 0.4);
-    }
-
-    .btn-phone-header:active {
-      transform: scale(0.96);
-    }
-
-    .burger-btn {
-      display: flex;
-      flex-direction: column;
       justify-content: center;
-      align-items: center;
-      gap: 5px;
-      width: 38px;
-      height: 38px;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 8px;
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-
-    @media (min-width: 992px) {
-      .burger-btn {
-        display: none;
-      }
-    }
-
-    .burger-line {
-      width: 20px;
-      height: 2px;
-      background: var(--text-cream);
-      border-radius: 2px;
-      transition: transform 0.25s ease, opacity 0.25s ease;
-    }
-
-    .burger-btn.open .burger-line:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
-    .burger-btn.open .burger-line:nth-child(2) {
-      opacity: 0;
-      transform: scaleX(0);
-    }
-    .burger-btn.open .burger-line:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
-    }
-
-    /* TIROIR MOBILE PLEINE LARGEUR PARFAITEMENT CALÉ SOUS LE HEADER */
-    .mobile-menu-drawer {
-      display: none;
-      width: 100%;
-      background: #12161D;
-      border-bottom: 2px solid rgba(212, 168, 67, 0.45);
-      padding: 14px 16px 20px;
-      flex-direction: column;
-      gap: 6px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
-      max-height: calc(100vh - 120px);
-      overflow-y: auto;
-      box-sizing: border-box;
-    }
-
-    .mobile-menu-drawer.open {
-      display: flex;
-    }
-
-    .mobile-menu-drawer a {
-      padding: 11px 14px;
-      border-radius: 8px;
-      color: var(--text-light);
-      font-size: 0.90rem;
-      border: 1px solid transparent;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      text-decoration: none;
-      transition: background 0.15s, color 0.15s;
-    }
-
-    .mobile-menu-drawer a:hover {
-      background: var(--bg-surface);
-      color: var(--brand-gold);
-    }
-
-    .mobile-menu-drawer a.active {
-      background: rgba(212, 168, 67, 0.15);
-      border-color: rgba(212, 168, 67, 0.4);
-      color: var(--brand-gold);
-      font-weight: 700;
-    }
-
-    .btn-drawer-phone {
-      background: var(--brand-gold) !important;
-      color: #0D1117 !important;
-      font-weight: 700 !important;
-      justify-content: center !important;
-      gap: 8px !important;
-      padding: 12px 16px !important;
-      border-radius: 10px !important;
-      box-shadow: 0 4px 12px rgba(212, 168, 67, 0.3) !important;
-    }
-
-    @media (max-width: 480px) {
-      .btn-phone-header {
-        font-size: 0.76rem;
-        padding: 7px 10px;
-        gap: 5px;
-      }
-      .brand-logo {
-        font-size: 1.15rem;
-      }
-      .top-announcement {
-        font-size: 0.68rem;
-        padding: 5px 12px;
-      }
-    }
-
-    /* =========================================================
-       3. HERO BANNER
-       ========================================================= */
-    .hero-section {
-      padding: 36px 0 54px;
-      border-bottom: 1px solid var(--border-subtle);
-      background: linear-gradient(180deg, #0D1117 0%, #161B22 100%);
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(33, 38, 45, 0.8);
-      border: 1px solid var(--border-subtle);
-      padding: 6px 14px;
-      border-radius: 9999px;
-      font-size: 0.75rem;
-      color: var(--text-light);
-      margin-bottom: 20px;
-    }
-
-    .hero-title {
-      font-size: clamp(2rem, 5.5vw, 3.8rem);
-      font-weight: 400;
-      line-height: 1.1;
-      letter-spacing: -1px;
-      max-width: 840px;
-      margin-bottom: 18px;
-    }
-
-    .hero-title em {
-      font-style: italic;
-      color: var(--brand-gold);
-    }
-
-    .hero-desc {
-      font-size: 1rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      max-width: 620px;
-      margin-bottom: 28px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      max-width: 440px;
-    }
-
-    @media (min-width: 640px) {
-      .hero-actions {
-        flex-direction: row;
-        max-width: none;
-      }
-    }
-
-    .btn-primary {
       background: var(--brand-gold);
-      color: #0D1117;
-      font-weight: 700;
-      font-size: 0.9rem;
-      height: 50px;
-      padding: 0 24px;
-      border-radius: 12px;
+      color: #FFFFFF !important;
+      font-weight: 600;
+      text-decoration: none;
       border: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
       cursor: pointer;
-      box-shadow: 0 4px 14px rgba(212, 168, 67, 0.2);
-      transition: background 0.2s, transform 0.1s;
-    }
-
-    .btn-primary:active {
-      transform: scale(0.98);
-    }
-
-    .btn-secondary {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-cream);
-      font-weight: 600;
-      font-size: 0.9rem;
-      height: 50px;
-      padding: 0 24px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: background 0.2s, border-color 0.2s;
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--brand-gold);
-    }
-
-    .hero-stats-row {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin-top: 40px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border-subtle);
-    }
-
-    @media (min-width: 768px) {
-      .hero-stats-row {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .stat-item {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      padding: 14px 16px;
-      border-radius: 12px;
-    }
-
-    .stat-val {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--text-cream);
-    }
-
-    .stat-lbl {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-
-    /* =========================================================
-       4. SECTIONS COMMUNES
-       ========================================================= */
-    .section-wrap {
-      padding: 56px 0;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .section-header {
-      margin-bottom: 32px;
-    }
-
-    .section-kicker {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--brand-gold);
-      margin-bottom: 6px;
-    }
-
-    .section-title {
-      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
-      font-weight: 400;
-      letter-spacing: -0.5px;
-      color: var(--text-cream);
-    }
-
-    .section-desc {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      margin-top: 6px;
-      max-width: 620px;
-    }
-
-    /* =========================================================
-       5. ESTIMATEUR DE PRIX (ALIGNE PROPREMENT)
-       ========================================================= */
-    .calc-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
-    }
-
-    @media (min-width: 640px) {
-      .calc-card {
-        padding: 32px;
-      }
-    }
-
-    .step-label {
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--text-muted);
-      margin-bottom: 14px;
-      display: block;
-    }
-
-    .vehicle-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      margin-bottom: 28px;
-    }
-
-    @media (min-width: 640px) {
-      .vehicle-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .vehicle-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .veh-btn {
-      background: #12161D;
-      border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      padding: 16px;
-      text-align: left;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 12px;
-      min-height: 110px;
-      transition: border-color 0.2s, background 0.2s;
-    }
-
-    .veh-btn:hover {
-      border-color: var(--text-muted);
-    }
-
-    .veh-btn.active {
-      background: var(--bg-surface);
-      border-color: var(--brand-gold);
-      box-shadow: 0 0 0 1px var(--brand-gold);
-    }
-
-    .veh-top-row {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 8px;
-    }
-
-    .veh-name {
-      font-weight: 600;
-      font-size: 0.88rem;
-      color: var(--text-cream);
-      line-height: 1.25;
-    }
-
-    .veh-badge {
-      font-size: 0.62rem;
-      font-weight: 600;
-      padding: 3px 8px;
-      border-radius: 9999px;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .veh-badge.on-demand {
-      background: rgba(212, 168, 67, 0.15);
-      color: var(--brand-gold);
-      border: 1px solid rgba(212, 168, 67, 0.3);
-    }
-
-    .veh-badge.soon {
-      background: #30363D;
-      color: var(--text-muted);
-      border: 1px solid #484F58;
-    }
-
-    .veh-badge.available {
-      background: rgba(63, 185, 80, 0.15);
-      color: #3fb950;
-      border: 1px solid rgba(63, 185, 80, 0.3);
-    }
-
-    .veh-capacity {
-      font-size: 0.74rem;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
-
-    .veh-bottom-row {
-      padding-top: 10px;
-      border-top: 1px solid rgba(48, 54, 61, 0.6);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.74rem;
-    }
-
-    .veh-price {
-      font-weight: 700;
-      color: var(--brand-gold);
-    }
-
-    .route-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      margin-bottom: 28px;
-    }
-
-    @media (min-width: 640px) {
-      .route-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .field-lbl {
-      display: block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--text-light);
-      margin-bottom: 6px;
-    }
-
-    .select-input {
-      width: 100%;
-      height: 48px;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 0 14px;
-      color: var(--text-cream);
-      font-size: 0.88rem;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    .select-input:focus {
-      border-color: var(--brand-gold);
-    }
-
-    .urgency-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-bottom: 28px;
-    }
-
-    .urgency-btn {
-      background: #12161D;
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 12px 6px;
-      text-align: center;
-      cursor: pointer;
-      color: var(--text-muted);
-      transition: all 0.2s;
-    }
-
-    .urgency-btn.active {
-      background: var(--bg-surface);
-      border-color: var(--brand-gold);
-      color: var(--text-cream);
-    }
-
-    .urgency-btn strong {
-      display: block;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    .urgency-btn span {
-      display: block;
-      font-size: 0.65rem;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-
-    .result-box {
-      background: linear-gradient(135deg, #21262D 0%, #12161D 100%);
-      border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    @media (min-width: 900px) {
-      .result-box {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-      }
-    }
-
-    .res-label {
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--brand-gold);
-    }
-
-    .res-price-wrap {
-      display: flex;
-      align-items: baseline;
-      gap: 6px;
-      margin-top: 4px;
-      flex-wrap: wrap;
-    }
-
-    .res-price {
-      font-family: 'Fraunces', serif;
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--text-cream);
-      font-variant-numeric: tabular-nums;
-    }
-
-    .res-ht {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-    }
-
-    .res-ttc {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-left: 4px;
-    }
-
-    .res-veh-info {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      margin-top: 6px;
-    }
-
-    .res-veh-info strong {
-      color: var(--text-cream);
-    }
-
-    .res-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      width: 100%;
-    }
-
-    @media (min-width: 640px) {
-      .res-actions {
-        flex-direction: row;
-        width: auto;
-      }
-    }
-
-    .btn-action-sms {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-cream);
-      font-size: 0.82rem;
-      font-weight: 600;
-      height: 48px;
-      padding: 0 16px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      white-space: nowrap;
-    }
-
-    .btn-action-sms:hover {
-      background: #2D333B;
-    }
-
-    .btn-action-call {
-      background: var(--brand-gold);
-      color: #0D1117;
-      font-size: 0.82rem;
-      font-weight: 700;
-      height: 48px;
+      border-radius: 10px;
+      transition: background 0.2s ease, transform 0.1s ease;
+      font-size: 0.85rem;
       padding: 0 18px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      white-space: nowrap;
-      box-shadow: 0 4px 12px rgba(212, 168, 67, 0.2);
-    }
-
-    .btn-action-call:hover {
-      background: var(--brand-gold-light);
-    }
-
-    .btn-action-quote {
-      background: #12161D;
-      border: 1px solid var(--border-subtle);
-      color: var(--text-light);
-      font-size: 0.82rem;
-      font-weight: 600;
-      height: 48px;
-      padding: 0 16px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      white-space: nowrap;
-      cursor: pointer;
-    }
-
-    .btn-action-quote:hover {
-      border-color: var(--brand-gold);
-      color: var(--brand-gold);
-    }
-
-    /* =========================================================
-       6. SECTION FLOTTE & CAPACITÉS
-       ========================================================= */
-    .fleet-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
-    @media (min-width: 640px) {
-      .fleet-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .fleet-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .fleet-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .fleet-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 14px;
-    }
-
-    .fleet-icon-box {
-      width: 44px;
       height: 44px;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--brand-gold);
+    }
+    .btn-devis:hover, .btn-contact:hover, .hero-btn-primary:hover, .btn-action-gold:hover {
+      background: var(--brand-gold-hover);
     }
 
-    .fleet-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--text-cream);
-    }
+    /* Grille de Prestations */
+    .section-wrap { padding: 48px 0; border-bottom: 1px solid var(--border-subtle); }
+    .section-kicker { font-size: 0.75rem; font-weight: 700; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+    .section-title { font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 12px; }
+    .section-desc { font-size: 0.88rem; color: var(--text-body); margin-bottom: 24px; max-width: 600px; }
 
-    .fleet-specs {
-      margin-top: 14px;
-      padding-top: 12px;
-      border-top: 1px solid var(--border-subtle);
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      font-size: 0.75rem;
-    }
-
-    .fleet-spec-row {
-      display: flex;
-      justify-content: space-between;
-      color: var(--text-light);
-    }
-
-    .fleet-spec-row span:first-child {
-      color: var(--text-muted);
-    }
-
-    .fleet-ideal-title {
-      font-size: 0.68rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--text-muted);
-      margin-top: 14px;
-      margin-bottom: 6px;
-    }
-
-    .fleet-ideal-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      font-size: 0.72rem;
-      color: var(--text-light);
-    }
-
-    .fleet-ideal-list li {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .fleet-ideal-list li::before {
-      content: '✓';
-      color: var(--brand-gold);
-      font-weight: 700;
-    }
-
-    .fleet-cta-btn {
-      width: 100%;
-      height: 40px;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: 10px;
-      color: var(--text-cream);
-      font-size: 0.78rem;
-      font-weight: 600;
-      margin-top: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      cursor: pointer;
-      transition: background 0.2s, border-color 0.2s;
-    }
-
-    .fleet-cta-btn:hover {
-      border-color: var(--brand-gold);
-      color: var(--brand-gold);
-    }
-
-    /* =========================================================
-       7. SECTION SERVICES (SELECTIONNABLES)
-       ========================================================= */
     .services-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 16px;
     }
-
-    @media (min-width: 768px) {
-      .services-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
+    @media (min-width: 640px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
 
     .service-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      cursor: pointer;
-      transition: all 0.2s ease-in-out;
-    }
-
-    .service-card:hover, .service-card.active-service {
-      border-color: var(--brand-gold);
-      box-shadow: 0 0 16px rgba(212, 168, 67, 0.18);
-    }
-
-    .service-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-    }
-
-    .service-num {
-      font-size: 0.72rem;
-      color: var(--brand-gold);
-      font-family: monospace;
-      font-weight: 700;
-    }
-
-    .service-delay {
-      font-size: 0.72rem;
-      background: rgba(63, 185, 80, 0.15);
-      color: #3fb950;
-      border: 1px solid rgba(63, 185, 80, 0.3);
-      padding: 2px 8px;
-      border-radius: 6px;
-      font-weight: 600;
-    }
-
-    .service-title {
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--text-cream);
-      margin-bottom: 8px;
-    }
-
-    .service-desc {
-      font-size: 0.84rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .service-foot {
-      margin-top: 20px;
-      padding-top: 14px;
-      border-top: 1px solid var(--border-subtle);
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .service-foot a {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--brand-gold);
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    /* =========================================================
-       8. SECTION ZONES IDF
-       ========================================================= */
-    .dept-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    @media (min-width: 640px) {
-      .dept-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .dept-card {
-      background: #12161D;
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 12px;
-      text-align: left;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .dept-card.active {
       background: var(--bg-surface);
-      border-color: var(--brand-gold);
-      box-shadow: 0 0 0 1px var(--brand-gold);
-    }
-
-    .dept-code {
-      font-family: 'Fraunces', serif;
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--text-cream);
-    }
-
-    .dept-name {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      margin-top: 2px;
-    }
-
-    .dept-focus-box {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      padding: 16px 20px;
-      border-radius: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    @media (min-width: 640px) {
-      .dept-focus-box {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-      }
-    }
-
-    /* =========================================================
-       9. SECTION AVIS CLIENTS (4.9 / 5)
-       ========================================================= */
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
-    @media (min-width: 768px) {
-      .reviews-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    .review-card {
-      background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: 16px;
       padding: 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-    }
-
-    .review-stars {
-      color: var(--brand-gold);
-      font-size: 0.85rem;
-      margin-bottom: 8px;
-    }
-
-    .review-text {
-      font-size: 0.82rem;
-      color: var(--text-light);
-      line-height: 1.6;
-      font-style: italic;
-    }
-
-    .review-author {
-      margin-top: 16px;
-      padding-top: 12px;
-      border-top: 1px solid var(--border-subtle);
-    }
-
-    .review-name {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-cream);
-    }
-
-    .review-role {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-
-    /* =========================================================
-       10. SECTION FAQ ACCORDÉON
-       ========================================================= */
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .faq-item {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      overflow: hidden;
-    }
-
-    .faq-question {
-      width: 100%;
-      padding: 16px 20px;
-      background: none;
-      border: none;
-      color: var(--text-cream);
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-align: left;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
+      transition: all 0.2s ease;
     }
-
-    .faq-chevron {
-      color: var(--text-muted);
-      font-size: 1.2rem;
-      transition: transform 0.2s;
+    .service-card:hover {
+      border-color: var(--brand-gold);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.04);
     }
+    .service-icon { font-size: 1.5rem; margin-bottom: 12px; }
+    .service-title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; }
+    .service-desc { font-size: 0.8rem; color: var(--text-body); line-height: 1.4; }
+    .service-link { font-size: 0.75rem; font-weight: 700; color: var(--brand-gold); margin-top: 14px; display: inline-block; }
 
-    .faq-item.open .faq-chevron {
-      transform: rotate(180deg);
-      color: var(--brand-gold);
-    }
-
-    .faq-answer {
-      display: none;
-      padding: 0 20px 16px;
-      color: var(--text-muted);
-      font-size: 0.82rem;
-      line-height: 1.6;
-      border-top: 1px solid var(--border-subtle);
-      margin-top: 4px;
-      padding-top: 12px;
-    }
-
-    .faq-item.open .faq-answer {
-      display: block;
-    }
-
-    /* =========================================================
-       11. SECTION DEVIS RAPIDE (FORMULAIRE DE DEVIS)
-       ========================================================= */
-    .form-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 20px;
-      padding: 24px;
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    @media (min-width: 640px) {
-      .form-box {
-        padding: 36px;
-      }
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-
-    @media (min-width: 640px) {
-      .form-row {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .input-field, .textarea-field {
-      width: 100%;
+    /* Formulaire & Simulateur */
+    .calc-card {
       background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 12px 14px;
-      color: var(--text-cream);
-      font-size: 16px;
-      outline: none;
-      transition: border-color 0.2s;
+      border-radius: 18px;
+      padding: 24px;
     }
+    .form-grid-2 { display: grid; grid-template-columns: 1fr; gap: 14px; margin-bottom: 14px; }
+    @media (min-width: 640px) { .form-grid-2 { grid-template-columns: 1fr 1fr; } }
 
-    .input-field:focus, .textarea-field:focus {
-      border-color: var(--brand-gold);
-    }
-
-    .textarea-field {
-      resize: vertical;
-      min-height: 90px;
-    }
-
-    /* =========================================================
-       12. SECTION CONTACT & COORDONNÉES
-       ========================================================= */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      margin-bottom: 40px;
-    }
-
-    @media (min-width: 640px) {
-      .contact-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .contact-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .contact-card {
-      background: var(--bg-card);
+    .form-label { display: block; font-size: 0.75rem; font-weight: 700; color: var(--text-body); margin-bottom: 4px; text-transform: uppercase; }
+    .select-input, .input-field, .textarea-field {
+      width: 100%;
+      height: 44px;
+      padding: 0 12px;
       border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      padding: 18px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      background: #FFFFFF;
+      outline: none;
+      font-family: inherit;
     }
+    .textarea-field { height: 80px; padding: 10px; resize: vertical; }
+    .select-input:focus, .input-field:focus, .textarea-field:focus { border-color: var(--brand-gold); }
 
-    .contact-label {
-      font-size: 0.68rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--brand-gold);
-      margin-bottom: 6px;
-    }
+    .custom-service-box { display: none; margin-top: 10px; }
+    .custom-service-box.show { display: block; }
 
-    .contact-value {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--text-cream);
-    }
-
-    .contact-sub {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
-
-    footer {
-      background: #12161D;
-      border-top: 1px solid var(--border-subtle);
-      padding: 48px 0 90px;
-      color: var(--text-muted);
-      font-size: 0.8rem;
-    }
-
-    @media (min-width: 900px) {
-      footer {
-        padding-bottom: 48px;
-      }
-    }
-
-    /* =========================================================
-       13. BARRE DE NAVIGATION AU POUCE (SMARTPHONE)
-       ========================================================= */
-    .mobile-bottom-nav {
-      display: flex;
+    /* Barre tactile mobile inférieure */
+    .mobile-bottom-bar {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
-      z-index: 999;
-      background: rgba(13, 17, 23, 0.96);
-      backdrop-filter: blur(12px);
-      border-top: 1px solid var(--border-subtle);
       height: 60px;
+      background: rgba(250, 248, 245, 0.98);
+      border-top: 1px solid var(--border-subtle);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       align-items: center;
-      justify-content: space-around;
-      padding-bottom: env(safe-area-inset-bottom, 0px);
+      z-index: 999;
     }
-
-    @media (min-width: 992px) {
-      .mobile-bottom-nav {
-        display: none;
-      }
-    }
-
-    .mob-nav-btn {
-      background: none;
-      border: none;
-      color: var(--text-muted);
+    @media (min-width: 768px) { .mobile-bottom-bar { display: none; } }
+    .mob-tab {
       display: flex;
       flex-direction: column;
       align-items: center;
-      font-size: 0.68rem;
-      font-weight: 500;
-      gap: 3px;
-      cursor: pointer;
-      min-width: 54px;
-      min-height: 44px;
-      justify-content: center;
-    }
-
-    .mob-nav-btn.active {
-      color: var(--brand-gold) !important;
-      font-weight: 700;
-    }
-
-    .mob-center-call {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--brand-gold);
-      color: #0D1117;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 14px rgba(212, 168, 67, 0.4);
-      margin-top: -16px;
-      border: 2px solid var(--bg-dark);
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.65rem;
+      font-weight: 600;
     }
   </style>
 </head>
 <body>
 
-  <!-- =========================================================
-       EN-TÊTE FIXE AU SOMMET (RESTE EN HAUT À TOUT MOMENT)
-       ========================================================= -->
+  <!-- HEADER -->
   <div class="fixed-header-wrapper">
-    <!-- Micro-barre supérieure -->
     <div class="top-announcement">
-      <div class="live-indicator">
-        <div class="live-dot"></div>
-        <span>Répartiteurs actifs 24h/24 — Paris & Île-de-France</span>
-      </div>
-      <div style="font-weight: 600; color: var(--text-light);">
-        Prise en charge &lt; 20 min
-      </div>
+      <div><strong>TouteSolution</strong> — Prestations logistiques & assistance aux professionnels</div>
+      <div>24h/24 & 7j/7</div>
     </div>
-
-    <!-- Header & Menu de Navigation -->
-    <header>
-      <div class="container header-content">
-        <a href="#" class="brand-logo font-display">Toute<span>Solution</span></a>
-        
-        <!-- Navigation Desktop : Services, Véhicules, Départements IDF, Calculateur, Devis, FAQ, etc. -->
-        <nav class="nav-links" id="main-nav-links">
-          <a href="#services" id="nav-services" class="active" onclick="handleNavClick('services')">Services</a>
-          <a href="#flotte" id="nav-flotte" onclick="handleNavClick('flotte')">Véhicules</a>
-          <a href="#zones" id="nav-zones" onclick="handleNavClick('zones')">Départements IDF</a>
-          <a href="#estimateur" id="nav-estimateur" onclick="handleNavClick('estimateur')">Calculateur Prix</a>
-          <a href="#devis-section" id="nav-devis-section" onclick="handleNavClick('devis-section')">Devis</a>
-          <a href="#faq" id="nav-faq" onclick="handleNavClick('faq')">FAQ</a>
-          <a href="#avis" id="nav-avis" onclick="handleNavClick('avis')">Avis Clients</a>
-          <a href="#contact" id="nav-contact" onclick="handleNavClick('contact')">Contact</a>
-        </nav>
-
-        <div class="header-actions">
-          <a href="tel:0774800964" class="btn-phone-header" title="Appeler directement">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-            </svg>
-            <span>07 74 80 09 64</span>
-          </a>
-          <button class="burger-btn" onclick="toggleMobileMenu()" aria-label="Menu">
-            <div class="burger-line"></div>
-            <div class="burger-line"></div>
-            <div class="burger-line"></div>
-          </button>
-        </div>
-      </div>
-    </header>
-
-    <!-- Menu déroulant pour smartphone (Plein écran sous le header) -->
-    <div class="mobile-menu-drawer" id="mobile-menu-drawer">
-      <a href="#services" id="mob-drawer-services" class="active" onclick="handleNavClick('services')">Services Pro <span>→</span></a>
-      <a href="#flotte" id="mob-drawer-flotte" onclick="handleNavClick('flotte')">Véhicules & Flotte <span>→</span></a>
-      <a href="#zones" id="mob-drawer-zones" onclick="handleNavClick('zones')">Départements IDF <span>→</span></a>
-      <a href="#estimateur" id="mob-drawer-estimateur" onclick="handleNavClick('estimateur')">Calculateur Prix <span>→</span></a>
-      <a href="#devis-section" id="mob-drawer-devis-section" onclick="handleNavClick('devis-section')">Demander un Devis <span>→</span></a>
-      <a href="#faq" id="mob-drawer-faq" onclick="handleNavClick('faq')">Questions Fréquentes <span>→</span></a>
-      <a href="#avis" id="mob-drawer-avis" onclick="handleNavClick('avis')">Avis Clients (4.9/5) <span>→</span></a>
-      <a href="#contact" id="mob-drawer-contact" onclick="handleNavClick('contact')">Contact & Permanence <span>→</span></a>
-      <div style="padding-top: 8px; border-top: 1px solid var(--border-subtle); margin-top: 4px;">
-        <a href="tel:0774800964" class="btn-drawer-phone">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-          </svg>
-          <span>Appel direct : 07 74 80 09 64</span>
-        </a>
-      </div>
+    <div class="container header-content">
+      <a href="#" class="brand-logo">
+        <div class="brand-name">Toute<span>Solution</span></div>
+        <span class="brand-sub">Prestations logistiques & assistance aux professionnels</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#services" class="nav-link">Prestations</a>
+        <a href="#devis" class="nav-link">Devis</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      <a href="tel:0774800964" class="btn-action-gold">📞 07 74 80 09 64</a>
     </div>
   </div>
 
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="container">
-      <div class="hero-badge">
-        <span style="color: var(--brand-gold);">●</span>
-        <span>Départ immédiat — Paris & tous départements IDF</span>
-      </div>
-      <h1 class="hero-title font-display">
-        Votre coursier express et transporteur pro, <em>à votre porte en 15 minutes.</em>
-      </h1>
-      <p class="hero-desc">
-        Livraison urgente de plis confidentiels, colis fragiles et fret volumineux. 
-        Flotte du 2-roues au camion avec hayon. Opérationnel <strong>24h/24 et 7j/7</strong> sans interruption.
-      </p>
-      <div class="hero-actions">
-        <a href="#estimateur" class="btn-primary" onclick="handleNavClick('estimateur')">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg>
-          <span>Calculer mon tarif instantané</span>
-        </a>
-        <a href="tel:0774800964" class="btn-secondary">
-          <svg width="18" height="18" fill="var(--brand-gold)" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg>
-          <span>Appel direct 24/7</span>
-        </a>
-      </div>
-
-      <div class="hero-stats-row">
-        <div class="stat-item">
-          <div class="stat-val">&lt; 20 min</div>
-          <div class="stat-lbl">Prise en charge Paris</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-val">24h/24 — 7j/7</div>
-          <div class="stat-lbl">Nuit & jours fériés</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-val">Marchandises assurées</div>
-          <div class="stat-lbl">Tous risques professionnels</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-val">75 / 92 / 93 / 94</div>
-          <div class="stat-lbl">Toute l’Île-de-France</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 1 : Prestations & Services (SÉLECTIONNABLES ET INTERACTIFS) -->
+  <!-- SECTION PRESTATIONS (Sans numéros, descriptions concises) -->
   <section class="section-wrap" id="services">
     <div class="container">
-      <div class="section-header">
-        <div class="section-kicker">Prestations Professionnelles</div>
-        <h2 class="section-title font-display">Des solutions sur-mesure à Paris</h2>
-        <p class="section-desc">Cliquez sur un service pour l'activer et estimer son coût immédiat :</p>
-      </div>
+      <div class="section-kicker">Prestations</div>
+      <h2 class="section-title">Prestations logistiques & assistance aux professionnels</h2>
+      <p class="section-desc">Solutions opérationnelles et réactives pour entreprises, conciergeries et événements :</p>
 
       <div class="services-grid">
-        <!-- Service 1 -->
-        <div class="service-card" id="service-card-1" onclick="selectServiceCard(1, 'moto2')">
+        <div class="service-card" onclick="selectServiceInForm('Courses et achats pour entreprises')">
           <div>
-            <div class="service-head">
-              <span class="service-num">SERVICE 01</span>
-              <span class="service-delay">15 à 30 min chrono</span>
-            </div>
-            <h3 class="service-title font-display">Course Express & Plis Urgents</h3>
-            <p class="service-desc">Remise en main propre contre signature immédiate de contrats, dossiers juridiques ou clés sous scellé. Acheminement direct sans détour.</p>
+            <div class="service-icon">🛍️</div>
+            <h3 class="service-title">Courses et achats pour entreprises</h3>
+            <p class="service-desc">Approvisionnements urgents, achats professionnels et récupération express de commandes.</p>
           </div>
-          <div class="service-foot">
-            <a href="#estimateur" onclick="selectVehicleAndScroll('moto2')">Estimer ce service &rarr;</a>
-          </div>
+          <span class="service-link">Demander cette prestation &rarr;</span>
         </div>
 
-        <!-- Service 2 -->
-        <div class="service-card" id="service-card-2" onclick="selectServiceCard(2, 'voiture')">
+        <div class="service-card" onclick="selectServiceInForm('Assistance logistique')">
           <div>
-            <div class="service-head">
-              <span class="service-num">SERVICE 02</span>
-              <span class="service-delay">Sur créneau fixe ou immédiat</span>
-            </div>
-            <h3 class="service-title font-display">Transport Fret & Matériel Fragile</h3>
-            <p class="service-desc">Acheminement sécurisé d’écrans, serveurs, pièces mécaniques, mobilier de designer ou échantillons de mode avec arrimage soigné.</p>
+            <div class="service-icon">🚚</div>
+            <h3 class="service-title">Assistance logistique</h3>
+            <p class="service-desc">Renfort opérationnel sur site, régulation de flux et coordination logistique 24/7.</p>
           </div>
-          <div class="service-foot">
-            <a href="#estimateur" onclick="selectVehicleAndScroll('voiture')">Estimer ce service &rarr;</a>
-          </div>
+          <span class="service-link">Demander cette prestation &rarr;</span>
         </div>
 
-        <!-- Service 3 -->
-        <div class="service-card" id="service-card-3" onclick="selectServiceCard(3, 'camion12')">
+        <div class="service-card" onclick="selectServiceInForm('Aide aux hôtels et événements')">
           <div>
-            <div class="service-head">
-              <span class="service-num">SERVICE 03</span>
-              <span class="service-delay">7j/7 sur réservation</span>
-            </div>
-            <h3 class="service-title font-display">Petit Déménagement & Bureaux</h3>
-            <p class="service-desc">Formule clé en main pour déménagement de studio, 2 pièces ou transfert d’équipements avec matériel de protection.</p>
+            <div class="service-icon">🏨</div>
+            <h3 class="service-title">Aide aux hôtels et événements</h3>
+            <p class="service-desc">Appui logistique pour établissements hôteliers, salons, réceptions et événements.</p>
           </div>
-          <div class="service-foot">
-            <a href="#estimateur" onclick="selectVehicleAndScroll('camion12')">Estimer ce service &rarr;</a>
-          </div>
+          <span class="service-link">Demander cette prestation &rarr;</span>
         </div>
 
-        <!-- Service 4 -->
-        <div class="service-card" id="service-card-4" onclick="selectServiceCard(4, 'moto2')">
+        <div class="service-card" onclick="selectServiceInForm('Montage / démontage')">
           <div>
-            <div class="service-head">
-              <span class="service-num">SERVICE 04</span>
-              <span class="service-delay">Intervention nocturne immédiate</span>
-            </div>
-            <h3 class="service-title font-display">Permanence Nuit & Urgence 24h/24</h3>
-            <p class="service-desc">Disponibilité absolue 365 jours par an. Un régulateur dédié prend votre appel de nuit pour les urgences médicales ou dépannages d'astreinte.</p>
+            <div class="service-icon">🔧</div>
+            <h3 class="service-title">Montage / démontage</h3>
+            <p class="service-desc">Assemblage et démontage de mobilier professionnel, cloisons, stands et structures.</p>
           </div>
-          <div class="service-foot">
-            <a href="#estimateur" onclick="selectVehicleAndScroll('moto2')">Estimer ce service &rarr;</a>
+          <span class="service-link">Demander cette prestation &rarr;</span>
+        </div>
+
+        <div class="service-card" onclick="selectServiceInForm('Manutention')">
+          <div>
+            <div class="service-icon">📦</div>
+            <h3 class="service-title">Manutention</h3>
+            <p class="service-desc">Portage et déplacement de charges avec matériel pro (diables, chariots, sangles).</p>
           </div>
+          <span class="service-link">Demander cette prestation &rarr;</span>
+        </div>
+
+        <div class="service-card" onclick="selectServiceInForm('Installation et rangement')">
+          <div>
+            <div class="service-icon">📐</div>
+            <h3 class="service-title">Installation et rangement</h3>
+            <p class="service-desc">Mise en place d’espaces de travail, agencement de salles et rangement soigné.</p>
+          </div>
+          <span class="service-link">Demander cette prestation &rarr;</span>
+        </div>
+
+        <div class="service-card" onclick="selectServiceInForm('Autre')">
+          <div>
+            <div class="service-icon">✨</div>
+            <h3 class="service-title">Autre prestation sur-mesure</h3>
+            <p class="service-desc">Un besoin spécifique ? Précisez votre demande pour un accompagnement dédié.</p>
+          </div>
+          <span class="service-link">Demander un devis &rarr;</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Section 2 : Flotte & Véhicules Détaillée -->
-  <section class="section-wrap" id="flotte">
+  <!-- SECTION DEVIS RAPIDE (Avec option Autre + Contact même couleur) -->
+  <section class="section-wrap" id="devis">
     <div class="container">
-      <div class="section-header">
-        <div class="section-kicker">Capacités & Flotte</div>
-        <h2 class="section-title font-display">Un véhicule adapté à chaque volume</h2>
-        <p class="section-desc">Des deux-roues ultra-agiles pour fendre la circulation parisienne aux grands camions 20m³ capitonnés.</p>
+      <div style="text-align: center; margin-bottom: 24px;">
+        <div class="section-kicker">Devis & Réservation</div>
+        <h2 class="section-title">Demandez votre devis d'intervention</h2>
+        <p class="section-desc" style="margin: 0 auto;">Confirmation sous 15 minutes par notre équipe de régulation.</p>
       </div>
 
-      <div class="fleet-grid">
-        <!-- Carte Flotte 1 : Moto -->
-        <div class="fleet-card">
-          <div>
-            <div class="fleet-head">
-              <div class="fleet-icon-box">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="18.5" cy="17.5" r="3.5"/><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="15" cy="5" r="1"/><path d="M12 17.5V14l-3-3 4-3 2 3h2"/></svg>
-              </div>
-              <span class="veh-badge on-demand">Disponible sur demande</span>
-            </div>
-            <h3 class="fleet-title">2 Roues / Moto Express</h3>
-            <div class="fleet-specs">
-              <div class="fleet-spec-row"><span>Charge utile :</span> <strong>Jusqu'à 8 kg</strong></div>
-              <div class="fleet-spec-row"><span>Volume :</span> <strong>Top-case 50L</strong></div>
-              <div class="fleet-spec-row"><span>Délai Paris :</span> <strong style="color: var(--success);">15 à 25 min</strong></div>
-            </div>
-            <div class="fleet-ideal-title">Idéal pour :</div>
-            <ul class="fleet-ideal-list">
-              <li>Plis confidentiels & contrats</li>
-              <li>Clés et badges d'accès urgents</li>
-              <li>Prélèvements et petits échantillons</li>
-            </ul>
-          </div>
-          <button class="fleet-cta-btn" onclick="selectVehicleAndScroll('moto2')">
-            <span>Estimer ce véhicule &rarr;</span>
-          </button>
-        </div>
-
-        <!-- Carte Flotte 2 : Voiture Break -->
-        <div class="fleet-card">
-          <div>
-            <div class="fleet-head">
-              <div class="fleet-icon-box">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
-              </div>
-              <span class="veh-badge available">Disponible 24/7</span>
-            </div>
-            <h3 class="fleet-title">Voiture / Break</h3>
-            <div class="fleet-specs">
-              <div class="fleet-spec-row"><span>Charge utile :</span> <strong>Jusqu'à 150 kg</strong></div>
-              <div class="fleet-spec-row"><span>Volume :</span> <strong>Coffre break 1,2 m³</strong></div>
-              <div class="fleet-spec-row"><span>Délai Paris :</span> <strong style="color: var(--success);">25 à 40 min</strong></div>
-            </div>
-            <div class="fleet-ideal-title">Idéal pour :</div>
-            <ul class="fleet-ideal-list">
-              <li>Cartons d'archives & dossiers</li>
-              <li>Matériel informatique fragile</li>
-              <li>Bagages et valises volumineuses</li>
-            </ul>
-          </div>
-          <button class="fleet-cta-btn" onclick="selectVehicleAndScroll('voiture')">
-            <span>Estimer ce véhicule &rarr;</span>
-          </button>
-        </div>
-
-        <!-- Carte Flotte 3 : Utilitaire 12m3 -->
-        <div class="fleet-card">
-          <div>
-            <div class="fleet-head">
-              <div class="fleet-icon-box">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-              </div>
-              <span class="veh-badge available">Disponible 24/7</span>
-            </div>
-            <h3 class="fleet-title">Utilitaire 12 m³</h3>
-            <div class="fleet-specs">
-              <div class="fleet-spec-row"><span>Charge utile :</span> <strong>Jusqu'à 850 kg</strong></div>
-              <div class="fleet-spec-row"><span>Volume :</span> <strong>12 m³ (2 palettes)</strong></div>
-              <div class="fleet-spec-row"><span>Délai Paris :</span> <strong style="color: var(--success);">30 à 50 min</strong></div>
-            </div>
-            <div class="fleet-ideal-title">Idéal pour :</div>
-            <ul class="fleet-ideal-list">
-              <li>Mobilier & électroménager</li>
-              <li>Matériel salon & événementiel</li>
-              <li>Petits déménagements studio</li>
-            </ul>
-          </div>
-          <button class="fleet-cta-btn" onclick="selectVehicleAndScroll('camion12')">
-            <span>Estimer ce véhicule &rarr;</span>
-          </button>
-        </div>
-
-        <!-- Carte Flotte 4 : Camion 20m3 -->
-        <div class="fleet-card">
-          <div>
-            <div class="fleet-head">
-              <div class="fleet-icon-box">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-5l-3-4h-5v10h1"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
-              </div>
-              <span class="veh-badge soon">Bientôt disponible</span>
-            </div>
-            <h3 class="fleet-title">Grand Volume 20 m³</h3>
-            <div class="fleet-specs">
-              <div class="fleet-spec-row"><span>Charge utile :</span> <strong>Jusqu'à 1 200 kg</strong></div>
-              <div class="fleet-spec-row"><span>Volume :</span> <strong>20 m³ avec Hayon</strong></div>
-              <div class="fleet-spec-row"><span>Statut :</span> <strong style="color: var(--text-muted);">Bientôt disponible</strong></div>
-            </div>
-            <div class="fleet-ideal-title">Idéal pour :</div>
-            <ul class="fleet-ideal-list">
-              <li>Déménagement complet d'appartement</li>
-              <li>Transfert de bureaux d'entreprise</li>
-              <li>Charges lourdes sur palettes</li>
-            </ul>
-          </div>
-          <button class="fleet-cta-btn" onclick="selectVehicleAndScroll('camion20')">
-            <span>Bientôt disponible</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 3 : Rayonnement Île-de-France -->
-  <section class="section-wrap" id="zones">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-kicker">Rayonnement Géographique</div>
-        <h2 class="section-title font-display">Paris et les 8 départements franciliens</h2>
-        <p class="section-desc">Cliquez sur un département pour afficher les délais d'arrivée et spécificités :</p>
-      </div>
-
-      <div class="dept-grid">
-        <div class="dept-card active" onclick="selectDept('75', 'Paris Intra-Muros', '15 - 30 min', 'Zone 1 (Paris)', 0, this)">
-          <div class="dept-code">75</div>
-          <div class="dept-name">Paris</div>
-        </div>
-        <div class="dept-card" onclick="selectDept('92', 'Hauts-de-Seine', '25 - 40 min', 'Zone 2 (Petite Couronne)', 20, this)">
-          <div class="dept-code">92</div>
-          <div class="dept-name">Hauts-de-Seine</div>
-        </div>
-        <div class="dept-card" onclick="selectDept('93', 'Seine-Saint-Denis', '25 - 45 min', 'Zone 2 (Petite Couronne)', 20, this)">
-          <div class="dept-code">93</div>
-          <div class="dept-name">Seine-Saint-Denis</div>
-        </div>
-        <div class="dept-card" onclick="selectDept('94', 'Val-de-Marne', '25 - 45 min', 'Zone 2 (Petite Couronne)', 20, this)">
-          <div class="dept-code">94</div>
-          <div class="dept-name">Val-de-Marne</div>
-        </div>
-        <div class="dept-card" onclick="selectDept('77', 'Seine-et-Marne', '45 - 75 min', 'Zone 3 (Grande Couronne)', 45, this)">
-          <div class="dept-code">77</div>
-          <div class="dept-name">Seine-et-Marne</div>
-        </div>
-        <div class="dept-card" onclick="selectDept('78', 'Yvelines', '40 - 70 min', 'Zone 3 (Grande Couronne)', 45, this)">
-          <div class="dept-code">78</div>
-          <div class="dept-name">Yvelines</div>
-        </div>
-        <div class="dept-card" onclick="selectDept('91', 'Essonne', '40 - 70 min', 'Zone 3 (Grande Couronne)', 45, this)">
-          <div class="dept-code">91</div>
-          <div class="dept-name">Essonne</div>
-        </div>
-        <div class="dept-card" onclick="selectDept('95', 'Val-d\'Oise', '40 - 70 min', 'Zone 3 (Grande Couronne)', 45, this)">
-          <div class="dept-code">95</div>
-          <div class="dept-name">Val-d'Oise</div>
-        </div>
-      </div>
-
-      <div class="dept-focus-box" id="dept-focus">
-        <div>
-          <span style="font-size: 0.75rem; color: var(--brand-gold); font-weight: 700;" id="dept-zone-badge">Zone 1 (Paris)</span>
-          <div style="font-size: 1rem; font-weight: 600; color: var(--text-cream); margin-top: 2px;" id="dept-full-name">75 — Paris Intra-Muros</div>
-          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">
-            Délai d’arrivée moyen sur place : <strong style="color: var(--text-cream);" id="dept-delay">15 - 30 min</strong>
-          </div>
-        </div>
-        <div style="font-size: 0.85rem; color: var(--text-muted);">
-          Majoration transit : <strong style="color: var(--text-cream);" id="dept-surcharge">Inclus (0 €)</strong>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 4 : Simulateur de Tarif en Direct -->
-  <section class="section-wrap" id="estimateur">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-kicker">Simulateur Instantané</div>
-        <h2 class="section-title font-display">Estimez le tarif de votre course en 3 clics</h2>
-        <p class="section-desc">Calcul en temps réel selon le véhicule sélectionné, le trajet et l'urgence.</p>
-      </div>
-
-      <div class="calc-card">
-        <!-- Étape 1 : Choix du véhicule -->
-        <span class="step-label">1. Choisissez votre véhicule</span>
-        <div class="vehicle-grid">
-          <!-- 1 : Moto -->
-          <div class="veh-btn active" data-veh="moto2" onclick="selectVehicle('moto2')">
-            <div>
-              <div class="veh-top-row">
-                <div class="veh-name">2 Roues / Moto</div>
-                <span class="veh-badge on-demand">Disponible sur demande</span>
-              </div>
-              <div class="veh-capacity">Jusqu'à 8 kg · Plis & contrats</div>
-            </div>
-            <div class="veh-bottom-row">
-              <span style="color: var(--text-muted);">Tarif de base :</span>
-              <span class="veh-price">Dès 35 € HT</span>
-            </div>
-          </div>
-
-          <!-- 2 : Voiture Break -->
-          <div class="veh-btn" data-veh="voiture" onclick="selectVehicle('voiture')">
-            <div>
-              <div class="veh-top-row">
-                <div class="veh-name">Voiture / Break</div>
-                <span class="veh-badge available">Disponible 24/7</span>
-              </div>
-              <div class="veh-capacity">Jusqu'à 150 kg · Colis fragiles</div>
-            </div>
-            <div class="veh-bottom-row">
-              <span style="color: var(--text-muted);">Tarif de base :</span>
-              <span class="veh-price">Dès 55 € HT</span>
-            </div>
-          </div>
-
-          <!-- 3 : Utilitaire 12m3 -->
-          <div class="veh-btn" data-veh="camion12" onclick="selectVehicle('camion12')">
-            <div>
-              <div class="veh-top-row">
-                <div class="veh-name">Utilitaire 12 m³</div>
-                <span class="veh-badge available">Disponible 24/7</span>
-              </div>
-              <div class="veh-capacity">Jusqu'à 850 kg · 2 palettes</div>
-            </div>
-            <div class="veh-bottom-row">
-              <span style="color: var(--text-muted);">Tarif de base :</span>
-              <span class="veh-price">Dès 95 € HT</span>
-            </div>
-          </div>
-
-          <!-- 4 : Camion 20m3 -->
-          <div class="veh-btn" data-veh="camion20" onclick="selectVehicle('camion20')">
-            <div>
-              <div class="veh-top-row">
-                <div class="veh-name">Grand Volume 20 m³</div>
-                <span class="veh-badge soon">Bientôt disponible</span>
-              </div>
-              <div class="veh-capacity">Jusqu'à 1 200 kg avec Hayon</div>
-            </div>
-            <div class="veh-bottom-row">
-              <span style="color: var(--text-muted);">Statut :</span>
-              <span style="color: var(--text-muted);">Bientôt disponible</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Étape 2 : Trajet et Départements -->
-        <span class="step-label">2. Trajet & Départements</span>
-        <div class="route-grid">
-          <div>
-            <label class="field-lbl">Prise en charge (Enlèvement)</label>
-            <select class="select-input" id="pickup-select" onchange="calculateFare()">
-              <option value="75">75 — Paris Intra-Muros</option>
-              <option value="92">92 — Hauts-de-Seine</option>
-              <option value="93">93 — Seine-Saint-Denis</option>
-              <option value="94">94 — Val-de-Marne</option>
-              <option value="77">77 — Seine-et-Marne</option>
-              <option value="78">78 — Yvelines</option>
-              <option value="91">91 — Essonne</option>
-              <option value="95">95 — Val-d'Oise</option>
-              <option value="other">Autre région / National</option>
-            </select>
-          </div>
-          <div>
-            <label class="field-lbl">Livraison (Destination)</label>
-            <select class="select-input" id="delivery-select" onchange="calculateFare()">
-              <option value="75">75 — Paris Intra-Muros</option>
-              <option value="92">92 — Hauts-de-Seine</option>
-              <option value="93">93 — Seine-Saint-Denis</option>
-              <option value="94">94 — Val-de-Marne</option>
-              <option value="77">77 — Seine-et-Marne</option>
-              <option value="78">78 — Yvelines</option>
-              <option value="91">91 — Essonne</option>
-              <option value="95">95 — Val-d'Oise</option>
-              <option value="other">Autre région / National</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Étape 3 : Niveau d'urgence -->
-        <span class="step-label">3. Niveau d'urgence</span>
-        <div class="urgency-grid">
-          <div class="urgency-btn active" data-urgency="normal" onclick="selectUrgency('normal')">
-            <strong>Normal</strong>
-            <span>Dans la journée</span>
-          </div>
-          <div class="urgency-btn" data-urgency="urgent" onclick="selectUrgency('urgent')">
-            <strong>Urgent</strong>
-            <span>&lt; 2h (+30%)</span>
-          </div>
-          <div class="urgency-btn" data-urgency="super" onclick="selectUrgency('super')">
-            <strong style="color: var(--brand-gold);">Immédiat</strong>
-            <span>Flash (+60%)</span>
-          </div>
-        </div>
-
-        <!-- Boîte de Résultat avec Actions fluides -->
-        <div class="result-box">
-          <div>
-            <div class="res-label">Estimation indicative</div>
-            <div class="res-price-wrap">
-              <span class="res-price" id="calc-price-ht">35 €</span>
-              <span class="res-ht">HT</span>
-              <span class="res-ttc" id="calc-price-ttc">(soit 42 € TTC)</span>
-            </div>
-            <div class="res-veh-info" id="calc-summary-text">
-              Véhicule : <strong>2 Roues / Moto</strong> · Prise en charge estimée : <strong>15 à 25 min</strong>
-            </div>
-          </div>
-
-          <div class="res-actions">
-            <a href="#" id="sms-btn" class="btn-action-sms">
-              <svg width="16" height="16" fill="var(--brand-gold)" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 11H7V9h2v2zm4 0h-2V9h2v2zm4 0h-2V9h2v2z"/></svg>
-              <span>Commander par SMS</span>
-            </a>
-            <a href="tel:0774800964" class="btn-action-call">
-              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg>
-              <span>07 74 80 09 64</span>
-            </a>
-            <a href="#devis-section" class="btn-action-quote" onclick="handleNavClick('devis-section')">
-              <span>Demander un devis &rarr;</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 5 : Devis et Prise de Commande (ANCRE DÉDIÉE : #devis-section) -->
-  <section class="section-wrap" id="devis-section">
-    <div class="container">
-      <div class="section-header" style="text-align: center;">
-        <div class="section-kicker">Formulaire Rapide</div>
-        <h2 class="section-title font-display">Demandez un devis ou commandez</h2>
-        <p class="section-desc" style="margin: 6px auto;">Réponse et confirmation sous 15 minutes par notre répartiteur.</p>
-      </div>
-
-      <div class="form-box">
+      <div class="calc-card" style="max-width: 760px; margin: 0 auto;">
         <form action="https://formsubmit.co/Toutesolution.75@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="Nouvelle demande de course TouteSolution">
-          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="Demande d'intervention TouteSolution">
+          
+          <div style="margin-bottom: 14px;">
+            <label class="form-label">Prestation souhaitée *</label>
+            <select name="Prestation" id="form-service" class="select-input" onchange="checkFormService(this.value)">
+              <option value="Courses et achats pour entreprises">Courses et achats pour entreprises</option>
+              <option value="Assistance logistique">Assistance logistique</option>
+              <option value="Aide aux hôtels et événements">Aide aux hôtels et événements</option>
+              <option value="Montage / démontage">Montage / démontage</option>
+              <option value="Manutention">Manutention</option>
+              <option value="Installation et rangement">Installation et rangement</option>
+              <option value="Autre">Autre (sur-mesure)</option>
+            </select>
 
-          <div class="form-row">
-            <div>
-              <label class="field-lbl">Nom & Prénom *</label>
-              <input type="text" name="Nom" required class="input-field" placeholder="ex. Alexandre Mercier">
-            </div>
-            <div>
-              <label class="field-lbl">Numéro de Téléphone *</label>
-              <input type="tel" name="Telephone" required inputmode="tel" class="input-field" placeholder="06 .. .. .. ..">
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div>
-              <label class="field-lbl">Adresse d'enlèvement (Départ) *</label>
-              <input type="text" name="Depart" required class="input-field" placeholder="Adresse, code postal, ville">
-            </div>
-            <div>
-              <label class="field-lbl">Adresse de livraison (Arrivée) *</label>
-              <input type="text" name="Arrivee" required class="input-field" placeholder="Adresse, code postal, ville">
+            <div class="custom-service-box" id="form-custom-box">
+              <label class="form-label" style="color: var(--brand-gold); margin-top: 8px;">Précisez votre prestation *</label>
+              <input type="text" name="PrecisionAutre" id="form-custom-input" class="input-field" placeholder="Détaillez votre besoin particulier...">
             </div>
           </div>
 
-          <div style="margin-bottom: 16px;">
-            <label class="field-lbl">Précisions (étage, volume, créneau...)</label>
-            <textarea name="Details" class="textarea-field" placeholder="Ex : 2ème étage sans ascenseur, carton de 15 kg..."></textarea>
+          <div class="form-grid-2">
+            <div>
+              <label class="form-label">Nom & Prénom *</label>
+              <input type="text" name="Nom" required class="input-field" placeholder="Alexandre Mercier">
+            </div>
+            <div>
+              <label class="form-label">Société / Établissement (optionnel)</label>
+              <input type="text" name="Societe" class="input-field" placeholder="Société ou Établissement">
+            </div>
           </div>
 
-          <button type="submit" class="btn-primary" style="width: 100%; height: 52px;">
-            <span>Envoyer ma demande de devis</span>
-          </button>
+          <div class="form-grid-2">
+            <div>
+              <label class="form-label">Téléphone *</label>
+              <input type="tel" name="Telephone" required class="input-field" placeholder="06 .. .. .. ..">
+            </div>
+            <div>
+              <label class="form-label">E-mail *</label>
+              <input type="email" name="Email" required class="input-field" placeholder="contact@entreprise.fr">
+            </div>
+          </div>
+
+          <div style="margin-bottom: 18px;">
+            <label class="form-label">Précisions sur la mission (optionnel)</label>
+            <textarea name="Details" class="textarea-field" placeholder="Volume, contraintes d'accès ou horaires..."></textarea>
+          </div>
+
+          <!-- Boutons Devis et Contact : MÊME COULEUR -->
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <button type="submit" class="btn-devis" style="width: 100%;">
+              Envoyer ma demande de devis
+            </button>
+            <a href="tel:0774800964" class="btn-contact" style="width: 100%;">
+              📞 Contacter directement : 07 74 80 09 64
+            </a>
+          </div>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- Section 6 : Foire Aux Questions (FAQ Accordéon) -->
-  <section class="section-wrap" id="faq">
-    <div class="container">
-      <div class="section-header" style="text-align: center;">
-        <div class="section-kicker">Questions Fréquentes</div>
-        <h2 class="section-title font-display">Tout savoir avant de commander</h2>
-        <p class="section-desc" style="margin: 6px auto;">Les réponses à vos interrogations les plus courantes sur nos transports.</p>
-      </div>
-
-      <div class="faq-list">
-        <div class="faq-item open">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span>En combien de temps un coursier peut-il arriver à Paris ?</span>
-            <span class="faq-chevron">⌄</span>
-          </button>
-          <div class="faq-answer">
-            En moyenne sous 15 à 25 minutes dans Paris intra-muros pour les courses express. Pour les départs en banlieue ou les gros volumes utilitaires, comptez 30 à 45 minutes selon l'état du trafic.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span>Êtes-vous disponibles la nuit et le dimanche ?</span>
-            <span class="faq-chevron">⌄</span>
-          </button>
-          <div class="faq-answer">
-            Oui, notre centrale de régulation est opérationnelle 24h/24 et 7j/7 sans interruption. Une majoration horaire légale s'applique entre 22h et 06h ainsi que les dimanches et jours fériés.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span>Délivrez-vous une facture avec TVA déductible ?</span>
-            <span class="faq-chevron">⌄</span>
-          </button>
-          <div class="faq-answer">
-            Absolument. Dès la livraison effectuée, nous vous transmettons une facture détaillée mentionnant le taux de TVA en vigueur pour votre comptabilité d'entreprise.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            <span>Mes marchandises sont-elles assurées ?</span>
-            <span class="faq-chevron">⌄</span>
-          </button>
-          <div class="faq-answer">
-            Toutes nos courses et missions de transport bénéficient d'une assurance professionnelle tous risques couvrant la valeur intégrale de vos marchandises et biens confiés.
-          </div>
-        </div>
+  <!-- SECTION CONTACT (Même couleur) -->
+  <section class="section-wrap" id="contact" style="background: var(--bg-subtle);">
+    <div class="container" style="text-align: center;">
+      <div class="section-kicker">Contact Direct</div>
+      <h2 class="section-title">Permanence 24h/24 & 7j/7</h2>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 16px;">
+        <a href="tel:0774800964" class="btn-contact">📞 07 74 80 09 64</a>
+        <a href="mailto:Toutesolution.75@gmail.com" class="btn-contact">✉️ Toutesolution.75@gmail.com</a>
       </div>
     </div>
   </section>
 
-  <!-- Section 7 : Avis Clients (4.9 / 5) -->
-  <section class="section-wrap" id="avis">
-    <div class="container">
-      <div class="section-header" style="display: flex; flex-direction: column; gap: 8px;">
-        <div class="section-kicker">Retours d'Expérience</div>
-        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px;">
-          <h2 class="section-title font-display">La confiance de nos clients parisiens</h2>
-          <div style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: var(--brand-gold);">
-            <span>★★★★★</span>
-            <strong style="color: var(--text-cream);">4.9 / 5</strong>
-            <span style="color: var(--text-muted); font-size: 0.75rem;">(Plus de 350 courses / mois)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div>
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">« Nous faisons appel à TouteSolution pour le dépôt de conclusions d'urgence au tribunal. Ponctualité exemplaire, coursier courtois et accusé de réception immédiat. »</p>
-          </div>
-          <div class="review-author">
-            <div class="review-name">Cabinet Juridique V. & Associés</div>
-            <div class="review-role">Avocat au Barreau de Paris (75008)</div>
-          </div>
-        </div>
-
-        <div class="review-card">
-          <div>
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">« Livraison de maquettes et échantillons fragiles à Versailles en break. Tout est arrivé intact, suivi téléphonique très rassurant avec le répartiteur. »</p>
-          </div>
-          <div class="review-author">
-            <div class="review-name">Studio Design & Architecture</div>
-            <div class="review-role">Chef de projet événementiel (75003)</div>
-          </div>
-        </div>
-
-        <div class="review-card">
-          <div>
-            <div class="review-stars">★★★★★</div>
-            <p class="review-text">« Camion impeccable avec chauffeur très aidant pour le transport de meubles. Tarif transparent sans mauvaise surprise de dernière minute. Je recommande vivement ! »</p>
-          </div>
-          <div class="review-author">
-            <div class="review-name">Marc D.</div>
-            <div class="review-role">Transport volumineux (92 vers 75)</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 8 : Coordonnées & Contact (ANCRE DÉDIÉE : #contact) -->
-  <footer id="contact">
-    <div class="container">
-      <div class="section-header" style="margin-bottom: 24px;">
-        <div class="section-kicker">Nous Contacter</div>
-        <h2 class="section-title font-display" style="font-size: 1.8rem;">Coordonnées & Permanence 24/7</h2>
-      </div>
-
-      <div class="contact-grid">
-        <div class="contact-card">
-          <div class="contact-label">Ligne Directe 24/7</div>
-          <div class="contact-value"><a href="tel:0774800964" style="color: inherit;">07 74 80 09 64</a></div>
-          <div class="contact-sub">Appel vocal ou SMS direct</div>
-        </div>
-
-        <div class="contact-card">
-          <div class="contact-label">Adresse E-mail</div>
-          <div class="contact-value" style="font-size: 0.85rem;"><a href="mailto:Toutesolution.75@gmail.com" style="color: inherit;">Toutesolution.75@gmail.com</a></div>
-          <div class="contact-sub">Devis écrits & factures pros</div>
-        </div>
-
-        <div class="contact-card">
-          <div class="contact-label">Zone d'Intervention</div>
-          <div class="contact-value">Paris & Île-de-France</div>
-          <div class="contact-sub">Départ national sur devis</div>
-        </div>
-
-        <div class="contact-card">
-          <div class="contact-label">Disponibilité</div>
-          <div class="contact-value">24h/24 — 7j/7</div>
-          <div class="contact-sub">Astreinte nuit et week-ends</div>
-        </div>
-      </div>
-
-      <div style="display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--border-subtle); padding-top: 24px;">
-        <div class="brand-logo font-display">Toute<span>Solution</span></div>
-        <p style="max-width: 540px; line-height: 1.6;">
-          Service de coursiers et de transport professionnel en région parisienne. 
-          Licence Fret et Assurance Professionnelle Tous Risques.
-        </p>
-        <p style="margin-top: 8px; color: var(--border-light); font-size: 0.75rem;">
-          © 2026 TouteSolution — Tous droits réservés. Ligne directe : 07 74 80 09 64
-        </p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Barre de Navigation au Pouce (Smartphones Uniquement) -->
-  <nav class="mobile-bottom-nav">
-    <a href="#" class="mob-nav-btn active" id="mob-nav-home" onclick="handleNavClick('home')">
-      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-      <span>Accueil</span>
-    </a>
-    <a href="#estimateur" class="mob-nav-btn" id="mob-nav-estimateur" onclick="handleNavClick('estimateur')">
-      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg>
-      <span>Tarif</span>
-    </a>
-    <a href="tel:0774800964" class="mob-center-call" aria-label="Appeler">
-      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg>
-    </a>
-    <a href="#devis-section" class="mob-nav-btn" id="mob-nav-devis-section" onclick="handleNavClick('devis-section')">
-      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-      <span>Devis</span>
-    </a>
-    <a href="#contact" class="mob-nav-btn" id="mob-nav-contact" onclick="handleNavClick('contact')">
-      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      <span>Contact</span>
-    </a>
+  <!-- NAVIGATION MOBILE FIXE -->
+  <nav class="mobile-bottom-bar">
+    <a href="#" class="mob-tab"><span>🏠</span><span>Accueil</span></a>
+    <a href="#services" class="mob-tab"><span>💼</span><span>Prestations</span></a>
+    <a href="#devis" class="mob-tab"><span>📝</span><span>Devis</span></a>
+    <a href="tel:0774800964" class="mob-tab" style="color: var(--brand-gold);"><span>📞</span><span>Appel</span></a>
   </nav>
 
-  <!-- =========================================================
-       SCRIPTS JAVASCRIPT EMBARQUÉS COMPLETS
-       ========================================================= -->
   <script>
-    const tariffs = { moto2: 35, voiture: 55, camion12: 95, camion20: 160 };
-    const vehNames = {
-      moto2: "2 Roues / Moto",
-      voiture: "Voiture / Break",
-      camion12: "Utilitaire 12 m³",
-      camion20: "Grand Volume 20 m³"
-    };
-    const vehEtas = {
-      moto2: "15 à 25 min",
-      voiture: "25 à 40 min",
-      camion12: "30 à 50 min",
-      camion20: "Bientôt en circulation"
-    };
-    const deptZones = { "75": 1, "92": 2, "93": 2, "94": 2, "77": 3, "78": 3, "91": 3, "95": 3, "other": 4 };
-
-    let currentVehicle = 'moto2';
-    let currentUrgency = 'normal';
-    let isManualClick = false;
-
-    // GESTION DU CLIC : LA COULEUR ORANGE S'APPLIQUE DIRECTEMENT ET LA BARRE RESTE
-    function handleNavClick(sectionId) {
-      isManualClick = true;
-
-      // Retirer la surbrillance active de tous les liens
-      document.querySelectorAll('#main-nav-links a').forEach(a => a.classList.remove('active'));
-      document.querySelectorAll('#mobile-menu-drawer a').forEach(a => a.classList.remove('active'));
-      document.querySelectorAll('.mob-nav-btn').forEach(b => b.classList.remove('active'));
-
-      // Activer en orange vif le lien choisi
-      const targetNav = document.getElementById('nav-' + sectionId);
-      if (targetNav) targetNav.classList.add('active');
-
-      const targetDrawer = document.getElementById('mob-drawer-' + sectionId);
-      if (targetDrawer) targetDrawer.classList.add('active');
-
-      const targetMob = document.getElementById('mob-nav-' + sectionId);
-      if (targetMob) targetMob.classList.add('active');
-
-      // Fermer le tiroir mobile si ouvert
-      const drawer = document.getElementById('mobile-menu-drawer');
-      if (drawer) drawer.classList.remove('open');
-      const burger = document.querySelector('.burger-btn');
-      if (burger) burger.classList.remove('open');
-
-      // Défilement automatique fluide vers la section
-      const targetSection = document.getElementById(sectionId);
-      if (targetSection) {
-        targetSection.scrollIntoView({ behavior: 'smooth' });
+    function selectServiceInForm(serviceName) {
+      const sel = document.getElementById('form-service');
+      if (sel) {
+        sel.value = serviceName;
+        checkFormService(serviceName);
       }
-
-      // Maintenir la couleur sélectionnée sans conflit avec le défilement
-      setTimeout(() => {
-        isManualClick = false;
-      }, 1000);
+      const devisEl = document.getElementById('devis');
+      if (devisEl) devisEl.scrollIntoView({ behavior: 'smooth' });
     }
 
-    // CLIC SUR UN SERVICE : S'ALLUME EN ORANGE ET RESTE EN HAUT
-    function selectServiceCard(cardId, vehId) {
-      document.querySelectorAll('.service-card').forEach(c => c.classList.remove('active-service'));
-      const activeCard = document.getElementById('service-card-' + cardId);
-      if (activeCard) activeCard.classList.add('active-service');
-      
-      handleNavClick('services');
-
-      if (vehId) {
-        selectVehicle(vehId);
+    function checkFormService(val) {
+      const box = document.getElementById('form-custom-box');
+      const input = document.getElementById('form-custom-input');
+      if (val === 'Autre') {
+        box.classList.add('show');
+        if (input) input.required = true;
+      } else {
+        box.classList.remove('show');
+        if (input) input.required = false;
       }
     }
-
-    function selectVehicle(vehId) {
-      currentVehicle = vehId;
-      document.querySelectorAll('.veh-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('data-veh') === vehId);
-      });
-      calculateFare();
-    }
-
-    function selectVehicleAndScroll(vehId) {
-      selectVehicle(vehId);
-      handleNavClick('estimateur');
-    }
-
-    function selectUrgency(urgency) {
-      currentUrgency = urgency;
-      document.querySelectorAll('.urgency-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('data-urgency') === urgency);
-      });
-      calculateFare();
-    }
-
-    function calculateFare() {
-      const pickup = document.getElementById('pickup-select').value;
-      const delivery = document.getElementById('delivery-select').value;
-
-      let price = tariffs[currentVehicle] || 35;
-
-      if (pickup !== delivery) {
-        price += 20;
-        const pz = deptZones[pickup] || 1;
-        const dz = deptZones[delivery] || 1;
-        if (pz === 4 || dz === 4) price += 60;
-        else if (pz === 3 || dz === 3) price += 25;
-      }
-
-      if (currentUrgency === 'urgent') price *= 1.30;
-      else if (currentUrgency === 'super') price *= 1.60;
-
-      const finalHT = Math.round(price);
-      const finalTTC = Math.round(finalHT * 1.20);
-
-      document.getElementById('calc-price-ht').textContent = finalHT + " €";
-      document.getElementById('calc-price-ttc').textContent = "(soit " + finalTTC + " € TTC)";
-
-      document.getElementById('calc-summary-text').innerHTML =
-        "Véhicule : <strong>" + vehNames[currentVehicle] + "</strong> · Prise en charge estimée : <strong>" + vehEtas[currentVehicle] + "</strong>";
-
-      const pName = document.getElementById('pickup-select').options[document.getElementById('pickup-select').selectedIndex].text;
-      const dName = document.getElementById('delivery-select').options[document.getElementById('delivery-select').selectedIndex].text;
-      const uLabel = currentUrgency === 'super' ? 'Immédiat' : currentUrgency === 'urgent' ? 'Urgent (<2h)' : 'Normal';
-
-      const smsText = "Bonjour TouteSolution, demande de course :\n- Véhicule : " + vehNames[currentVehicle] + "\n- Départ : " + pName + "\n- Arrivée : " + dName + "\n- Urgence : " + uLabel + "\n- Estimation : " + finalHT + " € HT";
-      document.getElementById('sms-btn').href = "sms:0774800964?&body=" + encodeURIComponent(smsText);
-    }
-
-    function selectDept(code, name, delay, zoneLabel, surcharge, cardEl) {
-      document.querySelectorAll('.dept-card').forEach(c => c.classList.remove('active'));
-      cardEl.classList.add('active');
-
-      document.getElementById('dept-zone-badge').textContent = zoneLabel;
-      document.getElementById('dept-full-name').textContent = code + " — " + name;
-      document.getElementById('dept-delay').textContent = delay;
-      document.getElementById('dept-surcharge').textContent = surcharge > 0 ? "+" + surcharge + " € HT" : "Inclus (0 €)";
-    }
-
-    function toggleFaq(btn) {
-      const item = btn.parentElement;
-      item.classList.toggle('open');
-    }
-
-    function toggleMobileMenu() {
-      const drawer = document.getElementById('mobile-menu-drawer');
-      const burger = document.querySelector('.burger-btn');
-      if (drawer) drawer.classList.toggle('open');
-      if (burger) burger.classList.toggle('open');
-    }
-
-    // GARANTIR QUE L'OUVERTURE DU SITE SE MET SUR LA PREMIÈRE PAGE (ACCUEIL) ET PAS SUR DEVIS
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      // Nettoie l'ancien hash #devis-section s'il était mémorisé par Safari/Chrome
-      if (window.location.hash) {
-        history.replaceState(null, '', window.location.pathname + window.location.search);
-      }
-      window.scrollTo(0, 0);
-    });
-
-    window.addEventListener('load', () => {
-      window.scrollTo(0, 0);
-    });
-
-    // DÉTECTION DU DÉFILEMENT : MET À JOUR LE BOUTON ORANGE ACTIF SANS JAMAIS CACHER LA BARRE
-    window.addEventListener('scroll', () => {
-      if (isManualClick) return;
-
-      // Détection automatique du bas de page (Contact)
-      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 70) {
-        document.querySelectorAll('#main-nav-links a').forEach(a => a.classList.remove('active'));
-        document.querySelectorAll('#mobile-menu-drawer a').forEach(a => a.classList.remove('active'));
-        document.querySelectorAll('.mob-nav-btn').forEach(b => b.classList.remove('active'));
-
-        const targetNav = document.getElementById('nav-contact');
-        if (targetNav) targetNav.classList.add('active');
-
-        const targetDrawer = document.getElementById('mob-drawer-contact');
-        if (targetDrawer) targetDrawer.classList.add('active');
-
-        const targetMob = document.getElementById('mob-nav-contact');
-        if (targetMob) targetMob.classList.add('active');
-        return;
-      }
-
-      const sections = ['services', 'flotte', 'zones', 'estimateur', 'devis-section', 'faq', 'avis', 'contact'];
-      const scrollPos = window.scrollY + 140;
-
-      let currentSec = null;
-      for (const id of sections) {
-        const el = document.getElementById(id);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            currentSec = id;
-            break;
-          }
-        }
-      }
-
-      if (currentSec) {
-        document.querySelectorAll('#main-nav-links a').forEach(a => a.classList.remove('active'));
-        document.querySelectorAll('#mobile-menu-drawer a').forEach(a => a.classList.remove('active'));
-        document.querySelectorAll('.mob-nav-btn').forEach(b => b.classList.remove('active'));
-
-        const targetNav = document.getElementById('nav-' + currentSec);
-        if (targetNav) targetNav.classList.add('active');
-
-        const targetDrawer = document.getElementById('mob-drawer-' + currentSec);
-        if (targetDrawer) targetDrawer.classList.add('active');
-
-        const targetMob = document.getElementById('mob-nav-' + currentSec);
-        if (targetMob) targetMob.classList.add('active');
-      }
-    });
-
-    calculateFare();
   </script>
 </body>
 </html>
