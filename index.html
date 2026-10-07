@@ -1,220 +1,1138 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#F3EFE8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="format-detection" content="telephone=yes">
+
   <title>TouteSolution — Prestations logistiques & assistance aux professionnels</title>
-  <meta name="description" content="TouteSolution : Courses et achats pour entreprises, assistance logistique, aide aux hôtels et événements, montage/démontage, manutention, installation et rangement. Paris & IDF 24/7.">
+  <meta name="description" content="TouteSolution : Courses et achats pour entreprises, assistance logistique, aide aux hôtels et événements, montage/démontage, manutention, installation et rangement, récupération/dépôt. Paris & IDF 24/7.">
+
+  <!-- Polices Google Fonts : DM Sans & Fraunces -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&display=swap" rel="stylesheet">
 
   <style>
+    /* =========================================================
+       1. VARIABLES ET THÈME CHAUD PIERRE DE TAILLE & OR NOBLE
+       ========================================================= */
     :root {
-      --bg-base: #FAF8F5;
-      --bg-surface: #FFFFFF;
-      --bg-subtle: #F0EAE1;
-      --border-subtle: #DFD7CA;
-      --border-strong: #C8BEB0;
-      --text-main: #181B1F;
-      --text-body: #4A525D;
-      --text-muted: #737D8C;
       --brand-gold: #B38A38;
       --brand-gold-hover: #8C6506;
-      --brand-gold-subtle: rgba(179, 138, 56, 0.12);
-      --font-display: 'Fraunces', serif;
-      --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --brand-badge-bg: #EFE8DD;
+      --brand-badge-border: #D5CBBF;
+      --bg-warm: #F3EFE8;
+      --bg-card: #FAF8F5;
+      --bg-surface: #EAE3D6;
+      --border-subtle: #DFD7CA;
+      --border-light: #D5CBBF;
+      --text-main: #181B1F;
+      --text-muted: #6B7280;
+      --text-body: #4A525D;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-padding-top: 105px;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
     body {
-      font-family: var(--font-sans);
-      background-color: var(--bg-base);
+      background: var(--bg-warm);
       color: var(--text-main);
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 15px;
       line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      padding-top: 100px;
       padding-bottom: 70px;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      body {
+        padding-bottom: 0;
+      }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .font-display {
+      font-family: 'Fraunces', Georgia, serif;
     }
 
     .container {
       width: 100%;
-      max-width: 1200px;
+      max-width: 1140px;
       margin: 0 auto;
       padding: 0 16px;
     }
 
-    /* En-tête */
+    /* =========================================================
+       2. NAVIGATION FIXE EN HAUT
+       ========================================================= */
     .fixed-header-wrapper {
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 1000;
-      background: rgba(250, 248, 245, 0.95);
-      backdrop-filter: blur(10px);
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 9999;
+      background: rgba(250, 247, 242, 0.96);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 2px 14px rgba(24, 27, 31, 0.04);
       border-bottom: 1px solid var(--border-subtle);
     }
+
     .top-announcement {
-      background: var(--bg-subtle);
+      background: #EFE8DD;
       border-bottom: 1px solid var(--border-subtle);
+      padding: 6px 16px;
       font-size: 0.72rem;
-      padding: 4px 16px;
+      color: var(--text-body);
       display: flex;
       justify-content: space-between;
-      color: var(--text-body);
+      align-items: center;
     }
-    .header-content {
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--brand-gold);
+      box-shadow: 0 0 6px rgba(179, 138, 56, 0.6);
+      display: inline-block;
+      margin-right: 6px;
+    }
+
+    header {
       height: 64px;
+    }
+
+    .header-content {
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 12px;
     }
-    .brand-logo { text-decoration: none; display: flex; flex-direction: column; }
-    .brand-name { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; color: var(--text-main); }
-    .brand-name span { color: var(--brand-gold); }
-    .brand-sub { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
 
-    .nav-links { display: none; gap: 20px; }
-    @media (min-width: 900px) { .nav-links { display: flex; } }
-    .nav-link { text-decoration: none; color: var(--text-body); font-size: 0.85rem; font-weight: 500; }
-    .nav-link:hover { color: var(--brand-gold); }
+    .brand-logo {
+      display: flex;
+      flex-direction: column;
+    }
 
-    /* BOUTONS IDENTIQUES DEVIS & CONTACT */
-    .btn-devis, .btn-contact, .hero-btn-primary, .btn-action-gold {
+    .brand-name {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.5px;
+    }
+
+    .brand-name span {
+      color: var(--brand-gold);
+    }
+
+    .brand-sub {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-top: -3px;
+      display: none;
+    }
+
+    @media (min-width: 640px) {
+      .brand-sub {
+        display: block;
+      }
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 6px;
+    }
+
+    @media (min-width: 992px) {
+      .nav-links {
+        display: flex;
+      }
+    }
+
+    .nav-link {
+      padding: 6px 12px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-body);
+      border-radius: 8px;
+      transition: all 0.15s ease;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--brand-gold-hover);
+      background: #EFE8DD;
+      font-weight: 600;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-action-gold {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 6px;
       background: var(--brand-gold);
-      color: #FFFFFF !important;
-      font-weight: 600;
-      text-decoration: none;
+      color: #FFFFFF;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 9px 16px;
+      border-radius: 9999px;
       border: none;
-      cursor: pointer;
-      border-radius: 10px;
-      transition: background 0.2s ease, transform 0.1s ease;
-      font-size: 0.85rem;
-      padding: 0 18px;
-      height: 44px;
+      box-shadow: 0 2px 8px rgba(179, 138, 56, 0.25);
+      transition: all 0.2s ease;
+      white-space: nowrap;
     }
-    .btn-devis:hover, .btn-contact:hover, .hero-btn-primary:hover, .btn-action-gold:hover {
+
+    .btn-action-gold:hover {
       background: var(--brand-gold-hover);
     }
 
-    /* Grille de Prestations */
-    .section-wrap { padding: 48px 0; border-bottom: 1px solid var(--border-subtle); }
-    .section-kicker { font-size: 0.75rem; font-weight: 700; color: var(--brand-gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
-    .section-title { font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 12px; }
-    .section-desc { font-size: 0.88rem; color: var(--text-body); margin-bottom: 24px; max-width: 600px; }
+    .burger-btn {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      width: 38px;
+      height: 38px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      cursor: pointer;
+    }
 
+    @media (min-width: 992px) {
+      .burger-btn {
+        display: none;
+      }
+    }
+
+    .burger-btn span {
+      width: 18px;
+      height: 2px;
+      background: var(--text-main);
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+
+    .mobile-menu-drawer {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #FAF7F2;
+      border-bottom: 2px solid var(--brand-gold);
+      padding: 16px;
+      box-shadow: 0 16px 30px rgba(0,0,0,0.1);
+    }
+
+    .mobile-menu-drawer.open {
+      display: block;
+    }
+
+    .mobile-nav-item {
+      display: block;
+      padding: 10px 14px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-body);
+      border-radius: 8px;
+      margin-bottom: 4px;
+    }
+
+    .mobile-nav-item:hover, .mobile-nav-item.active {
+      background: #EFE8DD;
+      color: var(--brand-gold-hover);
+      font-weight: 700;
+    }
+
+    /* =========================================================
+       3. HERO SECTION
+       ========================================================= */
+    .hero-section {
+      padding: 40px 0 56px;
+      border-bottom: 1px solid var(--border-subtle);
+      background: linear-gradient(180deg, #F3EFE8 0%, #FAF7F2 60%, #EAE3D6 100%);
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #FAF8F5;
+      border: 1px solid #D5CBBF;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #6B5B3E;
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-size: 2.1rem;
+      line-height: 1.15;
+      font-weight: 400;
+      color: var(--text-main);
+      max-width: 820px;
+      letter-spacing: -0.5px;
+    }
+
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 3.2rem;
+      }
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--brand-gold);
+    }
+
+    .hero-desc {
+      margin-top: 16px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--text-body);
+      max-width: 680px;
+    }
+
+    @media (min-width: 768px) {
+      .hero-desc {
+        font-size: 1.05rem;
+      }
+    }
+
+    .hero-ctas {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 480px;
+    }
+
+    @media (min-width: 640px) {
+      .hero-ctas {
+        flex-direction: row;
+        max-width: none;
+      }
+    }
+
+    .hero-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--brand-gold);
+      color: #FFFFFF;
+      font-weight: 700;
+      padding: 13px 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(179, 138, 56, 0.28);
+      transition: all 0.2s ease;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .hero-btn-primary:hover {
+      background: var(--brand-gold-hover);
+      transform: translateY(-1px);
+    }
+
+    .hero-stats-row {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    @media (min-width: 768px) {
+      .hero-stats-row {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .hero-stat-card {
+      background: #FAF8F5;
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 14px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    .hero-stat-val {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--brand-gold);
+      font-family: var(--font-display);
+    }
+
+    .hero-stat-lbl {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* =========================================================
+       4. SECTIONS & TITRES GÉNÉRAUX
+       ========================================================= */
+    .section-wrap {
+      padding: 56px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .section-header {
+      margin-bottom: 32px;
+    }
+
+    .section-kicker {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--brand-gold);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      line-height: 1.25;
+      color: var(--text-main);
+      font-weight: 400;
+    }
+
+    @media (min-width: 768px) {
+      .section-title {
+        font-size: 2.3rem;
+      }
+    }
+
+    .section-desc {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 640px;
+    }
+
+    /* =========================================================
+       5. GRILLE DES PRESTATIONS (SANS CHIFFRE, CONCIS)
+       ========================================================= */
     .services-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 16px;
     }
-    @media (min-width: 640px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    @media (min-width: 640px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
 
     .service-card {
-      background: var(--bg-surface);
+      background: #FAF8F5;
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .service-card:hover {
+      border-color: var(--brand-gold);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    }
+
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #EFE8DD;
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      margin-bottom: 14px;
+    }
+
+    .service-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-main);
+      font-family: var(--font-display);
+      margin-bottom: 6px;
+    }
+
+    .service-desc {
+      font-size: 0.82rem;
+      color: var(--text-body);
+      line-height: 1.5;
+    }
+
+    .service-foot {
+      margin-top: 18px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .service-link {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--brand-gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* =========================================================
+       6. FLOTTE & VÉHICULES
+       ========================================================= */
+    .fleet-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 640px) {
+      .fleet-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .fleet-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .fleet-card {
+      background: #FAF8F5;
       border: 1px solid var(--border-subtle);
       border-radius: 16px;
       padding: 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      cursor: pointer;
-      transition: all 0.2s ease;
     }
-    .service-card:hover {
-      border-color: var(--brand-gold);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.04);
-    }
-    .service-icon { font-size: 1.5rem; margin-bottom: 12px; }
-    .service-title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; margin-bottom: 6px; }
-    .service-desc { font-size: 0.8rem; color: var(--text-body); line-height: 1.4; }
-    .service-link { font-size: 0.75rem; font-weight: 700; color: var(--brand-gold); margin-top: 14px; display: inline-block; }
 
-    /* Formulaire & Simulateur */
-    .calc-card {
-      background: var(--bg-surface);
+    .fleet-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .fleet-icon {
+      font-size: 1.8rem;
+    }
+
+    .veh-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 9999px;
+      background: var(--brand-badge-bg);
+      border: 1px solid var(--brand-badge-border);
+      color: #6B5B3E;
+    }
+
+    .fleet-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .fleet-specs {
+      font-size: 0.78rem;
+      color: var(--text-body);
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .fleet-specs span {
+      color: var(--text-muted);
+    }
+
+    .fleet-price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-subtle);
+      margin-bottom: 12px;
+    }
+
+    .fleet-price-val {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--brand-gold);
+    }
+
+    .fleet-btn {
+      width: 100%;
+      height: 38px;
+      border-radius: 8px;
+      background: #EFE8DD;
       border: 1px solid var(--border-subtle);
-      border-radius: 18px;
-      padding: 24px;
+      color: var(--text-main);
+      font-size: 0.75rem;
+      font-weight: 700;
+      transition: all 0.2s;
     }
-    .form-grid-2 { display: grid; grid-template-columns: 1fr; gap: 14px; margin-bottom: 14px; }
-    @media (min-width: 640px) { .form-grid-2 { grid-template-columns: 1fr 1fr; } }
 
-    .form-label { display: block; font-size: 0.75rem; font-weight: 700; color: var(--text-body); margin-bottom: 4px; text-transform: uppercase; }
-    .select-input, .input-field, .textarea-field {
+    .fleet-btn:hover {
+      background: var(--brand-gold);
+      color: #FFFFFF;
+      border-color: var(--brand-gold);
+    }
+
+    /* =========================================================
+       7. ESTIMATEUR / CALCULATEUR INTERACTIF
+       ========================================================= */
+    .calc-card {
+      background: #FAF8F5;
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    }
+
+    @media (min-width: 768px) {
+      .calc-card {
+        padding: 32px;
+      }
+    }
+
+    .calc-step-lbl {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-body);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .veh-choices-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .veh-choices-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .veh-choice-card {
+      background: #FAF7F2;
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 12px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .veh-choice-card.active {
+      background: #FFFFFF;
+      border: 2px solid var(--brand-gold);
+      box-shadow: 0 2px 10px rgba(179, 138, 56, 0.18);
+    }
+
+    .veh-choice-card .v-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-top: 4px;
+    }
+
+    .veh-choice-card .v-price {
+      font-size: 0.75rem;
+      color: var(--brand-gold);
+      font-weight: 600;
+    }
+
+    .inputs-2col {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    @media (min-width: 640px) {
+      .inputs-2col {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .select-input {
       width: 100%;
       height: 44px;
-      padding: 0 12px;
       border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      font-size: 0.85rem;
+      border-radius: 10px;
+      padding: 0 12px;
       background: #FFFFFF;
+      font-size: 0.82rem;
+      color: var(--text-main);
       outline: none;
       font-family: inherit;
     }
-    .textarea-field { height: 80px; padding: 10px; resize: vertical; }
-    .select-input:focus, .input-field:focus, .textarea-field:focus { border-color: var(--brand-gold); }
 
-    .custom-service-box { display: none; margin-top: 10px; }
-    .custom-service-box.show { display: block; }
+    .select-input:focus {
+      border-color: var(--brand-gold);
+    }
 
-    /* Barre tactile mobile inférieure */
+    .urgency-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .urgency-btn {
+      background: #FAF7F2;
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 10px 6px;
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .urgency-btn.active {
+      background: #FFFFFF;
+      border: 2px solid var(--brand-gold);
+      color: var(--brand-gold);
+      box-shadow: 0 2px 8px rgba(179, 138, 56, 0.15);
+    }
+
+    /* RÉSULTAT DU CALCUL */
+    .result-box {
+      background: #EFE8DD;
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    @media (min-width: 768px) {
+      .result-box {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .price-ht {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--brand-gold);
+      font-family: var(--font-display);
+    }
+
+    .result-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* LES BOUTONS DEVIS ET CONTACT PARTAGENT LA MÊME COULEUR */
+    .btn-devis, .btn-contact {
+      height: 44px;
+      padding: 0 18px;
+      border-radius: 10px;
+      background: var(--brand-gold);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 0.82rem;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn-devis:hover, .btn-contact:hover {
+      background: var(--brand-gold-hover);
+    }
+
+    .btn-sms {
+      height: 44px;
+      padding: 0 14px;
+      border-radius: 10px;
+      background: #FAF8F5;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    /* =========================================================
+       8. FORMULAIRE DE DEVIS (AVEC OPTION AUTRE)
+       ========================================================= */
+    .form-grid {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .form-grid-2 {
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 640px) {
+      .form-grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .form-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-body);
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .input-field, .textarea-field {
+      width: 100%;
+      height: 44px;
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 0 14px;
+      background: #FFFFFF;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      outline: none;
+      font-family: inherit;
+    }
+
+    .textarea-field {
+      height: 80px;
+      padding: 10px 14px;
+      resize: vertical;
+    }
+
+    .input-field:focus, .textarea-field:focus {
+      border-color: var(--brand-gold);
+    }
+
+    /* CHAMP DYNAMIQUE SI "AUTRE" EST SÉLECTIONNÉ */
+    .custom-service-box {
+      display: none;
+      margin-top: 10px;
+      padding: 12px;
+      background: #FAF7F2;
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+    }
+
+    .custom-service-box.show {
+      display: block;
+    }
+
+    .form-submit-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    @media (min-width: 640px) {
+      .form-submit-row {
+        flex-direction: row;
+      }
+    }
+
+    /* =========================================================
+       9. FAQ COLLAPSIBLE
+       ========================================================= */
+    .faq-item {
+      background: #FAF8F5;
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .faq-q {
+      padding: 16px 20px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .faq-a {
+      display: none;
+      padding: 0 20px 18px;
+      font-size: 0.82rem;
+      color: var(--text-body);
+      line-height: 1.5;
+    }
+
+    .faq-item.open .faq-a {
+      display: block;
+    }
+
+    /* =========================================================
+       10. FOOTER & CONTACT
+       ========================================================= */
+    .footer-section {
+      background: #EAE3D6;
+      border-top: 1px solid var(--border-subtle);
+      padding: 48px 0 32px;
+    }
+
+    .contact-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+
+    @media (min-width: 640px) {
+      .contact-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .contact-cards-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .contact-card {
+      background: #FAF8F5;
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    /* BARRE FIXE INFÉRIEURE MOBILE */
     .mobile-bottom-bar {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
       height: 60px;
-      background: rgba(250, 248, 245, 0.98);
+      background: rgba(250, 247, 242, 0.98);
+      backdrop-filter: blur(10px);
       border-top: 1px solid var(--border-subtle);
+      z-index: 9998;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       align-items: center;
-      z-index: 999;
     }
-    @media (min-width: 768px) { .mobile-bottom-bar { display: none; } }
+
+    @media (min-width: 768px) {
+      .mobile-bottom-bar {
+        display: none;
+      }
+    }
+
     .mob-tab {
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-decoration: none;
-      color: var(--text-muted);
+      justify-content: center;
       font-size: 0.65rem;
-      font-weight: 600;
+      color: var(--text-muted);
+      height: 100%;
+    }
+
+    .mob-tab.center-call {
+      position: relative;
+    }
+
+    .mob-call-circle {
+      width: 42px;
+      height: 42px;
+      background: var(--brand-gold);
+      color: #FFFFFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: -20px;
+      box-shadow: 0 4px 12px rgba(179, 138, 56, 0.35);
+      font-size: 1.1rem;
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- BARRE FIXE AU SOMMET -->
   <div class="fixed-header-wrapper">
     <div class="top-announcement">
-      <div><strong>TouteSolution</strong> — Prestations logistiques & assistance aux professionnels</div>
+      <div>
+        <span class="live-dot"></span>
+        <strong>TouteSolution</strong> — Prestations logistiques & assistance aux professionnels
+      </div>
       <div>24h/24 & 7j/7</div>
     </div>
-    <div class="container header-content">
-      <a href="#" class="brand-logo">
-        <div class="brand-name">Toute<span>Solution</span></div>
-        <span class="brand-sub">Prestations logistiques & assistance aux professionnels</span>
-      </a>
-      <nav class="nav-links">
-        <a href="#services" class="nav-link">Prestations</a>
-        <a href="#devis" class="nav-link">Devis</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </nav>
-      <a href="tel:0774800964" class="btn-action-gold">📞 07 74 80 09 64</a>
-    </div>
+    <header>
+      <div class="container header-content">
+        <a href="#" class="brand-logo">
+          <div class="brand-name">Toute<span>Solution</span></div>
+          <span class="brand-sub">Prestations logistiques & assistance aux professionnels</span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="#services" class="nav-link">Prestations</a>
+          <a href="#flotte" class="nav-link">Véhicules</a>
+          <a href="#estimateur" class="nav-link">Simulateur</a>
+          <a href="#devis" class="nav-link">Devis</a>
+          <a href="#faq" class="nav-link">FAQ</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+          <a href="tel:0774800964" class="btn-action-gold">
+            📞 07 74 80 09 64
+          </a>
+          <button class="burger-btn" onclick="toggleMenu()" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Menu Déroulant Mobile -->
+      <div class="mobile-menu-drawer" id="mob-drawer">
+        <a href="#services" class="mobile-nav-item" onclick="toggleMenu()">Prestations</a>
+        <a href="#flotte" class="mobile-nav-item" onclick="toggleMenu()">Véhicules</a>
+        <a href="#estimateur" class="mobile-nav-item" onclick="toggleMenu()">Simulateur</a>
+        <a href="#devis" class="mobile-nav-item" onclick="toggleMenu()">Devis Rapide</a>
+        <a href="#faq" class="mobile-nav-item" onclick="toggleMenu()">FAQ</a>
+        <a href="#contact" class="mobile-nav-item" onclick="toggleMenu()">Contact 24/7</a>
+      </div>
+    </header>
   </div>
 
-  <!-- SECTION PRESTATIONS (Sans numéros, descriptions concises) -->
+  <!-- HERO BANNER -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-pill">
+        <span class="live-dot"></span>
+        TouteSolution · Paris & Île-de-France
+      </div>
+      <h1 class="hero-title font-display">
+        Prestations logistiques & <em>assistance aux professionnels.</em>
+      </h1>
+      <p class="hero-desc">
+        Courses et achats pour entreprises, aide aux hôtels et événements, montage/démontage, manutention, installation et rangement, récupération/dépôt dans le cadre des prestations.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="#estimateur" class="hero-btn-primary">
+          <span>Calculer un devis</span>
+        </a>
+        <a href="tel:0774800964" class="hero-btn-primary">
+          <span>Contact direct : 07 74 80 09 64</span>
+        </a>
+      </div>
+
+      <div class="hero-stats-row">
+        <div class="hero-stat-card">
+          <div class="hero-stat-val">Prestations</div>
+          <div class="hero-stat-lbl">Solutions sur-mesure</div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="hero-stat-val">24h/24 — 7j/7</div>
+          <div class="hero-stat-lbl">Disponibilité continue</div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="hero-stat-val">Manutention Pro</div>
+          <div class="hero-stat-lbl">Outillage & protections</div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="hero-stat-val">Paris & IDF</div>
+          <div class="hero-stat-lbl">Intervention réactive</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION PRESTATIONS -->
   <section class="section-wrap" id="services">
     <div class="container">
-      <div class="section-kicker">Prestations</div>
-      <h2 class="section-title">Prestations logistiques & assistance aux professionnels</h2>
-      <p class="section-desc">Solutions opérationnelles et réactives pour entreprises, conciergeries et événements :</p>
+      <div class="section-header">
+        <div class="section-kicker">Prestations</div>
+        <h2 class="section-title font-display">Prestations logistiques & assistance aux professionnels</h2>
+        <p class="section-desc">Solutions opérationnelles et réactives pour entreprises, conciergeries et événements :</p>
+      </div>
 
       <div class="services-grid">
         <div class="service-card" onclick="selectServiceInForm('Courses et achats pour entreprises')">
@@ -223,7 +1141,9 @@
             <h3 class="service-title">Courses et achats pour entreprises</h3>
             <p class="service-desc">Approvisionnements urgents, achats professionnels et récupération express de commandes.</p>
           </div>
-          <span class="service-link">Demander cette prestation &rarr;</span>
+          <div class="service-foot">
+            <span class="service-link">Demander cette prestation &rarr;</span>
+          </div>
         </div>
 
         <div class="service-card" onclick="selectServiceInForm('Assistance logistique')">
@@ -232,7 +1152,9 @@
             <h3 class="service-title">Assistance logistique</h3>
             <p class="service-desc">Renfort opérationnel sur site, régulation de flux et coordination logistique 24/7.</p>
           </div>
-          <span class="service-link">Demander cette prestation &rarr;</span>
+          <div class="service-foot">
+            <span class="service-link">Demander cette prestation &rarr;</span>
+          </div>
         </div>
 
         <div class="service-card" onclick="selectServiceInForm('Aide aux hôtels et événements')">
@@ -241,7 +1163,9 @@
             <h3 class="service-title">Aide aux hôtels et événements</h3>
             <p class="service-desc">Appui logistique pour établissements hôteliers, salons, réceptions et événements.</p>
           </div>
-          <span class="service-link">Demander cette prestation &rarr;</span>
+          <div class="service-foot">
+            <span class="service-link">Demander cette prestation &rarr;</span>
+          </div>
         </div>
 
         <div class="service-card" onclick="selectServiceInForm('Montage / démontage')">
@@ -250,7 +1174,9 @@
             <h3 class="service-title">Montage / démontage</h3>
             <p class="service-desc">Assemblage et démontage de mobilier professionnel, cloisons, stands et structures.</p>
           </div>
-          <span class="service-link">Demander cette prestation &rarr;</span>
+          <div class="service-foot">
+            <span class="service-link">Demander cette prestation &rarr;</span>
+          </div>
         </div>
 
         <div class="service-card" onclick="selectServiceInForm('Manutention')">
@@ -259,7 +1185,9 @@
             <h3 class="service-title">Manutention</h3>
             <p class="service-desc">Portage et déplacement de charges avec matériel pro (diables, chariots, sangles).</p>
           </div>
-          <span class="service-link">Demander cette prestation &rarr;</span>
+          <div class="service-foot">
+            <span class="service-link">Demander cette prestation &rarr;</span>
+          </div>
         </div>
 
         <div class="service-card" onclick="selectServiceInForm('Installation et rangement')">
@@ -268,34 +1196,284 @@
             <h3 class="service-title">Installation et rangement</h3>
             <p class="service-desc">Mise en place d’espaces de travail, agencement de salles et rangement soigné.</p>
           </div>
-          <span class="service-link">Demander cette prestation &rarr;</span>
+          <div class="service-foot">
+            <span class="service-link">Demander cette prestation &rarr;</span>
+          </div>
+        </div>
+
+        <div class="service-card" onclick="selectServiceInForm('Récupération / dépôt dans le cadre des prestations')">
+          <div>
+            <div class="service-icon">🔄</div>
+            <h3 class="service-title">Récupération / dépôt dans le cadre des prestations</h3>
+            <p class="service-desc">Collecte, restitution de matériel, navettes aller-retour et transferts sécurisés.</p>
+          </div>
+          <div class="service-foot">
+            <span class="service-link">Demander cette prestation &rarr;</span>
+          </div>
         </div>
 
         <div class="service-card" onclick="selectServiceInForm('Autre')">
           <div>
             <div class="service-icon">✨</div>
             <h3 class="service-title">Autre prestation sur-mesure</h3>
-            <p class="service-desc">Un besoin spécifique ? Précisez votre demande pour un accompagnement dédié.</p>
+            <p class="service-desc">Un besoin spécifique particulier ? Précisez votre demande pour un accompagnement dédié.</p>
           </div>
-          <span class="service-link">Demander un devis &rarr;</span>
+          <div class="service-foot">
+            <span class="service-link">Demander un devis &rarr;</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION DEVIS RAPIDE (Avec option Autre + Contact même couleur) -->
-  <section class="section-wrap" id="devis">
+  <!-- SECTION FLOTTE -->
+  <section class="section-wrap" id="flotte">
     <div class="container">
-      <div style="text-align: center; margin-bottom: 24px;">
-        <div class="section-kicker">Devis & Réservation</div>
-        <h2 class="section-title">Demandez votre devis d'intervention</h2>
-        <p class="section-desc" style="margin: 0 auto;">Confirmation sous 15 minutes par notre équipe de régulation.</p>
+      <div class="section-header">
+        <div class="section-kicker">Flotte & Capacités</div>
+        <h2 class="section-title font-display">Véhicules adaptés Paris & Île-de-France</h2>
+        <p class="section-desc">Du 2 roues express aux utilitaires grand volume pour répondre à chaque contrainte :</p>
       </div>
 
-      <div class="calc-card" style="max-width: 760px; margin: 0 auto;">
+      <div class="fleet-grid">
+        <!-- 1 : Moto -->
+        <div class="fleet-card">
+          <div>
+            <div class="fleet-head">
+              <div class="fleet-icon">🛵</div>
+              <span class="veh-badge">Sur demande</span>
+            </div>
+            <h3 class="fleet-title">2 Roues / Moto Express</h3>
+            <div class="fleet-specs">
+              <div><span>Charge utile :</span> <strong>Jusqu'à 8 kg</strong></div>
+              <div><span>Volume :</span> <strong>Top-case 50L</strong></div>
+              <div><span>Délai Paris :</span> <strong style="color: var(--brand-gold);">15 à 25 min</strong></div>
+            </div>
+          </div>
+          <div>
+            <div class="fleet-price-row">
+              <span style="font-size: 0.72rem; color: var(--text-muted);">À partir de</span>
+              <span class="fleet-price-val">35 € <small style="font-size: 0.65rem; color: var(--text-muted);">HT</small></span>
+            </div>
+            <button class="fleet-btn" onclick="selectVehicleInCalc('moto2')">Estimer ce véhicule</button>
+          </div>
+        </div>
+
+        <!-- 2 : Berline VIP / Break -->
+        <div class="fleet-card">
+          <div>
+            <div class="fleet-head">
+              <div class="fleet-icon">🚗</div>
+              <span class="veh-badge">Disponible 24/7</span>
+            </div>
+            <h3 class="fleet-title">Berline VIP / Break</h3>
+            <div class="fleet-specs">
+              <div><span>Charge utile :</span> <strong>Jusqu'à 150 kg</strong></div>
+              <div><span>Volume :</span> <strong>Coffre 1,2 m³ (6 valises)</strong></div>
+              <div><span>Délai Paris :</span> <strong style="color: var(--brand-gold);">25 à 40 min</strong></div>
+            </div>
+          </div>
+          <div>
+            <div class="fleet-price-row">
+              <span style="font-size: 0.72rem; color: var(--text-muted);">À partir de</span>
+              <span class="fleet-price-val">55 € <small style="font-size: 0.65rem; color: var(--text-muted);">HT</small></span>
+            </div>
+            <button class="fleet-btn" onclick="selectVehicleInCalc('voiture')">Estimer ce véhicule</button>
+          </div>
+        </div>
+
+        <!-- 3 : Utilitaire 12m3 Pro -->
+        <div class="fleet-card">
+          <div>
+            <div class="fleet-head">
+              <div class="fleet-icon">🚐</div>
+              <span class="veh-badge">Disponible 24/7</span>
+            </div>
+            <h3 class="fleet-title">Utilitaire 12 m³ Pro</h3>
+            <div class="fleet-specs">
+              <div><span>Charge utile :</span> <strong>Jusqu'à 850 kg</strong></div>
+              <div><span>Volume :</span> <strong>12 m³ (Matériel & mobilier)</strong></div>
+              <div><span>Délai Paris :</span> <strong style="color: var(--brand-gold);">30 à 50 min</strong></div>
+            </div>
+          </div>
+          <div>
+            <div class="fleet-price-row">
+              <span style="font-size: 0.72rem; color: var(--text-muted);">À partir de</span>
+              <span class="fleet-price-val">95 € <small style="font-size: 0.65rem; color: var(--text-muted);">HT</small></span>
+            </div>
+            <button class="fleet-btn" onclick="selectVehicleInCalc('camion12')">Estimer ce véhicule</button>
+          </div>
+        </div>
+
+        <!-- 4 : Grand Volume 20m3 Hayon -->
+        <div class="fleet-card">
+          <div>
+            <div class="fleet-head">
+              <div class="fleet-icon">🚛</div>
+            </div>
+            <h3 class="fleet-title">Grand Volume 20 m³ Hayon</h3>
+            <div class="fleet-specs">
+              <div><span>Charge utile :</span> <strong>Jusqu'à 1 200 kg</strong></div>
+              <div><span>Volume :</span> <strong>20 m³ avec hayon</strong></div>
+              <div><span>Délai Paris :</span> <strong style="color: var(--brand-gold);">45 à 60 min</strong></div>
+            </div>
+          </div>
+          <div>
+            <div class="fleet-price-row">
+              <span style="font-size: 0.72rem; color: var(--text-muted);">À partir de</span>
+              <span class="fleet-price-val">160 € <small style="font-size: 0.65rem; color: var(--text-muted);">HT</small></span>
+            </div>
+            <button class="fleet-btn" onclick="selectVehicleInCalc('camion20')">Estimer ce véhicule</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION SIMULATEUR -->
+  <section class="section-wrap" id="estimateur">
+    <div class="container">
+      <div class="section-header" style="text-align: center;">
+        <div class="section-kicker">Simulateur Tarifaire</div>
+        <h2 class="section-title font-display">Estimez le coût de votre mission</h2>
+        <p class="section-desc" style="margin: 6px auto;">Tarification transparente selon la prestation, le véhicule et la zone d'intervention.</p>
+      </div>
+
+      <div class="calc-card">
+        <!-- Choix de la prestation -->
+        <div style="margin-bottom: 24px;">
+          <label class="calc-step-lbl">Prestation souhaitée</label>
+          <select id="calc-service" class="select-input" onchange="updateCalcService(this.value)">
+            <option value="Courses et achats pour entreprises">Courses et achats pour entreprises</option>
+            <option value="Assistance logistique">Assistance logistique</option>
+            <option value="Aide aux hôtels et événements">Aide aux hôtels et événements</option>
+            <option value="Montage / démontage">Montage / démontage</option>
+            <option value="Manutention">Manutention</option>
+            <option value="Installation et rangement">Installation et rangement</option>
+            <option value="Récupération / dépôt dans le cadre des prestations">Récupération / dépôt dans le cadre des prestations</option>
+            <option value="Autre prestation sur-mesure">Autre prestation sur-mesure</option>
+          </select>
+        </div>
+
+        <!-- Choix du véhicule -->
+        <label class="calc-step-lbl">Véhicule adapté</label>
+        <div class="veh-choices-grid">
+          <div class="veh-choice-card active" data-veh="moto2" onclick="setCalcVehicle('moto2')">
+            <div style="font-size: 1.4rem;">🛵</div>
+            <div class="v-name">2 Roues Moto</div>
+            <div class="v-price">dès 35 € HT</div>
+          </div>
+          <div class="veh-choice-card" data-veh="voiture" onclick="setCalcVehicle('voiture')">
+            <div style="font-size: 1.4rem;">🚗</div>
+            <div class="v-name">Berline / Break</div>
+            <div class="v-price">dès 55 € HT</div>
+          </div>
+          <div class="veh-choice-card" data-veh="camion12" onclick="setCalcVehicle('camion12')">
+            <div style="font-size: 1.4rem;">🚐</div>
+            <div class="v-name">Utilitaire 12 m³</div>
+            <div class="v-price">dès 95 € HT</div>
+          </div>
+          <div class="veh-choice-card" data-veh="camion20" onclick="setCalcVehicle('camion20')">
+            <div style="font-size: 1.4rem;">🚛</div>
+            <div class="v-name">Grand Volume 20 m³</div>
+            <div class="v-price">dès 160 € HT</div>
+          </div>
+        </div>
+
+        <!-- Trajet & Départements -->
+        <label class="calc-step-lbl">Trajet & Départements</label>
+        <div class="inputs-2col">
+          <div>
+            <span style="font-size: 0.72rem; color: var(--text-body); font-weight: 600; display: block; margin-bottom: 4px;">Prise en charge (Départ)</span>
+            <select id="calc-pickup" class="select-input" onchange="runCalculation()">
+              <option value="75">75 — Paris Intra-Muros</option>
+              <option value="92">92 — Hauts-de-Seine</option>
+              <option value="93">93 — Seine-Saint-Denis</option>
+              <option value="94">94 — Val-de-Marne</option>
+              <option value="77">77 — Seine-et-Marne</option>
+              <option value="78">78 — Yvelines</option>
+              <option value="91">91 — Essonne</option>
+              <option value="95">95 — Val-d'Oise</option>
+              <option value="other">Autre région / National</option>
+            </select>
+          </div>
+          <div>
+            <span style="font-size: 0.72rem; color: var(--text-body); font-weight: 600; display: block; margin-bottom: 4px;">Livraison (Destination)</span>
+            <select id="calc-delivery" class="select-input" onchange="runCalculation()">
+              <option value="75">75 — Paris Intra-Muros</option>
+              <option value="92">92 — Hauts-de-Seine</option>
+              <option value="93">93 — Seine-Saint-Denis</option>
+              <option value="94">94 — Val-de-Marne</option>
+              <option value="77">77 — Seine-et-Marne</option>
+              <option value="78">78 — Yvelines</option>
+              <option value="91">91 — Essonne</option>
+              <option value="95">95 — Val-d'Oise</option>
+              <option value="other">Autre région / National</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Urgence -->
+        <label class="calc-step-lbl">Délai d'intervention & urgence</label>
+        <div class="urgency-grid">
+          <div class="urgency-btn active" data-urgency="normal" onclick="setCalcUrgency('normal')">
+            <div>Normal</div>
+            <div style="font-size: 0.68rem; color: var(--text-muted);">Dans la journée</div>
+          </div>
+          <div class="urgency-btn" data-urgency="urgent" onclick="setCalcUrgency('urgent')">
+            <div>Urgent</div>
+            <div style="font-size: 0.68rem; color: var(--text-muted);">&lt; 2h (+30%)</div>
+          </div>
+          <div class="urgency-btn" data-urgency="super" onclick="setCalcUrgency('super')">
+            <div style="color: var(--brand-gold); font-weight: 700;">Immédiat</div>
+            <div style="font-size: 0.68rem; color: var(--text-muted);">Flash (+60%)</div>
+          </div>
+        </div>
+
+        <!-- Résultat -->
+        <div class="result-box">
+          <div>
+            <div style="font-size: 0.72rem; font-weight: 700; color: var(--brand-gold); text-transform: uppercase;">Estimation indicative</div>
+            <div style="display: flex; align-items: baseline; gap: 8px; margin-top: 2px;">
+              <span class="price-ht" id="res-price-ht">35 €</span>
+              <span style="font-weight: 600; color: var(--text-body);">HT</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);" id="res-price-ttc">(soit 42 € TTC)</span>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--text-body); margin-top: 4px;" id="res-summary-text">
+              Véhicule : <strong>2 Roues / Moto Express</strong> · Prise en charge : 15 à 25 min
+            </div>
+          </div>
+
+          <div class="result-actions">
+            <button class="btn-devis" onclick="transferToDevis()">
+              <span>Demander ce devis</span>
+            </button>
+            <a href="tel:0774800964" class="btn-contact">
+              <span>Appel direct : 07 74 80 09 64</span>
+            </a>
+            <a href="#" id="res-sms-link" class="btn-sms">
+              <span>SMS direct</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION DEVIS RAPIDE -->
+  <section class="section-wrap" id="devis">
+    <div class="container">
+      <div class="section-header" style="text-align: center;">
+        <div class="section-kicker">Devis & Réservation</div>
+        <h2 class="section-title font-display">Demandez votre devis ou intervention</h2>
+        <p class="section-desc" style="margin: 6px auto;">Réponse et confirmation sous 15 minutes par notre équipe.</p>
+      </div>
+
+      <div class="calc-card" style="max-width: 820px; margin: 0 auto;">
         <form action="https://formsubmit.co/Toutesolution.75@gmail.com" method="POST">
           <input type="hidden" name="_subject" value="Demande d'intervention TouteSolution">
-          
+          <input type="hidden" name="_captcha" value="false">
+
           <div style="margin-bottom: 14px;">
             <label class="form-label">Prestation souhaitée *</label>
             <select name="Prestation" id="form-service" class="select-input" onchange="checkFormService(this.value)">
@@ -305,49 +1483,61 @@
               <option value="Montage / démontage">Montage / démontage</option>
               <option value="Manutention">Manutention</option>
               <option value="Installation et rangement">Installation et rangement</option>
+              <option value="Récupération / dépôt dans le cadre des prestations">Récupération / dépôt dans le cadre des prestations</option>
               <option value="Autre">Autre (sur-mesure)</option>
             </select>
 
             <div class="custom-service-box" id="form-custom-box">
-              <label class="form-label" style="color: var(--brand-gold); margin-top: 8px;">Précisez votre prestation *</label>
-              <input type="text" name="PrecisionAutre" id="form-custom-input" class="input-field" placeholder="Détaillez votre besoin particulier...">
+              <label class="form-label" style="color: var(--brand-gold);">Précisez votre prestation ou besoin particulier *</label>
+              <input type="text" name="PrecisionAutre" id="form-custom-input" class="input-field" placeholder="Ex. Achats volumineux, réagencement de stand, navette urgente...">
             </div>
           </div>
 
-          <div class="form-grid-2">
+          <div class="form-grid form-grid-2">
             <div>
               <label class="form-label">Nom & Prénom *</label>
-              <input type="text" name="Nom" required class="input-field" placeholder="Alexandre Mercier">
+              <input type="text" name="Nom" required class="input-field" placeholder="ex. Alexandre Mercier">
             </div>
             <div>
               <label class="form-label">Société / Établissement (optionnel)</label>
-              <input type="text" name="Societe" class="input-field" placeholder="Société ou Établissement">
+              <input type="text" name="Societe" class="input-field" placeholder="ex. Hôtel Le Vendôme, Société X">
             </div>
           </div>
 
-          <div class="form-grid-2">
+          <div class="form-grid form-grid-2">
             <div>
-              <label class="form-label">Téléphone *</label>
-              <input type="tel" name="Telephone" required class="input-field" placeholder="06 .. .. .. ..">
+              <label class="form-label">Numéro de Téléphone *</label>
+              <input type="tel" name="Telephone" required inputmode="tel" class="input-field" placeholder="06 .. .. .. .. ou 07 .. .. .. ..">
             </div>
             <div>
-              <label class="form-label">E-mail *</label>
-              <input type="email" name="Email" required class="input-field" placeholder="contact@entreprise.fr">
+              <label class="form-label">Adresse E-mail *</label>
+              <input type="email" name="Email" required inputmode="email" class="input-field" placeholder="votre.email@exemple.com">
             </div>
           </div>
 
-          <div style="margin-bottom: 18px;">
+          <div class="form-grid form-grid-2">
+            <div>
+              <label class="form-label">Adresse d'enlèvement (Départ) *</label>
+              <input type="text" name="Depart" required class="input-field" placeholder="Adresse, code postal, ville">
+            </div>
+            <div>
+              <label class="form-label">Adresse de livraison (Arrivée) *</label>
+              <input type="text" name="Arrivee" required class="input-field" placeholder="Adresse, code postal, ville">
+            </div>
+          </div>
+
+          <div style="margin-bottom: 14px;">
             <label class="form-label">Précisions sur la mission (optionnel)</label>
-            <textarea name="Details" class="textarea-field" placeholder="Volume, contraintes d'accès ou horaires..."></textarea>
+            <textarea name="Details" class="textarea-field" placeholder="Ex. Volume, consignes d'accès, horaires ou contraintes particulières..."></textarea>
           </div>
 
-          <!-- Boutons Devis et Contact : MÊME COULEUR -->
-          <div style="display: flex; flex-direction: column; gap: 10px;">
-            <button type="submit" class="btn-devis" style="width: 100%;">
-              Envoyer ma demande de devis
+          <!-- Boutons Devis et Contact : MÊME COULEUR PRIMAIRE -->
+          <div class="form-submit-row">
+            <button type="submit" class="btn-devis" style="flex: 1; height: 50px;">
+              <span>Envoyer ma demande de devis</span>
             </button>
-            <a href="tel:0774800964" class="btn-contact" style="width: 100%;">
-              📞 Contacter directement : 07 74 80 09 64
+            <a href="tel:0774800964" class="btn-contact" style="flex: 1; height: 50px;">
+              <span>Contacter : 07 74 80 09 64</span>
             </a>
           </div>
         </form>
@@ -355,27 +1545,174 @@
     </div>
   </section>
 
-  <!-- SECTION CONTACT (Même couleur) -->
-  <section class="section-wrap" id="contact" style="background: var(--bg-subtle);">
-    <div class="container" style="text-align: center;">
-      <div class="section-kicker">Contact Direct</div>
-      <h2 class="section-title">Permanence 24h/24 & 7j/7</h2>
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 16px;">
-        <a href="tel:0774800964" class="btn-contact">📞 07 74 80 09 64</a>
-        <a href="mailto:Toutesolution.75@gmail.com" class="btn-contact">✉️ Toutesolution.75@gmail.com</a>
+  <!-- SECTION FAQ -->
+  <section class="section-wrap" id="faq">
+    <div class="container" style="max-width: 800px;">
+      <div class="section-header" style="text-align: center;">
+        <div class="section-kicker">Questions Fréquentes</div>
+        <h2 class="section-title font-display">Tout savoir avant votre mission</h2>
+      </div>
+
+      <div class="faq-item open">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Quelles sont vos prestations logistiques ?</span>
+          <span>⌄</span>
+        </div>
+        <div class="faq-a">
+          Nous assurons les courses et achats pour entreprises, l’assistance logistique, l’aide aux hôtels et événements, le montage/démontage, la manutention, l’installation/rangement, ainsi que la récupération et le dépôt de matériel.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Intervenez-vous pour les hôtels et événements ?</span>
+          <span>⌄</span>
+        </div>
+        <div class="faq-a">
+          Oui. Nous assistons les hôtels, conciergeries, salons et réceptions : portage soigné, transferts express, mise en place d’équipements et remise en état après événement.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Fournissez-vous le matériel de manutention et d'outillage ?</span>
+          <span>⌄</span>
+        </div>
+        <div class="faq-a">
+          Oui. Nos équipes disposent de l’outillage complet : tournevis/visseuses, diables, chariots à plateaux, sangles et couvertures de protection.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>Quels sont vos délais d’intervention ?</span>
+          <span>⌄</span>
+        </div>
+        <div class="faq-a">
+          Départ immédiat en 15 à 30 minutes dans Paris intra-muros pour les urgences, ou intervention planifiée 24h/24 et 7j/7 sur toute l’Île-de-France.
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- NAVIGATION MOBILE FIXE -->
+  <!-- SECTION CONTACT & FOOTER -->
+  <footer class="footer-section" id="contact">
+    <div class="container">
+      <div class="section-header" style="text-align: center;">
+        <div class="section-kicker">Contact & Permanence</div>
+        <h2 class="section-title font-display">Contact direct & réactivité 24h/24</h2>
+        <p class="section-desc" style="margin: 6px auto;">Nos répartiteurs sont à votre disposition directe par téléphone, SMS ou e-mail.</p>
+      </div>
+
+      <!-- Actions de contact : Même couleur que le devis -->
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 24px;">
+        <a href="tel:0774800964" class="btn-contact" style="height: 48px; padding: 0 24px;">
+          📞 Appel direct : 07 74 80 09 64
+        </a>
+        <a href="mailto:Toutesolution.75@gmail.com" class="btn-contact" style="height: 48px; padding: 0 24px;">
+          ✉️ Toutesolution.75@gmail.com
+        </a>
+      </div>
+
+      <div class="contact-cards-grid">
+        <div class="contact-card">
+          <div style="font-size: 0.72rem; font-weight: 700; color: var(--brand-gold);">LIGNE DIRECTE</div>
+          <div style="font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin-top: 4px;">07 74 80 09 64</div>
+          <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 2px;">Appel vocal ou SMS prioritaire</div>
+        </div>
+
+        <div class="contact-card">
+          <div style="font-size: 0.72rem; font-weight: 700; color: var(--brand-gold);">E-MAIL</div>
+          <div style="font-size: 0.88rem; font-weight: 700; color: var(--text-main); margin-top: 4px; word-break: break-all;">Toutesolution.75@gmail.com</div>
+          <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 2px;">Facturation pro & devis</div>
+        </div>
+
+        <div class="contact-card">
+          <div style="font-size: 0.72rem; font-weight: 700; color: var(--brand-gold);">ZONE D'INTERVENTION</div>
+          <div style="font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin-top: 4px;">Paris & Île-de-France</div>
+          <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 2px;">Liaisons aéroports & province</div>
+        </div>
+
+        <div class="contact-card">
+          <div style="font-size: 0.72rem; font-weight: 700; color: var(--brand-gold);">DISPONIBILITÉ</div>
+          <div style="font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin-top: 4px;">24h/24 — 7j/7</div>
+          <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 2px;">Permanence continue</div>
+        </div>
+      </div>
+
+      <div style="padding-top: 20px; border-top: 1px solid var(--border-subtle); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; font-size: 0.75rem; color: var(--text-muted);">
+        <div>© 2026 TouteSolution — Prestations logistiques & assistance aux professionnels.</div>
+        <div>Licence Transport & Assurance Professionnelle</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BARRE MOBILE INFÉRIEURE AU POUCE -->
   <nav class="mobile-bottom-bar">
-    <a href="#" class="mob-tab"><span>🏠</span><span>Accueil</span></a>
-    <a href="#services" class="mob-tab"><span>💼</span><span>Prestations</span></a>
-    <a href="#devis" class="mob-tab"><span>📝</span><span>Devis</span></a>
-    <a href="tel:0774800964" class="mob-tab" style="color: var(--brand-gold);"><span>📞</span><span>Appel</span></a>
+    <a href="#" class="mob-tab">
+      <span>🏠</span>
+      <span>Accueil</span>
+    </a>
+    <a href="#estimateur" class="mob-tab">
+      <span>🧮</span>
+      <span>Tarif</span>
+    </a>
+    <a href="tel:0774800964" class="mob-tab center-call">
+      <div class="mob-call-circle">📞</div>
+      <span style="color: var(--brand-gold); font-weight: 700; margin-top: 2px;">Appel</span>
+    </a>
+    <a href="#devis" class="mob-tab">
+      <span>📝</span>
+      <span>Devis</span>
+    </a>
+    <a href="#contact" class="mob-tab">
+      <span>📍</span>
+      <span>Contact</span>
+    </a>
   </nav>
 
+  <!-- JAVASCRIPT DU SITE COMPLET -->
   <script>
+    // Tarifs de base par véhicule
+    const tariffs = {
+      moto2: 35,
+      voiture: 55,
+      camion12: 95,
+      camion20: 160
+    };
+
+    const vehLabels = {
+      moto2: "2 Roues / Moto Express",
+      voiture: "Berline VIP / Break",
+      camion12: "Utilitaire 12 m³ Pro",
+      camion20: "Grand Volume 20 m³ Hayon"
+    };
+
+    const vehEtas = {
+      moto2: "15 à 25 min",
+      voiture: "25 à 40 min",
+      camion12: "30 à 50 min",
+      camion20: "45 à 60 min"
+    };
+
+    const deptZones = {
+      "75": 1, "92": 2, "93": 2, "94": 2,
+      "77": 3, "78": 3, "91": 3, "95": 3, "other": 4
+    };
+
+    let curVeh = "moto2";
+    let curUrgency = "normal";
+
+    function toggleMenu() {
+      const drawer = document.getElementById('mob-drawer');
+      drawer.classList.toggle('open');
+    }
+
+    function toggleFaq(el) {
+      const item = el.parentElement;
+      item.classList.toggle('open');
+    }
+
     function selectServiceInForm(serviceName) {
       const sel = document.getElementById('form-service');
       if (sel) {
@@ -389,7 +1726,7 @@
     function checkFormService(val) {
       const box = document.getElementById('form-custom-box');
       const input = document.getElementById('form-custom-input');
-      if (val === 'Autre') {
+      if (val.startsWith('Autre')) {
         box.classList.add('show');
         if (input) input.required = true;
       } else {
@@ -397,6 +1734,74 @@
         if (input) input.required = false;
       }
     }
+
+    function selectVehicleInCalc(vehId) {
+      setCalcVehicle(vehId);
+      const el = document.getElementById('estimateur');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function setCalcVehicle(vehId) {
+      curVeh = vehId;
+      document.querySelectorAll('.veh-choice-card').forEach(c => {
+        c.classList.toggle('active', c.getAttribute('data-veh') === vehId);
+      });
+      runCalculation();
+    }
+
+    function setCalcUrgency(urgency) {
+      curUrgency = urgency;
+      document.querySelectorAll('.urgency-btn').forEach(b => {
+        b.classList.toggle('active', b.getAttribute('data-urgency') === urgency);
+      });
+      runCalculation();
+    }
+
+    function updateCalcService(val) {
+      runCalculation();
+    }
+
+    function runCalculation() {
+      const pickup = document.getElementById('calc-pickup').value;
+      const delivery = document.getElementById('calc-delivery').value;
+
+      let price = tariffs[curVeh] || 35;
+
+      if (pickup !== delivery) {
+        price += 20;
+        const pz = deptZones[pickup] || 1;
+        const dz = deptZones[delivery] || 1;
+        if (pz === 4 || dz === 4) price += 60;
+        else if (pz === 3 || dz === 3) price += 25;
+      }
+
+      if (curUrgency === 'urgent') price *= 1.30;
+      else if (curUrgency === 'super') price *= 1.60;
+
+      const finalHT = Math.round(price);
+      const finalTTC = Math.round(finalHT * 1.20);
+
+      document.getElementById('res-price-ht').textContent = finalHT + " €";
+      document.getElementById('res-price-ttc').textContent = "(soit " + finalTTC + " € TTC)";
+      document.getElementById('res-summary-text').innerHTML =
+        "Véhicule : <strong>" + vehLabels[curVeh] + "</strong> · Prise en charge : " + vehEtas[curVeh];
+
+      // Lien SMS direct pré-rempli
+      const serv = document.getElementById('calc-service').value;
+      const smsText = "Bonjour TouteSolution,\nDemande d'intervention :\n- Prestation : " + serv +
+        "\n- Véhicule : " + vehLabels[curVeh] +
+        "\n- Urgence : " + curUrgency +
+        "\n- Estimation : " + finalHT + " € HT\nMerci de me recontacter.";
+      document.getElementById('res-sms-link').href = "sms:0774800964?&body=" + encodeURIComponent(smsText);
+    }
+
+    function transferToDevis() {
+      const serv = document.getElementById('calc-service').value;
+      selectServiceInForm(serv);
+    }
+
+    // Calcul initial au chargement
+    runCalculation();
   </script>
 </body>
 </html>
