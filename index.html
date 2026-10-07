@@ -200,6 +200,7 @@
       gap: 8px;
     }
 
+    /* BOUTON D'ACTION PRINCIPAL : OR NOBLE */
     .btn-action-gold {
       display: inline-flex;
       align-items: center;
@@ -282,10 +283,10 @@
     }
 
     /* =========================================================
-       3. HERO SECTION
+       3. HERO SECTION (SANS LES 2 BOUTONS)
        ========================================================= */
     .hero-section {
-      padding: 40px 0 56px;
+      padding: 40px 0 48px;
       border-bottom: 1px solid var(--border-subtle);
       background: linear-gradient(180deg, #F3EFE8 0%, #FAF7F2 60%, #EAE3D6 100%);
     }
@@ -338,44 +339,8 @@
       }
     }
 
-    .hero-ctas {
-      margin-top: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      max-width: 480px;
-    }
-
-    @media (min-width: 640px) {
-      .hero-ctas {
-        flex-direction: row;
-        max-width: none;
-      }
-    }
-
-    .hero-btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: var(--brand-gold);
-      color: #FFFFFF;
-      font-weight: 700;
-      padding: 13px 24px;
-      border-radius: 12px;
-      box-shadow: 0 4px 14px rgba(179, 138, 56, 0.28);
-      transition: all 0.2s ease;
-      font-size: 0.9rem;
-      text-align: center;
-    }
-
-    .hero-btn-primary:hover {
-      background: var(--brand-gold-hover);
-      transform: translateY(-1px);
-    }
-
     .hero-stats-row {
-      margin-top: 40px;
+      margin-top: 36px;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 12px;
@@ -450,7 +415,7 @@
     }
 
     /* =========================================================
-       5. GRILLE DES PRESTATIONS (SANS CHIFFRE, CONCIS)
+       5. GRILLE DES PRESTATIONS (SANS LOGO NI CHIFFRE)
        ========================================================= */
     .services-grid {
       display: grid;
@@ -488,25 +453,12 @@
       box-shadow: 0 6px 18px rgba(0,0,0,0.04);
     }
 
-    .service-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: #EFE8DD;
-      border: 1px solid var(--border-subtle);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.25rem;
-      margin-bottom: 14px;
-    }
-
     .service-title {
       font-size: 1.1rem;
       font-weight: 600;
       color: var(--text-main);
       font-family: var(--font-display);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .service-desc {
@@ -533,7 +485,7 @@
     }
 
     /* =========================================================
-       6. FLOTTE & VÉHICULES
+       6. FLOTTE & VÉHICULES (SANS LOGO DE VÉHICULE)
        ========================================================= */
     .fleet-grid {
       display: grid;
@@ -565,13 +517,10 @@
 
     .fleet-head {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 12px;
-    }
-
-    .fleet-icon {
-      font-size: 1.8rem;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 10px;
+      min-height: 24px;
     }
 
     .veh-badge {
@@ -795,7 +744,7 @@
       gap: 10px;
     }
 
-    /* LES BOUTONS DEVIS ET CONTACT PARTAGENT LA MÊME COULEUR */
+    /* BOUTONS DEVIS ET CONTACT PARTAGENT LA MÊME COULEUR */
     .btn-devis, .btn-contact {
       height: 44px;
       padding: 0 18px;
@@ -883,7 +832,6 @@
       border-color: var(--brand-gold);
     }
 
-    /* CHAMP DYNAMIQUE SI "AUTRE" EST SÉLECTIONNÉ */
     .custom-service-box {
       display: none;
       margin-top: 10px;
@@ -1059,7 +1007,7 @@
 
         <div class="header-actions">
           <a href="tel:0774800964" class="btn-action-gold">
-            📞 07 74 80 09 64
+            07 74 80 09 64
           </a>
           <button class="burger-btn" onclick="toggleMenu()" aria-label="Menu">
             <span></span>
@@ -1081,7 +1029,7 @@
     </header>
   </div>
 
-  <!-- HERO BANNER -->
+  <!-- HERO BANNER (ÉPURÉ SANS LES 2 BOUTONS) -->
   <section class="hero-section">
     <div class="container">
       <div class="hero-pill">
@@ -1094,15 +1042,6 @@
       <p class="hero-desc">
         Courses et achats pour entreprises, aide aux hôtels et événements, montage/démontage, manutention, installation et rangement, récupération/dépôt dans le cadre des prestations.
       </p>
-
-      <div class="hero-ctas">
-        <a href="#estimateur" class="hero-btn-primary">
-          <span>Calculer un devis</span>
-        </a>
-        <a href="tel:0774800964" class="hero-btn-primary">
-          <span>Contact direct : 07 74 80 09 64</span>
-        </a>
-      </div>
 
       <div class="hero-stats-row">
         <div class="hero-stat-card">
@@ -1125,7 +1064,7 @@
     </div>
   </section>
 
-  <!-- SECTION PRESTATIONS -->
+  <!-- SECTION PRESTATIONS (SANS LOGO NI CHIFFRE) -->
   <section class="section-wrap" id="services">
     <div class="container">
       <div class="section-header">
@@ -1137,7 +1076,6 @@
       <div class="services-grid">
         <div class="service-card" onclick="selectServiceInForm('Courses et achats pour entreprises')">
           <div>
-            <div class="service-icon">🛍️</div>
             <h3 class="service-title">Courses et achats pour entreprises</h3>
             <p class="service-desc">Approvisionnements urgents, achats professionnels et récupération express de commandes.</p>
           </div>
@@ -1148,7 +1086,6 @@
 
         <div class="service-card" onclick="selectServiceInForm('Assistance logistique')">
           <div>
-            <div class="service-icon">🚚</div>
             <h3 class="service-title">Assistance logistique</h3>
             <p class="service-desc">Renfort opérationnel sur site, régulation de flux et coordination logistique 24/7.</p>
           </div>
@@ -1159,7 +1096,6 @@
 
         <div class="service-card" onclick="selectServiceInForm('Aide aux hôtels et événements')">
           <div>
-            <div class="service-icon">🏨</div>
             <h3 class="service-title">Aide aux hôtels et événements</h3>
             <p class="service-desc">Appui logistique pour établissements hôteliers, salons, réceptions et événements.</p>
           </div>
@@ -1170,7 +1106,6 @@
 
         <div class="service-card" onclick="selectServiceInForm('Montage / démontage')">
           <div>
-            <div class="service-icon">🔧</div>
             <h3 class="service-title">Montage / démontage</h3>
             <p class="service-desc">Assemblage et démontage de mobilier professionnel, cloisons, stands et structures.</p>
           </div>
@@ -1181,7 +1116,6 @@
 
         <div class="service-card" onclick="selectServiceInForm('Manutention')">
           <div>
-            <div class="service-icon">📦</div>
             <h3 class="service-title">Manutention</h3>
             <p class="service-desc">Portage et déplacement de charges avec matériel pro (diables, chariots, sangles).</p>
           </div>
@@ -1192,7 +1126,6 @@
 
         <div class="service-card" onclick="selectServiceInForm('Installation et rangement')">
           <div>
-            <div class="service-icon">📐</div>
             <h3 class="service-title">Installation et rangement</h3>
             <p class="service-desc">Mise en place d’espaces de travail, agencement de salles et rangement soigné.</p>
           </div>
@@ -1203,7 +1136,6 @@
 
         <div class="service-card" onclick="selectServiceInForm('Récupération / dépôt dans le cadre des prestations')">
           <div>
-            <div class="service-icon">🔄</div>
             <h3 class="service-title">Récupération / dépôt dans le cadre des prestations</h3>
             <p class="service-desc">Collecte, restitution de matériel, navettes aller-retour et transferts sécurisés.</p>
           </div>
@@ -1214,7 +1146,6 @@
 
         <div class="service-card" onclick="selectServiceInForm('Autre')">
           <div>
-            <div class="service-icon">✨</div>
             <h3 class="service-title">Autre prestation sur-mesure</h3>
             <p class="service-desc">Un besoin spécifique particulier ? Précisez votre demande pour un accompagnement dédié.</p>
           </div>
@@ -1226,7 +1157,7 @@
     </div>
   </section>
 
-  <!-- SECTION FLOTTE -->
+  <!-- SECTION FLOTTE (SANS LOGO, AVEC BADGE SUR DEMANDE) -->
   <section class="section-wrap" id="flotte">
     <div class="container">
       <div class="section-header">
@@ -1240,7 +1171,6 @@
         <div class="fleet-card">
           <div>
             <div class="fleet-head">
-              <div class="fleet-icon">🛵</div>
               <span class="veh-badge">Sur demande</span>
             </div>
             <h3 class="fleet-title">2 Roues / Moto Express</h3>
@@ -1263,7 +1193,6 @@
         <div class="fleet-card">
           <div>
             <div class="fleet-head">
-              <div class="fleet-icon">🚗</div>
               <span class="veh-badge">Disponible 24/7</span>
             </div>
             <h3 class="fleet-title">Berline VIP / Break</h3>
@@ -1286,7 +1215,6 @@
         <div class="fleet-card">
           <div>
             <div class="fleet-head">
-              <div class="fleet-icon">🚐</div>
               <span class="veh-badge">Disponible 24/7</span>
             </div>
             <h3 class="fleet-title">Utilitaire 12 m³ Pro</h3>
@@ -1305,11 +1233,11 @@
           </div>
         </div>
 
-        <!-- 4 : Grand Volume 20m3 Hayon -->
+        <!-- 4 : Grand Volume 20m3 Hayon (SUR DEMANDE) -->
         <div class="fleet-card">
           <div>
             <div class="fleet-head">
-              <div class="fleet-icon">🚛</div>
+              <span class="veh-badge">Sur demande</span>
             </div>
             <h3 class="fleet-title">Grand Volume 20 m³ Hayon</h3>
             <div class="fleet-specs">
@@ -1340,51 +1268,45 @@
       </div>
 
       <div class="calc-card">
-        <!-- Choix de la prestation -->
-        <div style="margin-bottom: 24px;">
-          <label class="calc-step-lbl">Prestation souhaitée</label>
-          <select id="calc-service" class="select-input" onchange="updateCalcService(this.value)">
-            <option value="Courses et achats pour entreprises">Courses et achats pour entreprises</option>
-            <option value="Assistance logistique">Assistance logistique</option>
-            <option value="Aide aux hôtels et événements">Aide aux hôtels et événements</option>
-            <option value="Montage / démontage">Montage / démontage</option>
-            <option value="Manutention">Manutention</option>
-            <option value="Installation et rangement">Installation et rangement</option>
-            <option value="Récupération / dépôt dans le cadre des prestations">Récupération / dépôt dans le cadre des prestations</option>
-            <option value="Autre prestation sur-mesure">Autre prestation sur-mesure</option>
-          </select>
-        </div>
+        <!-- Prestation -->
+        <label class="calc-step-lbl">Prestation souhaitée</label>
+        <select id="calc-service" class="select-input" style="margin-bottom: 20px;" onchange="updateCalcService(this.value)">
+          <option value="Courses et achats pour entreprises">Courses et achats pour entreprises</option>
+          <option value="Assistance logistique">Assistance logistique</option>
+          <option value="Aide aux hôtels et événements">Aide aux hôtels et événements</option>
+          <option value="Montage / démontage">Montage / démontage</option>
+          <option value="Manutention">Manutention</option>
+          <option value="Installation et rangement">Installation et rangement</option>
+          <option value="Récupération / dépôt dans le cadre des prestations">Récupération / dépôt dans le cadre des prestations</option>
+          <option value="Autre">Autre (sur-mesure)</option>
+        </select>
 
-        <!-- Choix du véhicule -->
+        <!-- Véhicule -->
         <label class="calc-step-lbl">Véhicule adapté</label>
         <div class="veh-choices-grid">
           <div class="veh-choice-card active" data-veh="moto2" onclick="setCalcVehicle('moto2')">
-            <div style="font-size: 1.4rem;">🛵</div>
-            <div class="v-name">2 Roues Moto</div>
-            <div class="v-price">dès 35 € HT</div>
+            <div class="v-name">2 Roues / Moto</div>
+            <div class="v-price">Dès 35 € HT</div>
           </div>
           <div class="veh-choice-card" data-veh="voiture" onclick="setCalcVehicle('voiture')">
-            <div style="font-size: 1.4rem;">🚗</div>
             <div class="v-name">Berline / Break</div>
-            <div class="v-price">dès 55 € HT</div>
+            <div class="v-price">Dès 55 € HT</div>
           </div>
           <div class="veh-choice-card" data-veh="camion12" onclick="setCalcVehicle('camion12')">
-            <div style="font-size: 1.4rem;">🚐</div>
             <div class="v-name">Utilitaire 12 m³</div>
-            <div class="v-price">dès 95 € HT</div>
+            <div class="v-price">Dès 95 € HT</div>
           </div>
           <div class="veh-choice-card" data-veh="camion20" onclick="setCalcVehicle('camion20')">
-            <div style="font-size: 1.4rem;">🚛</div>
-            <div class="v-name">Grand Volume 20 m³</div>
-            <div class="v-price">dès 160 € HT</div>
+            <div class="v-name">Camion 20 m³</div>
+            <div class="v-price">Dès 160 € HT</div>
           </div>
         </div>
 
-        <!-- Trajet & Départements -->
+        <!-- Trajet -->
         <label class="calc-step-lbl">Trajet & Départements</label>
         <div class="inputs-2col">
           <div>
-            <span style="font-size: 0.72rem; color: var(--text-body); font-weight: 600; display: block; margin-bottom: 4px;">Prise en charge (Départ)</span>
+            <span style="font-size: 0.72rem; color: var(--text-body); font-weight: 600; display: block; margin-bottom: 4px;">Enlèvement (Départ)</span>
             <select id="calc-pickup" class="select-input" onchange="runCalculation()">
               <option value="75">75 — Paris Intra-Muros</option>
               <option value="92">92 — Hauts-de-Seine</option>
@@ -1460,7 +1382,7 @@
     </div>
   </section>
 
-  <!-- SECTION DEVIS RAPIDE -->
+  <!-- SECTION DEVIS RAPIDE (AVEC OPTION AUTRE) -->
   <section class="section-wrap" id="devis">
     <div class="container">
       <div class="section-header" style="text-align: center;">
@@ -1607,10 +1529,10 @@
       <!-- Actions de contact : Même couleur que le devis -->
       <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 24px;">
         <a href="tel:0774800964" class="btn-contact" style="height: 48px; padding: 0 24px;">
-          📞 Appel direct : 07 74 80 09 64
+          Appel direct : 07 74 80 09 64
         </a>
         <a href="mailto:Toutesolution.75@gmail.com" class="btn-contact" style="height: 48px; padding: 0 24px;">
-          ✉️ Toutesolution.75@gmail.com
+          Toutesolution.75@gmail.com
         </a>
       </div>
 
@@ -1650,23 +1572,19 @@
   <!-- BARRE MOBILE INFÉRIEURE AU POUCE -->
   <nav class="mobile-bottom-bar">
     <a href="#" class="mob-tab">
-      <span>🏠</span>
       <span>Accueil</span>
     </a>
-    <a href="#estimateur" class="mob-tab">
-      <span>🧮</span>
-      <span>Tarif</span>
+    <a href="#services" class="mob-tab">
+      <span>Prestations</span>
     </a>
     <a href="tel:0774800964" class="mob-tab center-call">
       <div class="mob-call-circle">📞</div>
       <span style="color: var(--brand-gold); font-weight: 700; margin-top: 2px;">Appel</span>
     </a>
     <a href="#devis" class="mob-tab">
-      <span>📝</span>
       <span>Devis</span>
     </a>
     <a href="#contact" class="mob-tab">
-      <span>📍</span>
       <span>Contact</span>
     </a>
   </nav>
